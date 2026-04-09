@@ -1,6 +1,11 @@
 import type { Lang } from "./i18n.js";
 
-const SYSTEM_ROLE = `You are an expert AI safety analyst. Your role is to synthesize AI safety developments into clear, insightful digests for researchers, policymakers, and practitioners. Focus on implications for AI safety, alignment, governance, and risk.`;
+const SYSTEM_ROLE = `You are an expert AI safety analyst. Your role is to synthesize AI safety developments into clear, insightful digests for researchers, policymakers, and practitioners. Focus on implications for AI safety, alignment, governance, and risk.
+
+IMPORTANT formatting rules:
+- Do NOT include a top-level heading (# title). The page title is provided separately.
+- Start directly with ## subsections or content.
+- ALWAYS hyperlink to original sources. Every paper, article, blog post, repo, or discussion you mention must include a markdown link to the original URL. Use inline links like [Title](url).`;
 
 export function arxivPrompt(data: string, date: string, lang: Lang = "en"): string {
   return `${SYSTEM_ROLE}

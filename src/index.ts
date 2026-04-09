@@ -81,23 +81,23 @@ async function main() {
 
     // Save individual reports
     if (arxivReport) {
-      saveReport(date, `safety-arxiv${suffix}.md`, `# ArXiv - AI Safety Papers\n\n${arxivReport}`);
+      saveReport(date, `safety-arxiv${suffix}.md`, `# ArXiv - AI Safety Papers (${date})\n\n${arxivReport}`);
       sections.push(`## ArXiv Papers\n\n${arxivReport}`);
     }
     if (rssReport) {
-      saveReport(date, `safety-rss${suffix}.md`, `# Blog Posts & Articles\n\n${rssReport}`);
+      saveReport(date, `safety-rss${suffix}.md`, `# Blog Posts & Articles (${date})\n\n${rssReport}`);
       sections.push(`## Blog Posts & Articles\n\n${rssReport}`);
     }
     if (githubReport) {
-      saveReport(date, `safety-github${suffix}.md`, `# GitHub Activity\n\n${githubReport}`);
+      saveReport(date, `safety-github${suffix}.md`, `# GitHub Activity (${date})\n\n${githubReport}`);
       sections.push(`## GitHub Activity\n\n${githubReport}`);
     }
     if (hnReport) {
-      saveReport(date, `safety-hn${suffix}.md`, `# Hacker News Discussions\n\n${hnReport}`);
+      saveReport(date, `safety-hn${suffix}.md`, `# Hacker News Discussions (${date})\n\n${hnReport}`);
       sections.push(`## Hacker News\n\n${hnReport}`);
     }
     if (webReport) {
-      saveReport(date, `safety-web${suffix}.md`, `# Organization Updates\n\n${webReport}`);
+      saveReport(date, `safety-web${suffix}.md`, `# Organization Updates (${date})\n\n${webReport}`);
       sections.push(`## Organization Updates\n\n${webReport}`);
     }
 

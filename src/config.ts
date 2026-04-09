@@ -1,5 +1,5 @@
 import { readFileSync } from "fs";
-import { parse } from "js-yaml";
+import yaml from "js-yaml";
 import { join } from "path";
 
 export interface RssFeed {
@@ -30,6 +30,6 @@ let _config: Config | null = null;
 export function loadConfig(): Config {
   if (_config) return _config;
   const raw = readFileSync(join(process.cwd(), "config.yml"), "utf-8");
-  _config = parse(raw) as Config;
+  _config = yaml.load(raw) as Config;
   return _config;
 }

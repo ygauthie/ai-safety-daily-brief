@@ -94,6 +94,29 @@ websites:
       - /research/
       - /discover/
 
+# National AI Safety Institutes
+aisi_websites:
+  - name: US AI Safety Institute (NIST)
+    url: https://www.nist.gov/artificial-intelligence/executive-order-safe-secure-and-trustworthy-artificial-intelligence
+    rss: https://www.nist.gov/news-events/news/rss.xml
+    keywords:
+      - artificial intelligence
+      - AI safety
+      - AI risk
+  - name: UK AI Safety Institute
+    url: https://www.aisi.gov.uk
+    rss: https://www.aisi.gov.uk/feed.xml
+  - name: Canada AI Safety Institute (CAISI)
+    url: https://ised-isde.canada.ca/site/artificial-intelligence-safety-institute/en
+  - name: Japan AI Safety Institute (J-AISI)
+    url: https://aisi.go.jp/en/
+  - name: Singapore AI Safety Institute
+    url: https://aisi.gov.sg
+  - name: European AI Office
+    url: https://digital-strategy.ec.europa.eu/en/policies/ai-office
+  - name: Korea AI Safety Institute
+    url: https://www.msit.go.kr/eng/index.do
+
 # Hacker News search keywords
 hn_keywords:
   - AI safety

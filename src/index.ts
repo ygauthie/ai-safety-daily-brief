@@ -5,12 +5,14 @@ import { fetchRssFeeds } from "./rss.js";
 import { fetchGithub } from "./github.js";
 import { fetchHackerNews } from "./hn.js";
 import { fetchWebsites } from "./web.js";
+import { fetchAisi } from "./aisi.js";
 import {
   arxivPrompt,
   githubPrompt,
   rssPrompt,
   webPrompt,
   hnPrompt,
+  aisiPrompt,
   dailyRollupPrompt,
 } from "./prompts.js";
 import { generateReport, saveReport } from "./report.js";
@@ -24,7 +26,7 @@ async function main() {
 
   // Phase 1: Fetch all data in parallel
   console.log("Fetching data from all sources...");
-  const [arxivData, rssData, githubData, hnData, webData] = await Promise.all([
+  const [arxivData, rssData, githubData, hnData, webData, aisiData] = await Promise.all([
     fetchArxiv().catch((e) => {
       console.error("ArXiv fetch failed:", e);
       return [];
@@ -45,11 +47,15 @@ async function main() {
       console.error("Web fetch failed:", e);
       return [];
     }),
+    fetchAisi().catch((e) => {
+      console.error("AISI fetch failed:", e);
+      return [];
+    }),
   ]);
 
   console.log(
     `Fetched: ${arxivData.length} papers, ${rssData.length} articles, ` +
-      `${githubData.length} GitHub items, ${hnData.length} HN stories, ${webData.length} web articles`
+      `${githubData.length} GitHub items, ${hnData.length} HN stories, ${webData.length} web articles, ${aisiData.length} AISI items`
   );
 
   // Phase 2: Generate reports for each language
@@ -75,9 +81,12 @@ async function main() {
       webData.length > 0
         ? generateReport(webPrompt(JSON.stringify(webData, null, 2), date, lang))
         : Promise.resolve(""),
+      aisiData.length > 0
+        ? generateReport(aisiPrompt(JSON.stringify(aisiData, null, 2), date, lang))
+        : Promise.resolve(""),
     ]);
 
-    const [arxivReport, rssReport, githubReport, hnReport, webReport] = reports;
+    const [arxivReport, rssReport, githubReport, hnReport, webReport, aisiReport] = reports;
 
     // Save individual reports
     if (arxivReport) {
@@ -99,6 +108,10 @@ async function main() {
     if (webReport) {
       saveReport(date, `safety-web${suffix}.md`, `# Organization Updates (${date})\n\n${webReport}`);
       sections.push(`## Organization Updates\n\n${webReport}`);
+    }
+    if (aisiReport) {
+      saveReport(date, `safety-aisi${suffix}.md`, `# AI Safety Institutes (${date})\n\n${aisiReport}`);
+      sections.push(`## AI Safety Institutes\n\n${aisiReport}`);
     }
 
     // Phase 3: Generate daily rollup

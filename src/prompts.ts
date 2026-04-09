@@ -92,6 +92,23 @@ DATA:
 ${data}`;
 }
 
+export function aisiPrompt(data: string, date: string, lang: Lang = "en"): string {
+  return `${SYSTEM_ROLE}
+
+Today is ${date}. Below is recent activity from national AI Safety Institutes around the world (US AISI/NIST, UK AISI, Canada CAISI, Japan J-AISI, Singapore AISI, European AI Office, Korea AISI).
+
+Produce a structured digest in ${lang === "fr" ? "French" : "English"}:
+
+1. **Institute Updates**: Group by institute. Summarize any new publications, announcements, guidelines, or policy actions.
+2. **Cross-Institute Themes**: Common priorities or coordinated efforts across institutes.
+3. **Policy Implications**: How these developments affect global AI safety governance.
+
+Format as clean Markdown with links to original sources.
+
+DATA:
+${data}`;
+}
+
 export function dailyRollupPrompt(sections: string, date: string, lang: Lang = "en"): string {
   return `${SYSTEM_ROLE}
 

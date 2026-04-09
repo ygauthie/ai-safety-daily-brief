@@ -13,6 +13,13 @@ export interface Website {
   include_patterns: string[];
 }
 
+export interface AisiWebsite {
+  name: string;
+  url: string;
+  rss?: string;
+  keywords?: string[];
+}
+
 export interface Config {
   github_repos: string[];
   arxiv: {
@@ -21,6 +28,7 @@ export interface Config {
   };
   rss_feeds: RssFeed[];
   websites: Website[];
+  aisi_websites: AisiWebsite[];
   hn_keywords: string[];
   languages: string[];
 }

@@ -38,14 +38,47 @@ function main() {
   writeFileSync(join(process.cwd(), "manifest.json"), JSON.stringify(manifest, null, 2));
   console.log(`Manifest: ${entries.length} dates, written to manifest.json`);
 
-  // Write RSS feed with actual digest content
-  const feedItems = entries.slice(0, 30).map((e) => {
-    const dailyFile = e.files.find((f) => f.includes("daily")) || e.files[0];
-    let description = `AI Safety daily digest for ${e.date}`;
-    const filePath = join(digestsDir, e.date, dailyFile);
+  // Write RSS feed — latest 15 reports across all types
+  const labelMap: Record<string, string> = {
+    "safety-daily": "Daily Summary",
+    "safety-weekly": "Weekly Summary",
+    "safety-arxiv": "ArXiv Papers",
+    "safety-github": "GitHub Activity",
+    "safety-rss": "Blog Posts",
+    "safety-web": "Org Updates",
+    "safety-aisi": "AI Safety Institutes",
+    "safety-hn": "Hacker News",
+  };
+
+  function fileLabel(filename: string): string {
+    for (const [key, label] of Object.entries(labelMap)) {
+      if (filename.includes(key)) return label;
+    }
+    return filename.replace(".md", "");
+  }
+
+  // Flatten all files across all dates, newest date first
+  const allItems: { date: string; file: string }[] = [];
+  for (const e of entries) {
+    // Sort within each date: weekly first, daily second, rest alphabetical
+    const sorted = [...e.files].sort((a, b) => {
+      const priority: Record<string, number> = { weekly: 0, daily: 1 };
+      const pa = Object.entries(priority).find(([k]) => a.includes(k))?.[1] ?? 99;
+      const pb = Object.entries(priority).find(([k]) => b.includes(k))?.[1] ?? 99;
+      if (pa !== pb) return pa - pb;
+      return a.localeCompare(b);
+    });
+    for (const file of sorted) {
+      allItems.push({ date: e.date, file });
+    }
+  }
+
+  const feedItems = allItems.slice(0, 15).map(({ date, file }) => {
+    const label = fileLabel(file);
+    let description = `${label} for ${date}`;
+    const filePath = join(digestsDir, date, file);
     if (existsSync(filePath)) {
       const content = readFileSync(filePath, "utf-8");
-      // Strip markdown heading, truncate, and XML-escape
       const plain = content
         .replace(/^#[^\n]*\n/, "")
         .slice(0, 2000)
@@ -55,9 +88,10 @@ function main() {
       description = plain;
     }
     return `    <item>
-      <title>AI Safety Digest - ${e.date}</title>
-      <link>https://ygauthie.github.io/ai-safety-radar/#${e.date}/${dailyFile}</link>
-      <pubDate>${new Date(e.date).toUTCString()}</pubDate>
+      <title>AI Safety Radar: ${label} — ${date}</title>
+      <link>https://ygauthie.github.io/ai-safety-radar/#${date}/${file}</link>
+      <guid>https://ygauthie.github.io/ai-safety-radar/#${date}/${file}</guid>
+      <pubDate>${new Date(date).toUTCString()}</pubDate>
       <description>${description}</description>
     </item>`;
   });

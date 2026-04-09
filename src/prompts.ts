@@ -16,7 +16,6 @@ Analyze these papers and produce a structured digest in ${lang === "fr" ? "Frenc
 
 1. **Key Papers**: Highlight the 5-10 most significant papers with a 2-3 sentence summary of each, focusing on their implications for AI safety.
 2. **Trends**: Identify emerging themes or research directions.
-3. **Significance**: Rate overall significance (High/Medium/Low) and explain why.
 
 Format as clean Markdown. Include paper titles as links.
 

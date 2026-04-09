@@ -5,7 +5,7 @@
     <link>https://ygauthie.github.io/ai-safety-radar/</link>
     <description>Daily AI safety research, policy, and development digest</description>
     <language>en</language>
-    <lastBuildDate>Thu, 09 Apr 2026 18:30:36 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2026 19:17:18 GMT</lastBuildDate>
     <item>
       <title>AI Safety Digest - 2026-04-09</title>
       <link>https://ygauthie.github.io/ai-safety-radar/#2026-04-09/safety-daily.md</link>
@@ -13,17 +13,17 @@
       <description>
 ## Top 3 Developments
 
-1. **Anthropic's Restricted Mythos Model Release**: For the first time, Anthropic has [declined to fully release a model](https://blog.alcazarsec.com/tech/posts/claude-mythos-the-first-model-anthropic-didnt-really-release) due to cybersecurity risks, with [Claude Mythos Preview](https://www-cdn.anthropic.com/8b8380204f74670be75e81c820ca8dda846ab289.pdf) only available to select partners. The model's demonstrated ability to discover numerous zero-day vulnerabilities has prompted [security warnings](https://www.lesswrong.com/posts/2wi5mCLSkZo2ky32p/do-not-be-surprised-if-lesswrong-gets-hacked) and may signal a new era of staggered AI releases based on capability risks.
+1. **Anthropic Releases Unprecedented "Too Dangerous" Model Assessment**: Anthropic published a [244-page safety report](https://www-cdn.anthropic.com/8b8380204f74670be75e81c820ca8dda846ab289.pdf) for Claude Mythos, marking the first time a major AI lab has withheld a model entirely due to safety concerns. The model demonstrated [unprecedented cybersecurity capabilities](https://www.lesswrong.com/posts/ZfbChZBXgje8T6Geu/excerpts-and-notes-on-mythos-model-card), discovering numerous zero-day vulnerabilities during testing, prompting warnings about potential security risks.
 
-2. **Multi-Step Safety Evaluation Breakthrough**: [TraceSafe](https://arxiv.org/abs/2604.07223v1) introduces the first comprehensive benchmark for evaluating safety guardrails during multi-step tool use in autonomous LLM agents, addressing critical vulnerabilities as models evolve from chatbots to autonomous agents where intermediate execution traces become the primary attack surface.
+2. **New Safety Benchmarks for Agent Execution Emerge**: Research introduced [TraceSafe-Bench](https://arxiv.org/abs/2604.07223v1), the first comprehensive benchmark for evaluating safety guardrails during LLM tool-use execution rather than just final outputs. This addresses critical gaps as AI systems become more autonomous, with parallel work on [constitutional governance frameworks](https://arxiv.org/abs/2604.07007v1) for multi-agent systems.
 
-3. **Constitutional Governance for Agent Economies**: Researchers propose [constitutional governance structures](https://arxiv.org/abs/2604.07007v1) to address the "Logic Monopoly" problem where multi-agent systems become opaque to human oversight, offering frameworks to maintain human control over autonomous agent economies operating across organizational boundaries.
+3. **Breakthrough in Model Data Deletion Methodology**: Researchers published a [novel approach to the data deletion problem](https://arxiv.org/abs/2604.07328v1), enabling prediction of how AI models would behave if specific training data were excluded. This has major implications for interpretability, privacy rights, and understanding training data influence on model behavior.
 
 ## Section Summaries
 
-**ArXiv Papers**: Researchers published breakthrough work on multi-step safety evaluation, autonomous agent governance, and data deletion schemes, with emerging themes focusing on governance frameworks for multi-agent systems and personalization versus safety trade-offs. The collection addresses critical gaps as AI systems become more capable and autonomous beyond traditional alignment problems.
+**ArXiv Papers**: Seven key papers focused on agent safety, interpretability, and human-AI alignment, with particular emphasis on [governance frameworks for autonomous agents](https://arxiv.org/abs/2604.07007v1) and [comprehensive safety evaluation during tool execution](https://arxiv.org/abs/2604.07223v1). Additional work addressed [personalized reward modeling](https://arxiv.org/abs/2604.07343v1) and [AI safety in high-risk surveillance contexts](https://arxiv.org/abs/2604.07253v1).
 
-**Blog Posts &amp; Articles**: Claude Mythos dominated discussions with security concerns about its cybersecurity capabi</description>
+**Blog Posts &amp; Articles**: The AI safety community</description>
     </item>
   </channel>
 </rss>

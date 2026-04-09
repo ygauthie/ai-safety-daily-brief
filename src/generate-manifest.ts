@@ -13,25 +13,28 @@ function main() {
     return;
   }
 
-  // Flat structure: digests/YYYY-MM-DD-safety-source.md
-  const allFiles = readdirSync(digestsDir).filter((f) => f.endsWith(".md"));
+  // Nested structure: digests/YYYY-MM-DD/safety-source.md
+  const entries: ManifestEntry[] = [];
+  const dateDirs = readdirSync(digestsDir).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d));
 
-  // Group by date prefix
-  const byDate = new Map<string, string[]>();
-  for (const file of allFiles) {
-    const dateMatch = file.match(/^(\d{4}-\d{2}-\d{2})-/);
-    if (!dateMatch) continue;
-    const date = dateMatch[1];
-    if (!byDate.has(date)) byDate.set(date, []);
-    byDate.get(date)!.push(file);
+  for (const date of dateDirs) {
+    const dateDir = join(digestsDir, date);
+    const files = readdirSync(dateDir).filter((f) => f.endsWith(".md"));
+    if (files.length > 0) {
+      entries.push({ date, files: files.sort() });
+    }
   }
 
-  const entries: ManifestEntry[] = [...byDate.entries()]
-    .sort((a, b) => b[0].localeCompare(a[0]))
-    .map(([date, files]) => ({ date, files: files.sort() }));
+  entries.sort((a, b) => b.date.localeCompare(a.date));
 
-  // Write manifest.json
-  const manifest = { generated: new Date().toISOString(), entries };
+  // Write manifest.json — store files as date/filename for URL construction
+  const manifest = {
+    generated: new Date().toISOString(),
+    entries: entries.map((e) => ({
+      date: e.date,
+      files: e.files.map((f) => `${e.date}/${f}`),
+    })),
+  };
   writeFileSync(join(process.cwd(), "manifest.json"), JSON.stringify(manifest, null, 2));
   console.log(`Manifest: ${entries.length} dates, written to manifest.json`);
 
@@ -39,7 +42,7 @@ function main() {
   const feedItems = entries.slice(0, 30).map((e) => {
     const dailyFile = e.files.find((f) => f.includes("daily")) || e.files[0];
     let description = `AI Safety daily digest for ${e.date}`;
-    const filePath = join(digestsDir, dailyFile);
+    const filePath = join(digestsDir, e.date, dailyFile);
     if (existsSync(filePath)) {
       const content = readFileSync(filePath, "utf-8");
       // Strip markdown heading, truncate, and XML-escape
@@ -53,7 +56,7 @@ function main() {
     }
     return `    <item>
       <title>AI Safety Digest - ${e.date}</title>
-      <link>https://ygauthie.github.io/ai-safety-radar/#${dailyFile}</link>
+      <link>https://ygauthie.github.io/ai-safety-radar/#${e.date}/${dailyFile}</link>
       <pubDate>${new Date(e.date).toUTCString()}</pubDate>
       <description>${description}</description>
     </item>`;

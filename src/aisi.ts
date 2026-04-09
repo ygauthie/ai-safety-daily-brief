@@ -1,3 +1,5 @@
+import { readFileSync, writeFileSync, existsSync } from "fs";
+import { join } from "path";
 import { loadConfig } from "./config.js";
 import { daysAgo, formatDate } from "./date.js";
 
@@ -8,26 +10,62 @@ export interface AisiItem {
   excerpt: string;
 }
 
+interface AisiState {
+  [institute: string]: string[];
+}
+
+const STATE_FILE = join(process.cwd(), "digests", "aisi-state.json");
+
+function loadState(): AisiState {
+  if (existsSync(STATE_FILE)) {
+    return JSON.parse(readFileSync(STATE_FILE, "utf-8"));
+  }
+  return {};
+}
+
+function saveState(state: AisiState): void {
+  writeFileSync(STATE_FILE, JSON.stringify(state, null, 2));
+}
+
 export async function fetchAisi(): Promise<AisiItem[]> {
   const config = loadConfig();
   const cutoff = formatDate(daysAgo(2));
+  const state = loadState();
   const items: AisiItem[] = [];
 
   for (const site of config.aisi_websites) {
     try {
-      // Try RSS feed first if available
+      const knownUrls = new Set(state[site.name] || []);
+      const foundUrls: string[] = [];
+
+      // Try RSS feed first if available — has dates, most reliable
       if (site.rss) {
         const rssItems = await fetchRss(site.rss, site.name, site.keywords, cutoff);
-        items.push(...rssItems);
+        for (const item of rssItems) {
+          if (!knownUrls.has(item.url)) {
+            items.push(item);
+          }
+          foundUrls.push(item.url);
+        }
       }
 
-      // Also scrape the main page for recent content
-      const pageItems = await scrapePage(site.url, site.name);
-      items.push(...pageItems);
+      // Scrape page for links, but only return NEW ones not seen before
+      const pageUrls = await scrapePageLinks(site.url, site.name);
+      for (const item of pageUrls) {
+        if (!knownUrls.has(item.url)) {
+          items.push(item);
+        }
+        foundUrls.push(item.url);
+      }
+
+      // Update state with all URLs we've ever seen
+      state[site.name] = [...new Set([...Array.from(knownUrls), ...foundUrls])];
     } catch (e) {
       console.error(`[aisi] Error fetching ${site.name}:`, e);
     }
   }
+
+  saveState(state);
 
   // Deduplicate by URL
   const seen = new Set<string>();
@@ -52,7 +90,6 @@ async function fetchRss(
     if (!res.ok) return [];
     const xml = await res.text();
 
-    // Parse items from RSS
     const itemBlocks = xml.split(/<item[\s>]/);
     for (const block of itemBlocks.slice(1, 21)) {
       const title = block.match(/<title[^>]*>(.*?)<\/title>/s)?.[1]?.replace(/<!\[CDATA\[(.*?)\]\]>/, "$1").trim() || "";
@@ -62,7 +99,7 @@ async function fetchRss(
 
       if (!title || !link) continue;
 
-      // Date filter
+      // Strict date filter — only include items from the last 2 days
       if (pubDate) {
         const d = new Date(pubDate);
         if (!isNaN(d.getTime()) && formatDate(d) < cutoff) continue;
@@ -82,7 +119,7 @@ async function fetchRss(
   return items;
 }
 
-async function scrapePage(url: string, institute: string): Promise<AisiItem[]> {
+async function scrapePageLinks(url: string, institute: string): Promise<AisiItem[]> {
   const items: AisiItem[] = [];
   try {
     const res = await fetch(url, {
@@ -91,7 +128,6 @@ async function scrapePage(url: string, institute: string): Promise<AisiItem[]> {
     if (!res.ok) return [];
     const html = await res.text();
 
-    // Extract links that look like news/blog/research posts
     const linkPattern = /<a\s[^>]*href=["']([^"']+)["'][^>]*>(.*?)<\/a>/gs;
     const baseUrl = new URL(url);
     const seen = new Set<string>();
@@ -108,7 +144,7 @@ async function scrapePage(url: string, institute: string): Promise<AisiItem[]> {
       if (seen.has(href)) continue;
       seen.add(href);
 
-      // Filter for news/research/blog/publication patterns
+      // Only include links that look like news/blog/publication content
       const lowerHref = href.toLowerCase();
       const newsPatterns = ["/news", "/blog", "/post", "/research", "/publication", "/update", "/press", "/announce", "/report"];
       if (!newsPatterns.some((p) => lowerHref.includes(p))) continue;

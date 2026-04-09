@@ -1,0 +1,123 @@
+import type { Lang } from "./i18n.js";
+
+const SYSTEM_ROLE = `You are an expert AI safety analyst. Your role is to synthesize AI safety developments into clear, insightful digests for researchers, policymakers, and practitioners. Focus on implications for AI safety, alignment, governance, and risk.`;
+
+export function arxivPrompt(data: string, date: string, lang: Lang = "en"): string {
+  return `${SYSTEM_ROLE}
+
+Today is ${date}. Below are recent ArXiv papers related to AI safety.
+
+Analyze these papers and produce a structured digest in ${lang === "fr" ? "French" : "English"}:
+
+1. **Key Papers**: Highlight the 5-10 most significant papers with a 2-3 sentence summary of each, focusing on their implications for AI safety.
+2. **Trends**: Identify emerging themes or research directions.
+3. **Significance**: Rate overall significance (High/Medium/Low) and explain why.
+
+Format as clean Markdown. Include paper titles as links.
+
+DATA:
+${data}`;
+}
+
+export function githubPrompt(data: string, date: string, lang: Lang = "en"): string {
+  return `${SYSTEM_ROLE}
+
+Today is ${date}. Below is recent GitHub activity from AI safety-related repositories.
+
+Produce a structured digest in ${lang === "fr" ? "French" : "English"}:
+
+1. **Notable Releases**: Any new versions or significant releases.
+2. **Key Discussions**: Important issues or PRs related to safety, alignment, or governance.
+3. **Emerging Tools**: New tools or frameworks relevant to AI safety practitioners.
+
+Format as clean Markdown with links.
+
+DATA:
+${data}`;
+}
+
+export function rssPrompt(data: string, date: string, lang: Lang = "en"): string {
+  return `${SYSTEM_ROLE}
+
+Today is ${date}. Below are recent blog posts and articles from AI safety-focused sources.
+
+Produce a structured digest in ${lang === "fr" ? "French" : "English"}:
+
+1. **Top Stories**: The 3-5 most important articles with summaries.
+2. **Key Arguments**: Notable positions or arguments made.
+3. **Community Discussion**: Any debates or disagreements worth noting.
+
+Format as clean Markdown with links to original articles.
+
+DATA:
+${data}`;
+}
+
+export function webPrompt(data: string, date: string, lang: Lang = "en"): string {
+  return `${SYSTEM_ROLE}
+
+Today is ${date}. Below are new publications from major AI organizations (Anthropic, OpenAI, DeepMind, etc.).
+
+Produce a structured digest in ${lang === "fr" ? "French" : "English"}:
+
+1. **Organization Updates**: Group by organization. Summarize each new publication.
+2. **Safety Implications**: For each update, note any AI safety relevance.
+3. **Cross-Organization Themes**: Any common themes across organizations.
+
+Format as clean Markdown with links.
+
+DATA:
+${data}`;
+}
+
+export function hnPrompt(data: string, date: string, lang: Lang = "en"): string {
+  return `${SYSTEM_ROLE}
+
+Today is ${date}. Below are recent Hacker News discussions related to AI safety.
+
+Produce a structured digest in ${lang === "fr" ? "French" : "English"}:
+
+1. **Hot Topics**: The top 5 most discussed stories with context.
+2. **Community Sentiment**: General tone and notable perspectives.
+3. **Links Worth Reading**: Stories that link to particularly valuable content.
+
+Format as clean Markdown with links.
+
+DATA:
+${data}`;
+}
+
+export function dailyRollupPrompt(sections: string, date: string, lang: Lang = "en"): string {
+  return `${SYSTEM_ROLE}
+
+Today is ${date}. Below are the individual section digests for today. Create a unified daily executive summary in ${lang === "fr" ? "French" : "English"}.
+
+Structure:
+1. **Top 3 Developments**: The single most important things that happened today in AI safety.
+2. **Section Summaries**: A 1-2 sentence summary of each section.
+3. **Risk Watch**: Any developments that signal increased or decreased AI risk.
+
+Keep it concise - this is an executive summary. Format as clean Markdown.
+
+SECTIONS:
+${sections}`;
+}
+
+export function weeklyRollupPrompt(dailies: string, dateRange: string, lang: Lang = "en"): string {
+  return `${SYSTEM_ROLE}
+
+This covers the week of ${dateRange}. Below are the daily digests from the past week. Create a comprehensive weekly summary in ${lang === "fr" ? "French" : "English"}.
+
+Structure:
+1. **Week in Review**: 3-5 paragraph overview of the most important developments.
+2. **Key Papers**: The most significant research papers of the week.
+3. **Industry Moves**: Notable actions by AI companies related to safety.
+4. **Policy & Governance**: Any regulatory or governance developments.
+5. **Community Highlights**: Important discussions or community developments.
+6. **Looking Ahead**: What to watch for next week.
+
+Format as clean Markdown.
+
+DAILY DIGESTS:
+${dailies}`;
+}

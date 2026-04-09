@@ -1,0 +1,32 @@
+{
+  "name": "ai-safety-radar",
+  "version": "1.0.0",
+  "description": "Daily AI safety digest - automated monitoring of AI safety research, policy, and developments",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "weekly": "tsx src/weekly.ts",
+    "manifest": "tsx src/generate-manifest.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/",
+    "test": "vitest run"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "openai": "^4.73.0",
+    "dotenv": "^16.4.7",
+    "fast-xml-parser": "^4.5.1",
+    "js-yaml": "^4.1.0",
+    "marked": "^15.0.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  }
+}

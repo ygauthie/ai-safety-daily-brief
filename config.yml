@@ -1,0 +1,87 @@
+# AI Safety Radar Configuration
+
+# GitHub repositories to track for AI safety developments
+github_repos:
+  # Anthropic
+  - anthropics/anthropic-cookbook
+  - anthropics/courses
+  # OpenAI
+  - openai/openai-cookbook
+  - openai/evals
+  # DeepMind
+  - google-deepmind/gemma
+  # Alignment & Safety Research
+  - EleutherAI/lm-evaluation-harness
+  - centerforaisafety/HarmBench
+  - paul-gauthier/aider
+  # Interpretability
+  - TransformerLensOrg/TransformerLens
+  # Governance
+  - stanford-crfm/helm
+
+# ArXiv categories and keywords for AI safety papers
+arxiv:
+  categories:
+    - cs.AI
+    - cs.CL
+    - cs.LG
+    - cs.CY  # Computers and Society (policy/governance)
+  keywords:
+    - AI safety
+    - alignment
+    - interpretability
+    - mechanistic interpretability
+    - RLHF
+    - constitutional AI
+    - red teaming
+    - jailbreak
+    - adversarial robustness
+    - AI governance
+    - AI regulation
+    - existential risk
+    - AI ethics
+    - responsible AI
+    - AI oversight
+    - scalable oversight
+    - value alignment
+
+# RSS feeds to monitor
+rss_feeds:
+  - name: Alignment Forum
+    url: https://www.alignmentforum.org/feed.xml
+  - name: LessWrong (AI tag)
+    url: https://www.lesswrong.com/feed.xml?view=community-rss&karmaThreshold=30
+  - name: AI Alignment Newsletter
+    url: https://rohinshah.com/alignment-newsletter-feed/
+
+# Websites to crawl via sitemap for new content
+websites:
+  - name: Anthropic Research
+    sitemap: https://www.anthropic.com/sitemap.xml
+    include_patterns:
+      - /research/
+      - /news/
+  - name: OpenAI Blog
+    sitemap: https://openai.com/sitemap.xml
+    include_patterns:
+      - /index/
+      - /research/
+  - name: DeepMind Blog
+    sitemap: https://deepmind.google/sitemap.xml
+    include_patterns:
+      - /research/
+      - /discover/
+
+# Hacker News search keywords
+hn_keywords:
+  - AI safety
+  - AI alignment
+  - AI regulation
+  - AI governance
+  - Anthropic
+  - interpretability
+  - RLHF
+
+# Supported languages (en is default, fr planned)
+languages:
+  - en

@@ -44,6 +44,10 @@ arxiv:
     - AI oversight
     - scalable oversight
     - value alignment
+    - synthetic content detection
+    - content provenance
+    - activation steering
+    - AI guardrails
 
 # RSS feeds to monitor
 rss_feeds:

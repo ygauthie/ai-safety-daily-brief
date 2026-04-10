@@ -10,50 +10,52 @@
   <link rel="alternate" type="application/rss+xml" title="AI Safety Daily Brief RSS" href="feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #ffffff;
-      --surface: #f2f2f2;
-      --border: #d9d9d9;
-      --text: #333333;
-      --text-muted: #4d4d4d;
-      --accent: #26374a;
-      --accent-hover: #002740;
-      --accent-subtle: #26374a0d;
-      --link: #1354ec;
+      --bg: #fff7f1;
+      --surface: color-mix(in srgb, #45372b 5%, transparent);
+      --border: color-mix(in srgb, #45372b 25%, transparent);
+      --text: #45372b;
+      --text-muted: color-mix(in srgb, #45372b 65%, transparent);
+      --accent: #ff6347;
+      --accent-hover: #e5573d;
+      --accent-subtle: color-mix(in srgb, #ff6347 10%, transparent);
+      --link: #ff6347;
       --green: #2a7d4f;
       --orange: #b45309;
       --red: #df2039;
-      --strong: #1a1a1a;
+      --strong: #45372b;
       --header-height: 56px;
     }
 
     [data-theme="dark"] {
-      --bg: #0d1117;
-      --surface: #161b22;
-      --border: #272d35;
-      --text: #e6edf3;
-      --text-muted: #8b949e;
-      --accent: #5b8dd9;
-      --accent-hover: #7aaae6;
-      --accent-subtle: #5b8dd910;
-      --link: #6b9ff5;
+      --bg: #0e1923;
+      --surface: color-mix(in srgb, #d6e8ee 5%, transparent);
+      --border: color-mix(in srgb, #d6e8ee 25%, transparent);
+      --text: #d6e8ee;
+      --text-muted: color-mix(in srgb, #d6e8ee 65%, transparent);
+      --accent: #5accf0;
+      --accent-hover: #7dd9f5;
+      --accent-subtle: color-mix(in srgb, #5accf0 10%, transparent);
+      --link: #5accf0;
       --green: #3fb950;
       --orange: #d29922;
       --red: #f85149;
-      --strong: #f0f6fc;
+      --strong: #d6e8ee;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-family: 'Fira Code', 'JetBrains Mono', Monaco, Consolas, 'Ubuntu Mono', monospace;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.65;
-      font-size: 17px;
-      -webkit-font-smoothing: antialiased;
+      line-height: 1.54;
+      font-size: 1rem;
+      text-rendering: optimizeLegibility;
+      font-variant-ligatures: contextual;
+      -webkit-text-size-adjust: 100%;
     }
 
     header {
@@ -70,16 +72,13 @@
     }
 
     .logo {
-      font-family: 'Lato', sans-serif;
-      font-size: 1.55rem;
-      font-weight: 800;
+      font-size: 1.45rem;
+      font-weight: 600;
       color: var(--accent);
       text-decoration: none;
-      letter-spacing: -0.01em;
+      letter-spacing: 0;
     }
 
-    .logo { color: #11568C; }
-    [data-theme="dark"] .logo { color: var(--accent); }
     .logo span { color: var(--text); }
 
     nav { display: flex; gap: 1.25rem; align-items: center; }
@@ -89,7 +88,7 @@
       text-decoration: none;
       font-size: 0.8rem;
       font-weight: 500;
-      letter-spacing: -0.01em;
+      letter-spacing: 0;
       text-transform: uppercase;
       background: none;
       border: none;
@@ -106,7 +105,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 4px;
+      border-radius: 0;
       padding: 0;
       text-transform: none;
       letter-spacing: 0;
@@ -136,8 +135,8 @@
       width: 100%;
       padding: 0.45rem 0.7rem;
       border: 1px solid var(--border);
-      border-radius: 4px;
-      background: var(--surface);
+      border-radius: 0;
+      background: transparent;
       color: var(--text);
       font-size: 0.95rem;
       font-family: inherit;
@@ -146,7 +145,7 @@
     }
 
     .search-box input::placeholder { color: var(--text-muted); }
-    .search-box input:focus { border-color: var(--accent); }
+    .search-box input:focus { border-color: var(--accent); outline: 1px solid var(--accent); outline-offset: 2px; }
 
     .sidebar-entries {
       flex: 1;
@@ -165,9 +164,9 @@
       font-weight: 600;
       padding: 0.35rem 0.5rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
       cursor: pointer;
-      border-radius: 3px;
+      border-radius: 0;
       user-select: none;
       transition: background 0.1s, color 0.1s;
     }
@@ -197,7 +196,7 @@
       color: var(--text);
       text-decoration: none;
       font-size: 0.95rem;
-      border-radius: 3px;
+      border-radius: 0;
       transition: background 0.1s, color 0.1s;
       border-left: 2px solid transparent;
       white-space: nowrap;
@@ -221,7 +220,7 @@
     .file-link .badge {
       font-size: 0.65rem;
       padding: 0.1rem 0.35rem;
-      border-radius: 2px;
+      border-radius: 0;
       margin-left: 0.3rem;
       vertical-align: middle;
       font-weight: 600;
@@ -242,45 +241,44 @@
     #content { max-width: 780px; }
 
     #content h1 {
-      font-family: 'Lato', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
+      font-size: calc(1rem * 1.45);
+      font-weight: 600;
       margin-bottom: 1.25rem;
       line-height: 1.25;
-      letter-spacing: -0.01em;
+      letter-spacing: 0;
       padding-bottom: 0.75rem;
       border-bottom: 2px solid var(--accent);
       color: var(--strong);
     }
 
     #content h2 {
-      font-family: 'Lato', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 800;
+      font-size: calc(1rem * 1.35);
+      font-weight: 600;
       margin: 2rem 0 0.75rem;
       color: var(--accent);
-      letter-spacing: -0.01em;
+      letter-spacing: 0;
     }
 
     #content h3 {
-      font-family: 'Lato', sans-serif;
-      font-size: 1rem;
-      font-weight: 800;
+      font-size: calc(1rem * 1.15);
+      font-weight: 600;
       margin: 1.25rem 0 0.5rem;
       color: var(--strong);
-      letter-spacing: -0.01em;
+      letter-spacing: 0;
     }
 
-    #content p { margin-bottom: 0.875rem; line-height: 1.75; }
+    #content p { margin-bottom: 0.875rem; line-height: 1.54; }
     #content a { color: var(--link); text-decoration: underline; transition: color 0.15s; }
-    #content a:hover { color: var(--accent); }
-    #content ul, #content ol { padding-left: 1.5rem; margin-bottom: 0.875rem; }
-    #content li { margin-bottom: 0.4rem; line-height: 1.7; }
-    #content code { background: var(--surface); padding: 0.15rem 0.4rem; border-radius: 3px; font-size: 0.875em; border: 1px solid var(--border); }
-    #content pre { background: var(--surface); padding: 1.25rem; border-radius: 4px; overflow-x: auto; margin-bottom: 1.25rem; border: 1px solid var(--border); }
-    #content pre code { background: none; padding: 0; border: none; }
-    #content blockquote { border-left: 3px solid var(--accent); padding: 0.25rem 0 0.25rem 1.25rem; color: var(--text-muted); margin-bottom: 0.875rem; font-style: italic; }
-    #content hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+    #content a:hover { color: var(--accent-hover); }
+    #content ul, #content ol { padding-left: 4ch; margin-bottom: 0.875rem; }
+    #content li { margin-bottom: 0.4rem; line-height: 1.54; }
+    #content li::marker { color: var(--accent); }
+    #content code { background: var(--surface); padding: 0 6px; border-radius: 0; font-size: 0.95em; border: 1px solid var(--border); color: color-mix(in srgb, var(--text) 5%, var(--accent)); }
+    #content pre { background: var(--surface); padding: 20px 10px; border-radius: 0; overflow-x: auto; margin-bottom: 1.25rem; border: 1px solid var(--border); font-size: 0.95em; tab-size: 4; color: color-mix(in srgb, var(--text) 5%, var(--accent)); }
+    #content pre code { background: none; padding: 0; border: none; font-size: inherit; color: inherit; }
+    #content blockquote { border-top: 1px solid var(--accent); border-bottom: 1px solid var(--accent); border-left: none; padding: 25px; color: var(--text); margin-bottom: 0.875rem; font-style: normal; position: relative; }
+    #content blockquote::before { content: ">"; display: block; position: absolute; left: 0; color: var(--accent); }
+    #content hr { border: none; background: var(--accent); height: 2px; margin: 2rem 0; }
     #content strong { color: var(--strong); font-weight: 600; }
 
     .ai-disclaimer {
@@ -301,17 +299,15 @@
     }
 
     .welcome h1 {
-      font-family: 'Lato', sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.01em;
+      font-weight: 600;
+      letter-spacing: 0;
       color: var(--accent);
       border: none;
-      font-size: 2.25rem;
+      font-size: calc(1rem * 1.45);
       margin-bottom: 0.75rem;
-      letter-spacing: -0.02em;
     }
 
-    .welcome p { font-size: 1.05rem; line-height: 1.7; }
+    .welcome p { font-size: 1.05rem; line-height: 1.54; }
 
     .loading { color: var(--text-muted); padding: 2rem; text-align: center; font-size: 0.9rem; }
 
@@ -375,7 +371,7 @@
 
     // Theme management
     function getTheme() {
-      return localStorage.getItem('theme') || 'light';
+      return localStorage.getItem('theme') || 'dark';
     }
 
     function applyTheme(theme) {

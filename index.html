@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #fff7f1;
+      --bg: #fffbf8;
       --surface: color-mix(in srgb, #45372b 5%, transparent);
       --border: color-mix(in srgb, #45372b 25%, transparent);
       --text: #45372b;
@@ -52,7 +52,7 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.54;
-      font-size: 1rem;
+      font-size: 1.1rem;
       text-rendering: optimizeLegibility;
       font-variant-ligatures: contextual;
       -webkit-text-size-adjust: 100%;
@@ -72,7 +72,7 @@
     }
 
     .logo {
-      font-size: 1.45rem;
+      font-size: 1.6rem;
       font-weight: 600;
       color: var(--accent);
       text-decoration: none;
@@ -86,7 +86,7 @@
     nav a, nav button {
       color: var(--text);
       text-decoration: none;
-      font-size: 0.8rem;
+      font-size: 1rem;
       font-weight: 500;
       letter-spacing: 0;
       text-transform: uppercase;
@@ -138,7 +138,7 @@
       border-radius: 0;
       background: transparent;
       color: var(--text);
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       font-family: inherit;
       outline: none;
       transition: border-color 0.15s;
@@ -159,7 +159,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 0.8rem;
+      font-size: 1rem;
       color: var(--text-muted);
       font-weight: 600;
       padding: 0.35rem 0.5rem;
@@ -195,7 +195,7 @@
       padding: 0.3rem 0.4rem 0.3rem 0.75rem;
       color: var(--text);
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 1.05rem;
       border-radius: 0;
       transition: background 0.1s, color 0.1s;
       border-left: 2px solid transparent;
@@ -285,7 +285,7 @@
       margin-top: 3rem;
       padding: 0.875rem 0;
       border-top: 1px solid var(--border);
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: var(--text-muted);
     }
 
@@ -453,7 +453,7 @@
         const filesHtml = sorted.map(file =>
           `<a href="#${file}" class="file-link" data-hash="${file}" data-label="${fileLabel(file).toLowerCase()}">${fileLabel(file)}${fileBadge(file)}</a>`
         ).join('');
-        const filesHeight = sorted.length * 42;
+        const filesHeight = sorted.length * 46;
         html += `<div class="date-group${collapsed}" data-date="${entry.date}">`;
         html += `<div class="date-label">
           <span>${entry.date}</span>

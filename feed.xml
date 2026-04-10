@@ -5,64 +5,6 @@
     <link>https://ygauthie.github.io/ai-safety-daily-brief/</link>
     <description>Daily AI safety research, policy, and development digest</description>
     <language>en</language>
-    <lastBuildDate>Fri, 10 Apr 2026 00:18:23 GMT</lastBuildDate>
-    <item>
-      <title>AI Safety Daily Brief: AI Safety Brief — 2026-04-10</title>
-      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-10/safety-daily.md</link>
-      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-10/safety-daily.md</guid>
-      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
-      <description>
-## Top 3 Developments
-
-1. **Anthropic Releases Mythos Model with Unprecedented Cybersecurity Capabilities**: Anthropic has released [Claude Mythos](https://www.lesswrong.com/posts/5Dsuw9gGzkbjS4ubx/ai-163-mythos-quest), an AI model capable of discovering critical security vulnerabilities across major operating systems and browsers. Rather than deploying commercially, Anthropic is making it available to cybersecurity companies through "Project Glasswing" to help patch global infrastructure vulnerabilities, representing a significant moment where an AI lab chose coordinated disclosure over competitive advantage.
-
-2. **First Comprehensive Multi-Agent Safety Framework Released**: The [TraceSafe benchmark](https://arxiv.org/abs/2604.07223v1) introduces the first systematic assessment of LLM guardrails during multi-step tool-calling trajectories, addressing critical gaps as LLMs evolve into autonomous systems. This parallels new [constitutional governance frameworks](https://arxiv.org/abs/2604.07007v1) for autonomous agent economies that tackle the "Logic Monopoly" problem of opaque collective AI behaviors beyond human oversight.
-
-3. **Federal Court Upholds AI Industry Risk Labeling**: A [federal court denied Anthropic's motion](https://www.nytimes.com/2026/04/08/technology/anthropic-pentagon-risk-circuit-court.html) to lift a "supply chain risk" label, marking what analysts see as [a turning point for AI industry regulation](https://beeble.com/en/blog/the-government-s-new-risk-label-for-anthropic-is-a-turning-point-for-the-ai-industry) and setting important precedents for government oversight of AI companies.</description>
-    </item>
-    <item>
-      <title>AI Safety Daily Brief: ArXiv Papers — 2026-04-10</title>
-      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-10/safety-arxiv.md</link>
-      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-10/safety-arxiv.md</guid>
-      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
-      <description>
-## Key Papers
-
-**[TraceSafe: A Systematic Assessment of LLM Guardrails on Multi-Step Tool-Calling Trajectories](https://arxiv.org/abs/2604.07223v1)** introduces the first comprehensive benchmark for evaluating safety guardrails during multi-step AI agent execution, addressing a critical gap as LLMs evolve into autonomous systems.
-
-**[AgentCity: Constitutional Governance for Autonomous Agent Economies via Separation of Power](https://arxiv.org/abs/2604.07007v1)** addresses the "Logic Monopoly" problem - where autonomous AI agents operating across organizational boundaries create opaque collective behaviors beyond human oversight.</description>
-    </item>
-    <item>
-      <title>AI Safety Daily Brief: GitHub Activity — 2026-04-10</title>
-      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-10/safety-github.md</link>
-      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-10/safety-github.md</guid>
-      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
-      <description>
-## Key Discussions
-
-- [**Output Verification Gates for Managed Agents**](https://github.com/anthropics/claude-cookbooks/issues/518): Discussion of automated verification systems to check agent outputs before execution.
-- [**Self-Improving Agents with Structured Reflection**](https://github.com/anthropics/claude-cookbooks/pull/469): New cookbook demonstrating a four-phase improvement cycle.</description>
-    </item>
-    <item>
-      <title>AI Safety Daily Brief: Hacker News — 2026-04-10</title>
-      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-10/safety-hn.md</link>
-      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-10/safety-hn.md</guid>
-      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
-      <description>
-## Hot Topics
-
-1. **Anthropic's "Mythos" Model Withholding** - Multiple discussions center on Anthropic's decision to withhold their new [Mythos model due to cybersecurity risks](https://www.nytimes.com/2026/04/07/technology/anthropic-claims-its-new-ai-model-mythos-is-a-cybersecurity-reckoning.html).
-2. **Government Risk Labeling** - A [federal court denied Anthropic's motion](https://www.nytimes.com/2026/04/08/technology/anthropic-pentagon-risk-circuit-court.html) to lift a "supply chain risk" label.</description>
-    </item>
-    <item>
-      <title>AI Safety Daily Brief: Blog Posts — 2026-04-10</title>
-      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-10/safety-rss.md</link>
-      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-10/safety-rss.md</guid>
-      <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
-      <description>
-## Top Stories
-
-**[Claude Mythos: A Cybersecurity Game-Changer](https://www.lesswrong.com/posts/5Dsuw9gGzkbjS4ubx/ai-163-mythos-quest)** - Anthropic has released Claude Mythos, an AI model capable of discovering critical security vulnerabilities across major operating systems and browsers.</description>
-    </item>
+    <lastBuildDate>Wed, 09 Apr 2026 00:00:00 GMT</lastBuildDate>
   </channel>
 </rss>

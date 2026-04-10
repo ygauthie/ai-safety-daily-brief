@@ -1,5 +1,7 @@
+const TZ = "America/Toronto";
+
 export function today(): string {
-  return new Date().toISOString().slice(0, 10);
+  return new Date().toLocaleDateString("en-CA", { timeZone: TZ });
 }
 
 export function daysAgo(n: number): Date {
@@ -9,5 +11,5 @@ export function daysAgo(n: number): Date {
 }
 
 export function formatDate(d: Date): string {
-  return d.toISOString().slice(0, 10);
+  return d.toLocaleDateString("en-CA", { timeZone: TZ });
 }

@@ -2,7 +2,7 @@
 
 **A daily automated digest of AI safety research, policy, and developments.**
 
-Runs every morning at 5 AM ET via GitHub Actions, pulls from seven sources, summarizes with Claude, and publishes to GitHub Pages as a clean, searchable static site with an RSS feed.
+Runs every morning at 5 AM ET via GitHub Actions, pulls from seven sources, summarizes with Claude, and publishes to GitHub Pages as a clean, searchable static site with an RSS feed.  Adapted from [agents-radar](https://github.com/duanyytop/agents-radar).
 
 Live site: [ygauthie.github.io/ai-safety-daily-brief](https://ygauthie.github.io/ai-safety-daily-brief)
 
@@ -146,4 +146,3 @@ English by default. French support is prepared via `src/i18n.ts` — add `fr` to
 
 ---
 
-*Inspired by [agents-radar](https://github.com/duanyytop/agents-radar).*

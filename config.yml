@@ -101,23 +101,22 @@ websites:
 # National AI Safety Institutes
 aisi_websites:
   - name: US AI Safety Institute (NIST)
-    url: https://www.nist.gov/artificial-intelligence/executive-order-safe-secure-and-trustworthy-artificial-intelligence
+    url: https://www.nist.gov/caisi
     rss: https://www.nist.gov/news-events/news/rss.xml
     keywords:
       - artificial intelligence
       - AI safety
       - AI risk
   - name: UK AI Safety Institute
-    url: https://www.aisi.gov.uk
-    rss: https://www.aisi.gov.uk/feed.xml
+    url: https://www.aisi.gov.uk/research
   - name: Canada AI Safety Institute (CAISI)
     url: https://ised-isde.canada.ca/site/artificial-intelligence-safety-institute/en
   - name: Japan AI Safety Institute (J-AISI)
-    url: https://aisi.go.jp/en/
+    url: https://aisi-go-jp.translate.goog/activity/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en-US
   - name: Singapore AI Safety Institute
-    url: https://aisi.gov.sg
+    url: https://www.sgaisi.sg/our-works/
   - name: European AI Office
-    url: https://digital-strategy.ec.europa.eu/en/policies/ai-office
+    url: https://digital-strategy.ec.europa.eu/en/news
   - name: Korea AI Safety Institute
     url: https://www.msit.go.kr/eng/index.do
 
@@ -128,6 +127,8 @@ hn_keywords:
   - AI regulation
   - AI governance
   - Anthropic
+  - OpenAI
+  - Deepmind
   - interpretability
   - RLHF
 

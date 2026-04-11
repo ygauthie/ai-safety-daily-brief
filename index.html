@@ -78,10 +78,12 @@
       letter-spacing: -0.01em;
       white-space: nowrap;
       flex-shrink: 0;
+      text-transform: uppercase;
     }
 
     [data-theme="dark"] .logo { color: var(--accent); }
     .logo span span { color: var(--text); }
+    .flip-r { display: inline-block; transform: scaleX(-1); }
 
     .header-filler {
       flex: 1;
@@ -405,7 +407,7 @@
 </head>
 <body>
   <header>
-    <a href="#" class="logo"><span id="logoText">AI Safety <span>Radar 📡</span></span></a>
+    <a href="#" class="logo"><span id="logoText">AI Safety <span>Rada<span class="flip-r">r</span></span></span></a>
     <div class="header-filler" id="headerFiller"></div>
     <nav>
       <a href="feed.xml" title="RSS Feed" style="display:flex;align-items:center;">
@@ -448,7 +450,7 @@
         failedLoad: 'Failed to load digest.',
         searchPlaceholder: 'Search briefs...',
         resultsFound: (n) => `${n} result${n !== 1 ? 's' : ''} found`,
-        welcomeTitle: 'AI Safety Radar 📡',
+        welcomeTitle: 'AI Safety Radar',
         welcomeSub: 'Daily digest of AI safety research, policy, and developments.',
         welcomeHint: 'Select a digest from the sidebar to begin reading.',
         fileLabels: {
@@ -464,7 +466,7 @@
         badges: { daily: 'daily', weekly: 'weekly' },
         locale: 'en-US',
         siteTitle: 'AI Safety',
-        siteTitleSub: 'Radar 📡',
+        siteTitleSub: 'Rada<span class="flip-r">r</span>',
       },
       fr: {
         disclaimer: 'Les bulletins quotidiens sur la sécurité de l\'IA sont générés par IA et peuvent contenir des erreurs. Consultez toujours les sources originales pour plus de précision.',
@@ -474,7 +476,7 @@
         failedLoad: 'Impossible de charger le bulletin.',
         searchPlaceholder: 'Rechercher...',
         resultsFound: (n) => `${n} résultat${n !== 1 ? 's' : ''} trouvé${n !== 1 ? 's' : ''}`,
-        welcomeTitle: 'Radar de la Sécurité de l\'IA 📡',
+        welcomeTitle: 'Sécurité de l\'IA - Radar',
         welcomeSub: 'Synthèse quotidienne de la recherche, des politiques et des développements en matière de sécurité de l\'IA.',
         welcomeHint: 'Sélectionnez un bulletin dans la barre latérale pour commencer à lire.',
         fileLabels: {
@@ -489,8 +491,8 @@
         },
         badges: { daily: 'quotidien', weekly: 'hebdo' },
         locale: 'fr-CA',
-        siteTitle: 'Radar de la',
-        siteTitleSub: 'Sécurité de l\'IA 📡',
+        siteTitle: 'Sécurité de l\'IA -',
+        siteTitleSub: 'Rada<span class="flip-r">r</span>',
       },
     };
 

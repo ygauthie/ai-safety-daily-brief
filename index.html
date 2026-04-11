@@ -477,14 +477,31 @@
       document.getElementById('welcomeHint').textContent = strings.welcomeHint;
     }
 
+    function hashForLang(hash, lang) {
+      if (!hash) return hash;
+      if (lang === 'fr') {
+        // Switch to .fr.md version
+        return hash.endsWith('.fr.md') ? hash : hash.replace('.md', '.fr.md');
+      } else {
+        // Switch to .md version
+        return hash.replace('.fr.md', '.md');
+      }
+    }
+
     document.getElementById('langToggle').addEventListener('click', () => {
       const next = getLang() === 'en' ? 'fr' : 'en';
       localStorage.setItem('lang', next);
       applyLang(next);
       if (currentManifest) renderSidebar(currentManifest);
-      // Reload current content to refresh disclaimer label
       const hash = location.hash.slice(1);
-      if (hash) loadContent(hash);
+      if (hash) {
+        const newHash = hashForLang(hash, next);
+        if (newHash !== hash) {
+          location.hash = newHash; // triggers handleHash
+        } else {
+          loadContent(hash);
+        }
+      }
     });
 
     // Cache loaded content for search
@@ -525,12 +542,11 @@
     function filterFilesByLang(files) {
       const lang = getLang();
       if (lang === 'fr') {
-        // Show .fr.md files; fall back to .md if no FR version exists
-        const frFiles = files.filter(f => f.endsWith('.fr.md'));
-        const enOnlyFiles = files.filter(f => !f.endsWith('.fr.md') && !files.includes(f.replace('.md', '.fr.md')));
-        return [...frFiles, ...enOnlyFiles].sort();
+        // For each EN file, show its .fr.md if it exists, otherwise show the EN file
+        return files
+          .filter(f => !f.endsWith('.fr.md'))
+          .map(f => files.includes(f.replace('.md', '.fr.md')) ? f.replace('.md', '.fr.md') : f);
       } else {
-        // English: exclude .fr.md files
         return files.filter(f => !f.endsWith('.fr.md'));
       }
     }

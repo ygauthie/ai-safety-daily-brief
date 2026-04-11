@@ -1,4 +1,4 @@
-# AI Safety Daily Brief (2026-04-11)
+# Bulletin quotidien sur la sécurité de l'IA (2026-04-11)
 
 ## Top 3 Développements
 

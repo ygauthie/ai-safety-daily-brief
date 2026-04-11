@@ -108,6 +108,20 @@ DATA:
 ${data}`;
 }
 
+export function translationPrompt(content: string): string {
+  return `You are a professional translator specializing in AI safety, technology policy, and research. Translate the following Markdown document from English to French.
+
+Rules:
+- Preserve all Markdown formatting exactly (headings, bold, links, bullet points, code spans, etc.)
+- Keep all URLs and hyperlinks unchanged
+- Keep technical terms in English when they are widely used as-is in French AI safety discourse (e.g. "alignment", "red teaming", "benchmarks", "fine-tuning", "RLHF")
+- Translate naturally and fluently — do not translate word for word
+- Do not add any commentary, preamble, or explanation — output only the translated Markdown
+
+CONTENT:
+${content}`;
+}
+
 export function dailyRollupPrompt(sections: string, date: string, lang: Lang = "en"): string {
   return `${SYSTEM_ROLE}
 

@@ -15,8 +15,7 @@ import {
   aisiPrompt,
   dailyRollupPrompt,
 } from "./prompts.js";
-import { generateReport, saveReport } from "./report.js";
-import type { Lang } from "./i18n.js";
+import { generateReport, translateReport, saveReport } from "./report.js";
 import { loadConfig } from "./config.js";
 
 async function main() {
@@ -58,77 +57,97 @@ async function main() {
       `${githubData.length} GitHub items, ${hnData.length} HN stories, ${webData.length} web articles, ${aisiData.length} AISI items`
   );
 
-  // Phase 2: Generate reports for each language
-  for (const lang of config.languages as Lang[]) {
-    console.log(`\nGenerating ${lang.toUpperCase()} reports...`);
-    const suffix = lang === "en" ? "" : `-${lang}`;
-    const sections: string[] = [];
+  // Phase 2: Generate English reports
+  console.log("\nGenerating English reports...");
+  const sections: string[] = [];
 
-    // Generate section reports in parallel
-    const reports = await Promise.all([
-      arxivData.length > 0
-        ? generateReport(arxivPrompt(JSON.stringify(arxivData, null, 2), date, lang))
-        : Promise.resolve(""),
-      rssData.length > 0
-        ? generateReport(rssPrompt(JSON.stringify(rssData, null, 2), date, lang))
-        : Promise.resolve(""),
-      githubData.length > 0
-        ? generateReport(githubPrompt(JSON.stringify(githubData, null, 2), date, lang))
-        : Promise.resolve(""),
-      hnData.length > 0
-        ? generateReport(hnPrompt(JSON.stringify(hnData, null, 2), date, lang))
-        : Promise.resolve(""),
-      webData.length > 0
-        ? generateReport(webPrompt(JSON.stringify(webData, null, 2), date, lang))
-        : Promise.resolve(""),
-      aisiData.length > 0
-        ? generateReport(aisiPrompt(JSON.stringify(aisiData, null, 2), date, lang))
-        : Promise.resolve(""),
-    ]);
+  const reports = await Promise.all([
+    arxivData.length > 0
+      ? generateReport(arxivPrompt(JSON.stringify(arxivData, null, 2), date))
+      : Promise.resolve(""),
+    rssData.length > 0
+      ? generateReport(rssPrompt(JSON.stringify(rssData, null, 2), date))
+      : Promise.resolve(""),
+    githubData.length > 0
+      ? generateReport(githubPrompt(JSON.stringify(githubData, null, 2), date))
+      : Promise.resolve(""),
+    hnData.length > 0
+      ? generateReport(hnPrompt(JSON.stringify(hnData, null, 2), date))
+      : Promise.resolve(""),
+    webData.length > 0
+      ? generateReport(webPrompt(JSON.stringify(webData, null, 2), date))
+      : Promise.resolve(""),
+    aisiData.length > 0
+      ? generateReport(aisiPrompt(JSON.stringify(aisiData, null, 2), date))
+      : Promise.resolve(""),
+  ]);
 
-    const [arxivReport, rssReport, githubReport, hnReport, webReport, aisiReport] = reports;
+  const [arxivReport, rssReport, githubReport, hnReport, webReport, aisiReport] = reports;
 
-    // Save individual reports
-    if (arxivReport) {
-      saveReport(date, `safety-arxiv${suffix}.md`, `# ArXiv - AI Safety Papers (${date})\n\n${arxivReport}`);
-      sections.push(`## ArXiv Papers\n\n${arxivReport}`);
-    }
-    if (rssReport) {
-      saveReport(date, `safety-rss${suffix}.md`, `# Blog Posts & Articles (${date})\n\n${rssReport}`);
-      sections.push(`## Blog Posts & Articles\n\n${rssReport}`);
-    }
-    if (githubReport) {
-      saveReport(date, `safety-github${suffix}.md`, `# GitHub Activity (${date})\n\n${githubReport}`);
-      sections.push(`## GitHub Activity\n\n${githubReport}`);
-    }
-    if (hnReport) {
-      saveReport(date, `safety-hn${suffix}.md`, `# Hacker News Discussions (${date})\n\n${hnReport}`);
-      sections.push(`## Hacker News\n\n${hnReport}`);
-    }
-    if (webReport) {
-      saveReport(date, `safety-web${suffix}.md`, `# Organization Updates (${date})\n\n${webReport}`);
-      sections.push(`## Organization Updates\n\n${webReport}`);
-    }
-    if (aisiReport) {
-      saveReport(date, `safety-aisi${suffix}.md`, `# AI Safety Institutes (${date})\n\n${aisiReport}`);
-      sections.push(`## AI Safety Institutes\n\n${aisiReport}`);
-    }
+  // Collect English files for translation
+  const enFiles: Array<{ filename: string; content: string }> = [];
 
-    // Phase 3: Generate daily rollup
-    if (sections.length > 0) {
-      console.log("Generating daily executive summary...");
-      const rollup = await generateReport(
-        dailyRollupPrompt(sections.join("\n\n---\n\n"), date, lang),
-        6144
-      );
-      saveReport(
-        date,
-        `safety-daily${suffix}.md`,
-        `# AI Safety Daily Brief (${date})\n\n${rollup}`
-      );
-    } else {
-      console.log("No data fetched - skipping report generation.");
-    }
+  if (arxivReport) {
+    const content = `# ArXiv - AI Safety Papers (${date})\n\n${arxivReport}`;
+    saveReport(date, "safety-arxiv.md", content);
+    enFiles.push({ filename: "safety-arxiv.md", content });
+    sections.push(`## ArXiv Papers\n\n${arxivReport}`);
+  }
+  if (rssReport) {
+    const content = `# Blog Posts & Articles (${date})\n\n${rssReport}`;
+    saveReport(date, "safety-rss.md", content);
+    enFiles.push({ filename: "safety-rss.md", content });
+    sections.push(`## Blog Posts & Articles\n\n${rssReport}`);
+  }
+  if (githubReport) {
+    const content = `# GitHub Activity (${date})\n\n${githubReport}`;
+    saveReport(date, "safety-github.md", content);
+    enFiles.push({ filename: "safety-github.md", content });
+    sections.push(`## GitHub Activity\n\n${githubReport}`);
+  }
+  if (hnReport) {
+    const content = `# Hacker News Discussions (${date})\n\n${hnReport}`;
+    saveReport(date, "safety-hn.md", content);
+    enFiles.push({ filename: "safety-hn.md", content });
+    sections.push(`## Hacker News\n\n${hnReport}`);
+  }
+  if (webReport) {
+    const content = `# Organization Updates (${date})\n\n${webReport}`;
+    saveReport(date, "safety-web.md", content);
+    enFiles.push({ filename: "safety-web.md", content });
+    sections.push(`## Organization Updates\n\n${webReport}`);
+  }
+  if (aisiReport) {
+    const content = `# AI Safety Institutes (${date})\n\n${aisiReport}`;
+    saveReport(date, "safety-aisi.md", content);
+    enFiles.push({ filename: "safety-aisi.md", content });
+    sections.push(`## AI Safety Institutes\n\n${aisiReport}`);
+  }
+
+  // Phase 3: Generate daily rollup
+  if (sections.length > 0) {
+    console.log("Generating daily executive summary...");
+    const rollup = await generateReport(
+      dailyRollupPrompt(sections.join("\n\n---\n\n"), date),
+      6144
+    );
+    const dailyContent = `# AI Safety Daily Brief (${date})\n\n${rollup}`;
+    saveReport(date, "safety-daily.md", dailyContent);
+    enFiles.push({ filename: "safety-daily.md", content: dailyContent });
+  } else {
+    console.log("No data fetched - skipping report generation.");
+  }
+
+  // Phase 4: Translate to French if enabled
+  if (config.languages.includes("fr") && enFiles.length > 0) {
+    console.log("\nTranslating reports to French...");
+    await Promise.all(
+      enFiles.map(async ({ filename, content }) => {
+        const translated = await translateReport(content);
+        const frFilename = filename.replace(".md", ".fr.md");
+        saveReport(date, frFilename, translated);
+      })
+    );
   }
 
   console.log("\nDone!");

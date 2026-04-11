@@ -2,6 +2,7 @@ import { mkdirSync, writeFileSync, existsSync } from "fs";
 import { join } from "path";
 import { createProvider } from "./providers/index.js";
 import type { LlmProvider } from "./providers/types.js";
+import { translationPrompt } from "./prompts.js";
 
 let provider: LlmProvider | null = null;
 
@@ -52,6 +53,10 @@ export async function generateReport(
   } finally {
     releaseSlot();
   }
+}
+
+export async function translateReport(content: string): Promise<string> {
+  return generateReport(translationPrompt(content), 8192);
 }
 
 export function saveReport(date: string, filename: string, content: string): string {

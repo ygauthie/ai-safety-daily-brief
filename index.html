@@ -71,18 +71,32 @@
 
     .logo {
       font-family: 'Lato', sans-serif;
-      font-size: 1.55rem;
+      font-size: 1.35rem;
       font-weight: 800;
-      color: var(--accent);
+      color: #11568C;
       text-decoration: none;
       letter-spacing: -0.01em;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
-    .logo { color: #11568C; }
     [data-theme="dark"] .logo { color: var(--accent); }
     .logo span span { color: var(--text); }
 
-    nav { display: flex; gap: 1.25rem; align-items: center; }
+    .header-filler {
+      flex: 1;
+      overflow: hidden;
+      margin: 0 1rem;
+      color: var(--border);
+      font-family: monospace;
+      font-size: 0.9rem;
+      letter-spacing: -1px;
+      line-height: 1;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    nav { display: flex; gap: 1.25rem; align-items: center; flex-shrink: 0; }
 
     nav a, nav button {
       color: var(--text);
@@ -363,6 +377,8 @@
     .month-group.hidden { display: none; }
 
     @media (max-width: 768px) {
+      .logo { font-size: 1rem; }
+      .header-filler { display: none; }
       .sidebar {
         position: static;
         width: 100%;
@@ -376,7 +392,8 @@
 </head>
 <body>
   <header>
-    <a href="#" class="logo"><img src="assets/shield.png" alt="" width="32" height="32" style="vertical-align: -7px; margin-right: 8px;"><span id="logoText">AI Safety <span>Daily Brief</span></span></a>
+    <a href="#" class="logo"><span id="logoText">AI Safety <span>Daily Brief</span></span></a>
+    <div class="header-filler" id="headerFiller"></div>
     <nav>
       <a href="feed.xml" title="RSS Feed" style="display:flex;align-items:center;">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
@@ -459,8 +476,8 @@
         },
         badges: { daily: 'quotidien', weekly: 'hebdo' },
         locale: 'fr-CA',
-        siteTitle: 'Sécurité de l\'IA',
-        siteTitleSub: '— Bulletin quotidien',
+        siteTitle: 'Sécurité de l\'IA -',
+        siteTitleSub: 'Bulletin quotidien',
       },
     };
 
@@ -788,6 +805,19 @@
       // Preload in background for search
       preloadContent(manifest);
     }
+
+    // Fill header bar with | characters
+    function fillHeaderBar() {
+      const filler = document.getElementById('headerFiller');
+      const w = filler.offsetWidth;
+      if (w > 0) {
+        const charWidth = 6; // approximate monospace char width at 0.9rem with -1px spacing
+        const count = Math.floor(w / charWidth);
+        filler.textContent = '|'.repeat(count);
+      }
+    }
+    fillHeaderBar();
+    window.addEventListener('resize', fillHeaderBar);
 
     window.addEventListener('hashchange', handleHash);
     init();

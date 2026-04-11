@@ -85,18 +85,26 @@
 
     .header-filler {
       flex: 1;
-      overflow: hidden;
-      margin: 0 0.75rem;
-      color: #11568C;
-      font-family: monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0px;
-      line-height: 1;
-      user-select: none;
-      white-space: nowrap;
+      margin: 0 1rem;
+      height: 24px;
+      background: repeating-linear-gradient(
+        90deg,
+        #11568C 0px,
+        #11568C 2px,
+        transparent 2px,
+        transparent 8px
+      );
     }
 
-    [data-theme="dark"] .header-filler { color: var(--accent); }
+    [data-theme="dark"] .header-filler {
+      background: repeating-linear-gradient(
+        90deg,
+        var(--accent) 0px,
+        var(--accent) 2px,
+        transparent 2px,
+        transparent 8px
+      );
+    }
 
     nav { display: flex; gap: 1.25rem; align-items: center; flex-shrink: 0; }
 
@@ -806,19 +814,6 @@
       // Preload in background for search
       preloadContent(manifest);
     }
-
-    // Fill header bar with | characters
-    function fillHeaderBar() {
-      const filler = document.getElementById('headerFiller');
-      const w = filler.offsetWidth;
-      if (w > 0) {
-        const charWidth = 6; // approximate monospace char width at 0.9rem with -1px spacing
-        const count = Math.floor(w / charWidth);
-        filler.textContent = '|'.repeat(count);
-      }
-    }
-    fillHeaderBar();
-    window.addEventListener('resize', fillHeaderBar);
 
     window.addEventListener('hashchange', handleHash);
     init();

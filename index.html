@@ -472,9 +472,12 @@
     function applyLang(lang) {
       const strings = I18N[lang];
       document.getElementById('langToggle').textContent = lang === 'en' ? 'FR' : 'EN';
-      document.getElementById('welcomeTitle').textContent = strings.welcomeTitle;
-      document.getElementById('welcomeSub').textContent = strings.welcomeSub;
-      document.getElementById('welcomeHint').textContent = strings.welcomeHint;
+      const welcomeTitle = document.getElementById('welcomeTitle');
+      const welcomeSub = document.getElementById('welcomeSub');
+      const welcomeHint = document.getElementById('welcomeHint');
+      if (welcomeTitle) welcomeTitle.textContent = strings.welcomeTitle;
+      if (welcomeSub) welcomeSub.textContent = strings.welcomeSub;
+      if (welcomeHint) welcomeHint.textContent = strings.welcomeHint;
     }
 
     function hashForLang(hash, lang) {
@@ -496,11 +499,9 @@
       const hash = location.hash.slice(1);
       if (hash) {
         const newHash = hashForLang(hash, next);
-        if (newHash !== hash) {
-          location.hash = newHash; // triggers handleHash
-        } else {
-          loadContent(hash);
-        }
+        // Update URL silently then load content
+        history.replaceState(null, '', '#' + newHash);
+        loadContent(newHash);
       }
     });
 

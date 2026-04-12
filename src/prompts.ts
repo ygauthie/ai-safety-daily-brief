@@ -145,15 +145,11 @@ export function dailyRollupPrompt(sections: string, date: string, lang: Lang = "
 
 Today is ${date}. Below are the individual section digests for today. Create a unified daily executive summary in ${lang === "fr" ? "French" : "English"}.
 
-When selecting the Top 3 Developments and Risk Watch items, not all sources carry equal weight. Prioritize developments from higher-credibility sources. In decreasing order of importance:
-1. AISI Updates (official government AI Safety Institute publications and policy actions)
-2. Scientific Journals (peer-reviewed findings from Nature, Science, PNAS, JAIR, etc.)
-3. ArXiv (preprint research — significant but not yet peer-reviewed)
-4. Hacker News (community signal on what practitioners find important)
-5. Blog Posts (expert commentary and analysis)
-6. GitHub Activity (technical developments, lower editorial bar)
+When selecting the Top 3 Developments and Risk Watch items, not all sources carry equal weight. Apply the following principles:
 
-A peer-reviewed finding in Nature outweighs a blog post on the same topic. A government AISI policy action outweighs an ArXiv preprint. Apply this weighting when deciding what rises to the Top 3 or Risk Watch.
+- **Highest priority**: AISI Updates — official government AI Safety Institute publications and policy actions always take precedence.
+- **Lowest priority**: GitHub Activity — only surface if exceptionally significant.
+- **Everything in between**: Rank by a combination of source credibility and the consequentiality of the findings. A peer-reviewed result in Nature or Science carries more weight than an ArXiv preprint on the same topic, which carries more weight than a blog post. But a highly consequential finding from a credible lab's blog (e.g. Anthropic, Apollo Research, METR) may outrank a minor journal article. Prioritize developments that are both credible and impactful for AI safety.
 
 Structure:
 1. **Top 3 Developments**: The single most important things that happened today in AI safety. Each item must include at least one inline markdown link to the original source.

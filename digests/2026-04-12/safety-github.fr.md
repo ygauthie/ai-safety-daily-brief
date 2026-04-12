@@ -1,45 +1,43 @@
-# Activité GitHub (12 avril 2026)
+# Activité GitHub (2026-04-12)
 
 ## Discussions clés
 
-### Méthodologie d'évaluation et fiabilité
+### Problèmes de sécurité et d'évaluation des modèles
 
-La communauté de la sécurité de l'IA est aux prises avec des questions fondamentales sur l'intégrité de l'évaluation. Une discussion stimulante dans [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness/issues/3698) demande si les benchmarks mesurent de véritables capacités ou simplement « l'adaptation à des données ambiguës ». Cela se rattache à plusieurs bugs critiques traités dans les frameworks d'évaluation :
+**Dilution d'instructions dans l'évaluation des LLM** : Le cookbook d'Anthropic a reçu une [pull request significative](https://github.com/anthropics/claude-cookbooks/pull/528) traitant de la dilution d'instructions - un phénomène où les frameworks de raisonnement atteignent ~100% de précision avec des prompts ciblés mais s'effondrent à 0-30% lorsqu'ils sont intégrés dans des environnements de production complexes. Cela met en évidence des lacunes critiques entre les performances de benchmarks et la sécurité de déploiement en conditions réelles.
 
-- Le framework HELM avait des [bugs de correspondance de motifs regex](https://github.com/stanford-crfm/helm/pull/4192) qui renvoyaient des résultats incorrects lors du traitement des sorties de modèles
-- LM Evaluation Harness a découvert que leur [fonction d'agrégation médiane](https://github.com/EleutherAI/lm-evaluation-harness/pull/3696) renvoyait des éléments arbitraires au lieu de véritables médianes
-- Une [erreur de regroupement dans l'évaluation MultiRC](https://github.com/EleutherAI/lm-evaluation-harness/pull/3695) fusionnait silencieusement des questions de contextes différents
+**Bugs dans les frameworks d'évaluation des LLM** : Le harness d'évaluation d'EleutherAI a eu deux corrections critiques - un [bug d'agrégation médiane](https://github.com/EleutherAI/lm-evaluation-harness/pull/3696) qui retournait des éléments arbitraires au lieu de véritables médianes statistiques, et une [erreur de calcul de précision](https://github.com/EleutherAI/lm-evaluation-harness/pull/3695) qui fusionnait silencieusement des questions de contextes différents. Ces bugs soulèvent des questions sur la fiabilité des évaluations de modèles existantes.
 
-Ces problèmes techniques soulignent comment les bugs d'évaluation peuvent systématiquement biaiser notre compréhension des capacités des modèles—une préoccupation critique pour la sécurité de l'IA où l'évaluation précise des capacités guide les décisions de gestion des risques.
+**Effondrement par répétition de tokens de Gemma 4** : Un [rapport de bug préoccupant](https://github.com/google-deepmind/gemma/issues/622) décrit les deux variantes de Gemma 4 présentant un effondrement par répétition au niveau des tokens lors de générations longues, où les modèles se retrouvent bloqués dans des boucles qui consomment tout le budget de génération. Cela suggère des problèmes de sécurité potentiels avec la fiabilité des modèles lors d'interactions prolongées.
 
-### Problèmes de sécurité et de robustesse des modèles
+### Recherche en sécurité de l'IA et gouvernance
 
-Les modèles Gemma 4 de Google DeepMind connaissent un [effondrement inquiétant de répétition de tokens lors de la génération longue](https://github.com/google-deepmind/gemma/issues/622), affectant à la fois les variantes dense 31B et mixture-of-experts 26B. Cela représente un échec de robustesse significatif qui pourrait impacter la sécurité du déploiement, particulièrement dans les applications nécessitant une génération longue fiable.
+**Préoccupations méthodologiques d'évaluation** : Une [discussion stimulante](https://github.com/EleutherAI/lm-evaluation-harness/issues/3698) questionne si les évaluations actuelles mesurent une capacité authentique ou simplement l'adaptation à des données d'entraînement ambiguës, soulevant des questions fondamentales sur la façon dont nous évaluons la sécurité et l'alignment des systèmes d'IA.
 
-Les cookbooks d'Anthropic révèlent un [bug de faux positif dans la notation basée sur LLM](https://github.com/anthropics/claude-cookbooks/issues/497), démontrant comment les systèmes d'évaluation automatisés peuvent échouer de manières subtiles qui pourraient masquer de véritables problèmes de sécurité ou créer une fausse confiance dans les performances du modèle.
+**Conformité basée sur les preuves** : NeMo Guardrails a reçu une [demande de fonctionnalité](https://github.com/NVIDIA-NeMo/Guardrails/issues/1781) pour des artefacts de preuve portables qui pourraient soutenir la conformité avec des réglementations comme l'AI Act de l'UE, soulignant le besoin croissant de systèmes de sécurité IA auditables.
+
+**Vérification d'état déterministe** : QWED-AI développe une [fonctionnalité AgentStateGuard](https://github.com/QWED-AI/qwed-verification/issues/138) pour la vérification déterministe des transitions d'état d'agent et l'exécution atomique, abordant les lacunes critiques dans la prévisibilité et la sécurité du comportement des agents.
 
 ## Outils émergents
 
-### Suivi d'instructions et ingénierie de prompts
+### Outils de développement axés sur la sécurité
 
-Anthropic a publié un [notebook d'évaluation de dilution d'instructions](https://github.com/anthropics/claude-cookbooks/pull/528) complet qui démontre comment les frameworks de raisonnement atteignant une précision quasi-parfaite dans des prompts ciblés peuvent s'effondrer à 0-30% lorsqu'intégrés dans des environnements de production complexes. Cela traite un écart critique entre l'évaluation en laboratoire et les scénarios de déploiement réels.
+**Évaluation de la dilution d'instructions** : Anthropic a publié un [notebook complet](https://github.com/anthropics/claude-cookbooks/pull/528) pour évaluer les effets de dilution d'instructions, fournissant aux chercheurs des outils pour évaluer à quel point les instructions de sécurité maintiennent leur efficacité dans des scénarios de déploiement complexes.
 
-### Frameworks d'agents autonomes
+**Investigation autonome de bugs** : Un nouveau [cookbook d'agents gérés](https://github.com/anthropics/claude-cookbooks/pull/527) démontre des workflows d'investigation de bugs autonomes de bout en bout, montrant comment les agents IA peuvent être déployés en toute sécurité pour des tâches techniques complexes avec un sandboxing approprié.
 
-Plusieurs nouveaux cookbooks d'agents autonomes ont émergé d'Anthropic :
+**Framework TVD personnalisé ISC-Bench** : Le projet ISC-Bench a ajouté des [matériels tutoriels](https://github.com/wuyoscar/ISC-Bench/pull/81) pour construire des scénarios Task+Validator+Data personnalisés, permettant aux chercheurs de créer des évaluations de sécurité spécifiques à un domaine en utilisant de vrais modèles et datasets.
 
-- Un [investigateur autonome de bugs](https://github.com/anthropics/claude-cookbooks/pull/527) qui effectue un triage de bout en bout dans des bacs à sable cloud
-- Un [agent d'enrichissement de renseignements sur les menaces](https://github.com/anthropics/claude-cookbooks/pull/496) pour les applications de cybersécurité
-- Une [documentation des primitives FastMCP](https://github.com/anthropics/claude-cookbooks/pull/510) pour construire des agents avancés utilisant des outils
+### Améliorations de frameworks
 
-Ceux-ci représentent des capacités autonomes de plus en plus sophistiquées qui méritent une attention particulière en matière de sécurité, notamment la capacité de l'investigateur de bugs à exécuter du code arbitraire dans des environnements bac à sable.
+**Migration Pydantic v2 pour NeMo Guardrails** : Une [migration complète](https://github.com/NVIDIA-NeMo/Guardrails/pull/1783) a mis à jour NeMo Guardrails pour utiliser les modèles de validation Pydantic v2 modernes, éliminant les avertissements de dépréciation et améliorant la maintenabilité du framework.
 
-### Améliorations de l'infrastructure d'évaluation
+**Types LLM agnostiques au framework** : NeMo Guardrails développe des [systèmes de types canoniques](https://github.com/NVIDIA-NeMo/Guardrails/pull/1745) pour réduire la dépendance aux frameworks ML spécifiques, rendant les guardrails de sécurité plus portables entre différents environnements de déploiement.
 
-Le lm-evaluation-harness a ajouté le support pour [l'évaluation TyDiQA Gold Passage](https://github.com/EleutherAI/lm-evaluation-harness/pull/3677) dans 11 langues, améliorant l'évaluation des capacités multilingues. De plus, le [support de modalité vidéo](https://github.com/EleutherAI/lm-evaluation-harness/pull/3049) a été ajouté, élargissant l'évaluation au-delà des scénarios textuels uniquement.
-
-Le projet Aider a intégré les [modèles API Kyma](https://github.com/Aider-AI/aider/pull/5019), fournissant l'accès à des modèles open-source via un point de terminaison unifié compatible OpenAI, réduisant potentiellement les barrières à la recherche en sécurité avec diverses architectures de modèles.
+**Systèmes de vérification basés sur PostgreSQL** : Le projet Veritas OS a considérablement étendu son intégration PostgreSQL avec des [tests de contention](https://github.com/veritasfuji-japan/veritas_os/pull/1298), des [métriques d'observabilité](https://github.com/veritasfuji-japan/veritas_os/pull/1299), et une [automatisation de sauvegarde/récupération](https://github.com/veritasfuji-japan/veritas_os/pull/1300), démontrant des approches de niveau entreprise pour la vérification des systèmes IA et les pistes d'audit.
 
 ## Versions notables
 
-Aucune version majeure n'a été identifiée durant cette période, bien que les corrections de bugs des frameworks d'évaluation représentent d'importantes améliorations de stabilité pour l'infrastructure de recherche en sécurité dont de nombreux praticiens dépendent pour une évaluation fiable des capacités.
+**cc-safe-setup v30.0.0** : Publication d'[outils de sécurité complets](https://github.com/yurukusa/cc-safe-setup/releases/tag/v30.0.0) incluant 655 hooks de sécurité, 28 outils web, et un nouvel Hook Gap Analyzer pour identifier les configurations de sécurité manquantes.
+
+**ISC-Bench v0.0.4** : Publication d'une [documentation mise à jour](https://github.com/wuyoscar/ISC-Bench/releases/tag/v0.0.4) avec support multilingue, exemples de walkthrough TVD, et matériels FAQ améliorés pour les chercheurs en sécurité travaillant sur des scénarios d'auto-compromission indirecte.

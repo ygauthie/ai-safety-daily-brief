@@ -5,7 +5,7 @@
     <link>https://ygauthie.github.io/ai-safety-daily-brief/</link>
     <description>Daily AI safety research, policy, and development digest</description>
     <language>en</language>
-    <lastBuildDate>Sun, 12 Apr 2026 09:45:21 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 12 Apr 2026 11:21:12 GMT</lastBuildDate>
     <item>
       <title>AI Safety Daily Brief: Executive Summary — 2026-04-12</title>
       <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-12/safety-daily.fr.md</link>
@@ -14,11 +14,15 @@
       <description>
 ## Top 3 des développements
 
-1. **L'IA "Mythos" d'Anthropic crée une crise de cybersécurité** : [Le nouveau système d'IA Mythos d'Anthropic "fait pencher la balance en faveur des hackers"](https://www.nbcnews.com/tech/security/anthropic-claude-mythos-ai-hackers-cybersecurity-vulnerabilities-rcna273673), provoquant [des réunions urgentes entre le secrétaire au Trésor Bessent, le président de la Fed Powell, et les PDG des principales banques américaines](https://www.cnbc.com/2026/04/10/powell-bessent-us-bank-ceos-anthropic-mythos-ai-cyber.html). Cela représente une percée potentielle en matière de capacités à double usage qui a mobilisé les responsables gouvernementaux pour avertir les institutions financières.
+1. **Réponse gouvernementale de haut niveau aux risques cyber de l'IA** : Le président de la Réserve fédérale Powell et le secrétaire au Trésor Bessent ont [discuté de la menace cyber de Mythos AI d'Anthropic avec les grandes banques américaines](https://www.cnbc.com/2026/04/10/powell-bessent-us-bank-ceos-anthropic-mythos-ai-cyber.html), représentant une coordination sans précédent entre le gouvernement et les dirigeants du secteur financier concernant les capacités d'IA à double usage. Cela signale une préoccupation sérieuse quant au fait que les systèmes d'IA font pencher la dynamique de cybersécurité vers les attaquants.
 
-2. **Le mouvement pour une pause de l'IA fait progresser l'implémentation technique** : [Une nouvelle analyse sur la détection d'opérations d'entraînement distribué illicites](https://www.lesswrong.com/posts/35yyWJnXvC2ae6NKH/catching-illicit-distributed-training-operations-during-an) aborde les défis d'application des accords internationaux de pause de l'IA, tandis qu'un [argument complet en faveur de la pause de l'IA](https://www.lesswrong.com/posts/WtqD9pehq8p83cesT/pausing-ai-is-the-best-answer-to-post-alignment-problems) s'étend au-delà de l'alignment pour traiter des "problèmes post-alignment", incluant le mauvais usage de l'IA et la désautonomisation graduelle.
+2. **MIRI fait progresser le cadre de gouvernance technique** : L'équipe de gouvernance technique de MIRI a publié des propositions détaillées pour [détecter les opérations d'entraînement distribué illicites pendant une pause de l'IA](https://www.lesswrong.com/posts/35yyWJnXvC2ae6NKH/catching-illicit-distributed-training-operations-during-an), se concentrant sur la surveillance des clusters dépassant 16 GPU H100 comme mécanisme d'application pour la coordination internationale du développement de l'IA.
 
-3. **Découverte de défaillances critiques dans l'infrastructure d'évaluation** : Plusieurs bugs sérieux ont été trouvés dans les systèmes d'évaluation de l'IA, notamment [l'agrégation médiane retournant des éléments arbitraires](https://github.com/EleutherAI/lm-evaluation-harness/pull/3696), [des calculs d'erreur standard avec un groupement incorrect](https://github.com/EleutherAI/lm-evaluation-harness/pull/3695), et des preuves que [la dilution d'instructions peut faire s'effondrer les performances du modèle de ~100% à 0-30%](https://github.com/anthropics/claude-cookbooks/pull/528) dans des sc</description>
+3. **Bugs critiques découverts dans l'infrastructure d'évaluation** : Plusieurs frameworks d'évaluation ont révélé des erreurs systématiques pouvant fausser les évaluations de capacités, notamment des [fonctions d'agrégation médiane retournant des éléments arbitraires](https://github.com/EleutherAI/lm-evaluation-harness/pull/3696) dans LM Evaluation Harness et des [bugs de correspondance de motifs regex](https://github.com/stanford-crfm/helm/pull/4192) dans le framework HELM de Stanford—soulignant comment les défaillances techniques peuvent saper les fondements de la recherche en sécurité de l'IA.
+
+## Résumés des sections
+
+**Articles de blog et articles** : Les chercheurs en sécurité de l'IA convergent vers la pause comme intervention privilégiée, avec MIRI développant des [propositions concrètes de surveillance maté</description>
     </item>
     <item>
       <title>AI Safety Daily Brief: Executive Summary — 2026-04-12</title>
@@ -28,15 +32,15 @@
       <description>
 ## Top 3 Developments
 
-1. **Anthropic's "Mythos" AI Creates Cybersecurity Crisis**: [Anthropic's new Mythos AI system is "tipping the scales toward hackers"](https://www.nbcnews.com/tech/security/anthropic-claude-mythos-ai-hackers-cybersecurity-vulnerabilities-rcna273673), prompting [urgent meetings between Treasury Secretary Bessent, Fed Chair Powell, and major US bank CEOs](https://www.cnbc.com/2026/04/10/powell-bessent-us-bank-ceos-anthropic-mythos-ai-cyber.html). This represents a potential dual-use capability breakthrough that has mobilized government officials to warn financial institutions.
+1. **High-Level Government Response to AI Cyber Risks**: Federal Reserve Chair Powell and Treasury Secretary Bessent [discussed Anthropic's Mythos AI cyber threat with major US banks](https://www.cnbc.com/2026/04/10/powell-bessent-us-bank-ceos-anthropic-mythos-ai-cyber.html), representing unprecedented coordination between government and financial sector leaders over dual-use AI capabilities. This signals serious concern about AI systems tipping cybersecurity dynamics toward attackers.
 
-2. **AI Pause Movement Advances Technical Implementation**: [New analysis on detecting illicit distributed training operations](https://www.lesswrong.com/posts/35yyWJnXvC2ae6NKH/catching-illicit-distributed-training-operations-during-an) addresses enforcement challenges for international AI pause agreements, while a [comprehensive argument for AI pausing](https://www.lesswrong.com/posts/WtqD9pehq8p83cesT/pausing-ai-is-the-best-answer-to-post-alignment-problems) expands beyond alignment to address "post-alignment problems" including AI misuse and gradual disempowerment.
+2. **MIRI Advances Technical Governance Framework**: MIRI's Technical Governance Team published detailed proposals for [catching illicit distributed training operations during an AI pause](https://www.lesswrong.com/posts/35yyWJnXvC2ae6NKH/catching-illicit-distributed-training-operations-during-an), focusing on monitoring clusters exceeding 16 H100 GPUs as the enforcement mechanism for international AI development coordination.
 
-3. **Critical Evaluation Infrastructure Failures Discovered**: Multiple serious bugs were found in AI evaluation systems, including [median aggregation returning arbitrary elements](https://github.com/EleutherAI/lm-evaluation-harness/pull/3696), [standard error calculations with incorrect grouping](https://github.com/EleutherAI/lm-evaluation-harness/pull/3695), and evidence that [instruction dilution can collapse model performance from ~100% to 0-30%](https://github.com/anthropics/claude-cookbooks/pull/528) in production scenarios.
+3. **Critical Evaluation Infrastructure Bugs Discovered**: Multiple evaluation frameworks revealed systematic errors that could skew capability assessments, including [median aggregation functions returning arbitrary elements](https://github.com/EleutherAI/lm-evaluation-harness/pull/3696) in LM Evaluation Harness and [regex pattern matching bugs](https://github.com/stanford-crfm/helm/pull/4192) in Stanford's HELM framework—highlighting how technical failures can undermine AI safety research foundations.
 
 ## Section Summaries
 
-**Blog Posts &amp; Articles**: The AI safety community published significant work on AI pause enforcement mechanisms and expanded risk frameworks, with [technical analysis of monitoring distributed training](https://www.lesswrong.com/posts/35yyWJnXvC2ae6NKH/c</description>
+**Blog Posts &amp; Articles**: AI safety researchers are coalescing around pausing as a preferred intervention, with MIRI developing [concrete hardware monitoring proposals](https://www.lesswrong.com/posts/35yyWJnXvC2ae6NKH/catching-illicit-distributed-training-operations-during-an) for pause enforcement and expanded arguments that even aligned AI poses [numerous post-alignment problems](https://www.lesswrong.com/posts/WtqD9pehq8p83cesT/pausing-ai-is-the-best-answer-to-post-alignment-problems) requiring development slo</description>
     </item>
     <item>
       <title>AI Safety Daily Brief: GitHub Activity — 2026-04-12</title>
@@ -44,26 +48,23 @@
       <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-12/safety-github.fr.md</guid>
       <pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate>
       <description>
-## Versions notables
-
-Aucune version majeure n'a été identifiée durant cette période, bien que plusieurs dépôts montrent un développement actif avec des pull requests en cours pour de nouvelles fonctionnalités et des corrections de bugs.
-
 ## Discussions clés
 
-### Fiabilité et méthodologie d'évaluation
+### Méthodologie d'évaluation et fiabilité
 
-La communauté [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness) fait face à des questions fondamentales concernant la validité des évaluations. Une discussion importante a émergé autour de [la question de savoir si les évaluations mesurent une véritable capacité ou une adaptation à des données ambiguës](https://github.com/EleutherAI/lm-evaluation-harness/issues/3698), soulignant des préoccupations selon lesquelles les benchmarks pourraient en partie mesurer comment les modèles s'adaptent à des données d'entraînement probabilistes ou incohérentes plutôt qu'une compréhension véritable.
+La communauté de la sécurité de l'IA est aux prises avec des questions fondamentales sur l'intégrité de l'évaluation. Une discussion stimulante dans [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness/issues/3698) demande si les benchmarks mesurent de véritables capacités ou simplement « l'adaptation à des données ambiguës ». Cela se rattache à plusieurs bugs critiques traités dans les frameworks d'évaluation :
 
-Plusieurs bugs critiques dans les métriques d'évaluation ont été découverts et corrigés :
-- [L'agrégation médiane retournant des éléments arbitraires au lieu de la vraie médiane](https://github.com/EleutherAI/lm-evaluation-harness/pull/3696)
-- [Les calculs d'erreur standard groupant les questions incorrectement](https://github.com/EleutherAI/lm-evaluation-harness/pull/3695), causant une divergence entre les estimations ponctuelles et les barres d'erreur
-- [Bugs de correspondance de motifs regex dans HELM](https://github.com/stanford-crfm/helm/pull/4192) qui retournent des résultats de correspondance incorrects
+- Le framework HELM avait des [bugs de correspondance de motifs regex](https://github.com/stanford-crfm/helm/pull/4192) qui renvoyaient des résultats incorrects lors du traitement des sorties de modèles
+- LM Evaluation Harness a découvert que leur [fonction d'agrégation médiane](https://github.com/EleutherAI/lm-evaluation-harness/pull/3696) renvoyait des éléments arbitraires au lieu de véritables médianes
+- Une [erreur de regroupement dans l'évaluation MultiRC](https://github.com/EleutherAI/lm-evaluation-harness/pull/3695) fusionnait silencieusement des questions de contextes différents
+
+Ces problèmes techniques soulignent comment les bugs d'évaluation peuvent systématiquement biaiser notre compréhension des capacités des modèles—une préoccupation critique pour la sécurité de l'IA où l'évaluation précise des capacités guide les décisions de gestion des risques.
 
 ### Problèmes de sécurité et de robustesse des modèles
 
-Un [rapport de bug préoccupant pour les modèles Gemma 4](https://github.com/google-deepmind/gemma/issues/622) décrit un effondrement de répétition de tokens lors de la génération longue, affectant à la fois les variantes 31B Dense et 26B MoE. Ceci représente un problème de sécurité potentiel pour les déploiements en production nécessitant une génération longue fiable.
+Les modèles Gemma 4 de Google DeepMind connaissent un [effondrement inquiétant de répétition de tokens lors de la génération longue](https://github.com/google-deepmind/gemma/issues/622), affectant à la fois les variantes dense 31B et mixture-of-experts 26B. Cela représente un échec de robustesse significatif qui pourrait impacter la sécurité du déploiement, particulièrement dans les applications nécessitant une génération longue fiable.
 
-Le cookbook d'Anthropic a ide</description>
+Les cookbooks d'Anthropic révèlent un [bug de faux positif dans la notation basée sur LLM](https://github.com/anthropics/</description>
     </item>
     <item>
       <title>AI Safety Daily Brief: GitHub Activity — 2026-04-12</title>
@@ -71,30 +72,29 @@ Le cookbook d'Anthropic a ide</description>
       <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-12/safety-github.md</guid>
       <pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate>
       <description>
-## Notable Releases
-
-No major version releases were identified in this period, though several repositories show active development with ongoing pull requests for new features and bug fixes.
-
 ## Key Discussions
 
-### Evaluation Reliability and Methodology
+### Evaluation Methodology and Reliability
 
-The [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness) community is grappling with fundamental questions about evaluation validity. A significant discussion emerged around [whether evaluations measure true capability or adaptation to ambiguous data](https://github.com/EleutherAI/lm-evaluation-harness/issues/3698), highlighting concerns that benchmarks may partly measure how models adapt to probabilistic or inconsistent training data rather than genuine understanding.
+The AI safety community is grappling with fundamental questions about evaluation integrity. A thought-provoking discussion in the [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness/issues/3698) asks whether benchmarks measure genuine capability or simply "adaptation to ambiguous data." This connects to several critical bugs being addressed in evaluation frameworks:
 
-Several critical bugs in evaluation metrics were discovered and addressed:
-- [Median aggregation returning arbitrary elements instead of true median](https://github.com/EleutherAI/lm-evaluation-harness/pull/3696)
-- [Standard error calculations grouping questions incorrectly](https://github.com/EleutherAI/lm-evaluation-harness/pull/3695), causing disagreement between point estimates and error bars
-- [Regex pattern matching bugs in HELM](https://github.com/stanford-crfm/helm/pull/4192) that return incorrect match results
+- The HELM framework had [regex pattern matching bugs](https://github.com/stanford-crfm/helm/pull/4192) that returned incorrect results when processing model outputs
+- LM Evaluation Harness discovered their [median aggregation function](https://github.com/EleutherAI/lm-evaluation-harness/pull/3696) was returning arbitrary elements instead of actual medians
+- A [grouping error in MultiRC evaluation](https://github.com/EleutherAI/lm-evaluation-harness/pull/3695) was silently merging questions from different contexts
+
+These technical issues highlight how evaluation bugs can systematically skew our understanding of model capabilities—a critical concern for AI safety where accurate capability assessment drives risk management decisions.
 
 ### Model Safety and Robustness Issues
 
-A concerning [bug report for Gemma 4 models](https://github.com/google-deepmind/gemma/issues/622) describes token repetition collapse during long generation, affecting both the 31B Dense and 26B MoE variants. This represents a potential safety issue for production deployments requiring reliable long-form generation.
+Google DeepMind's Gemma 4 models are experiencing concerning [token repetition collapse during long generation](https://github.com/google-deepmind/gemma/issues/622), affecting both the 31B dense and 26B mixture-of-experts variants. This represents a significant robustness failure that could impact deployment safety, particularly in applications requiring reliable long-form generation.
 
-The Anthropic cookbook identified a [false positive bug in LLM-based grading examples](https://github.com/anthropics/claude-cookbooks/issues/497), highlighting the challenges of using LLMs for evaluation and the importance of robust testing frameworks.
+Anthropic's cookbooks reveal a [false positive bug in LLM-based grading](https://github.com/anthropics/claude-cookbooks/issues/497), demonstrating how automated evaluation systems can fail in subtle ways that could mask genuine safety issues or create false confidence in model performance.
+
+## Emerging Tools
 
 ### Instruction Following and Prompt Engineering
 
-A new evaluation notebook for [instruction dilution](htt</description>
+Anthropi</description>
     </item>
     <item>
       <title>AI Safety Daily Brief: Hacker News — 2026-04-12</title>
@@ -104,15 +104,17 @@ A new evaluation notebook for [instruction dilution](htt</description>
       <description>
 ## Sujets brûlants
 
-La communauté de la sécurité de l'IA s'agite autour de cinq développements majeurs cette semaine :
+Les histoires les plus discutées révèlent une consolidation industrielle importante et des préoccupations de sécurité émergentes :
 
-1. **L'IA "Mythos" d'Anthropic suscite des alarmes de cybersécurité** - Plusieurs rapports indiquent que [le nouveau système d'IA Mythos d'Anthropic "fait pencher la balance vers les hackers"](https://www.nbcnews.com/tech/security/anthropic-claude-mythos-ai-hackers-cybersecurity-vulnerabilities-rcna273673), provoquant [des réunions urgentes entre le Secrétaire au Trésor Bessent, le Président de la Fed Powell, et les PDG des grandes banques américaines](https://www.cnbc.com/2026/04/10/powell-bessent-us-bank-ceos-anthropic-mythos-ai-cyber.html). Le [New York Times rapporte que les banques sont mises en garde contre cette "puissante technologie d'IA"](https://www.nytimes.com/2026/04/10/business/anthropic-claude-mythos-preview-banks.html), suggérant des implications significatives en matière de cybersécurité.
+1. **[Cirrus Labs rejoint OpenAI](https://cirruslabs.org/)** (267 points, 128 commentaires) - Une autre acquisition par OpenAI, poursuivant la tendance des grands laboratoires d'IA à absorber de plus petites entreprises spécialisées. Cela reflète la consolidation en cours dans les capacités et talents de l'IA.
 
-2. **OpenAI fait l'acquisition de Cirrus Labs** - [Cirrus Labs a annoncé qu'ils rejoignent OpenAI](https://cirruslabs.org/), générant le plus fort engagement (267 points, 126 commentaires) dans l'ensemble de données. Cette acquisition semble s'inscrire dans les efforts continus d'expansion et de consolidation des talents d'OpenAI.
+2. **[Anthropic a discrètement dégradé le TTL du cache de 1h → 5M le 6 mars](https://github.com/anthropics/claude-code/issues/46829)** (122 points, 99 commentaires) - Un changement d'infrastructure significatif qui semble avoir pris les développeurs au dépourvu, soulevant des questions sur la transparence dans les opérations de services d'IA et la fiabilité pour les systèmes de production.
 
-3. **Anthropic fait face à des revers réglementaires** - [Anthropic a perdu un recours en appel pour suspendre une "étiquette de risque de chaîne d'approvisionnement"](https://www.politico.com/news/2026/04/08/d-c-circuit-rejects-anthropic-plea-to-pause-supply-chain-risk-label-00864880), indiquant un examen réglementaire continu. De plus, la communauté a remarqué qu'[Anthropic a silencieusement réduit le cache TTL de 1 heure à 5 minutes](https://github.com/anthropics/claude-code/issues/46829) sans annonce.
+3. **[Anthropic perd son appel en cour pour suspendre l'étiquette de risque de chaîne d'approvisionnement](https://www.politico.com/news/2026/04/08/d-c-circuit-rejects-anthropic-plea-to-pause-supply-chain-risk-label-00864880)** (21 points, 3 commentaires) - Un développement réglementaire notable où les tribunaux maintiennent les classifications de risque de chaîne d'approvisionnement pour les entreprises d'IA, suggérant un renforcement des cadres de surveillance.
 
-4. **La bataille juridique OpenAI-Musk s'intensifie** - [OpenAI a accusé Elon Musk d'une "embuscade" alors que leur procès à plus de 100 milliards de dollars approche](https://www.bloomberg.com/news/articles/2026-04</description>
+4. **[L'IA fait pencher la balance vers les hackers après la sortie de Mythos](https://www.nbcnews.com/tech/security/anthropic-claude-mythos-ai-hackers-cybersecurity-vulnerabilities-rcna273673)** (15 points, 7 commentaires) - Préoccupations concernant le nouveau système IA Mythos d'Anthropic pouvant potentiellement faciliter des activités cybercriminelles malveillantes, suscitant des discussions avec les dirigeants bancaires.
+
+5. **[Powell, Bessent ont discuté de la menace cyber de l'IA Mythos d'Anthropic avec les grandes banques américaines](https://www.cnbc.com/2026/04/10/powell-bessent-us-bank-ceos-anthropic-mythos-ai-cyber.html)** (7 points) - Coordination go</description>
     </item>
     <item>
       <title>AI Safety Daily Brief: Hacker News — 2026-04-12</title>
@@ -122,17 +124,21 @@ La communauté de la sécurité de l'IA s'agite autour de cinq développements m
       <description>
 ## Hot Topics
 
-The AI safety community is buzzing with five major developments this week:
+The most discussed stories reveal significant industry consolidation and emerging security concerns:
 
-1. **Anthropic's "Mythos" AI Raises Cybersecurity Alarms** - Multiple reports indicate that [Anthropic's new Mythos AI system is "tipping the scales toward hackers"](https://www.nbcnews.com/tech/security/anthropic-claude-mythos-ai-hackers-cybersecurity-vulnerabilities-rcna273673), prompting [urgent meetings between Treasury Secretary Bessent, Fed Chair Powell, and major US bank CEOs](https://www.cnbc.com/2026/04/10/powell-bessent-us-bank-ceos-anthropic-mythos-ai-cyber.html). The [New York Times reports banks are being warned about this "powerful A.I. technology"](https://www.nytimes.com/2026/04/10/business/anthropic-claude-mythos-preview-banks.html), suggesting significant cybersecurity implications.
+1. **[Cirrus Labs to join OpenAI](https://cirruslabs.org/)** (267 points, 128 comments) - Another acquisition by OpenAI, continuing the trend of major AI labs absorbing smaller specialized companies. This reflects the ongoing consolidation in AI capabilities and talent.
 
-2. **OpenAI Acquires Cirrus Labs** - [Cirrus Labs announced they are joining OpenAI](https://cirruslabs.org/), generating the highest engagement (267 points, 126 comments) in the dataset. This acquisition appears to be part of OpenAI's continued expansion and talent consolidation efforts.
+2. **[Anthropic silently downgraded cache TTL from 1h → 5M on March 6th](https://github.com/anthropics/claude-code/issues/46829)** (122 points, 99 comments) - A significant infrastructure change that appears to have caught developers off guard, raising questions about transparency in AI service operations and reliability for production systems.
 
-3. **Anthropic Faces Regulatory Setbacks** - [Anthropic lost an appeals court bid to pause a "supply chain risk label"](https://www.politico.com/news/2026/04/08/d-c-circuit-rejects-anthropic-plea-to-pause-supply-chain-risk-label-00864880), indicating ongoing regulatory scrutiny. Additionally, the community noticed [Anthropic silently downgraded cache TTL from 1 hour to 5 minutes](https://github.com/anthropics/claude-code/issues/46829) without announcement.
+3. **[Anthropic loses appeals court bid to pause supply chain risk label](https://www.politico.com/news/2026/04/08/d-c-circuit-rejects-anthropic-plea-to-pause-supply-chain-risk-label-00864880)** (21 points, 3 comments) - A notable regulatory development where courts are upholding supply chain risk classifications for AI companies, suggesting strengthening oversight frameworks.
 
-4. **OpenAI-Musk Legal Battle Intensifies** - [OpenAI accused Elon Musk of an "ambush" as their $100+ billion trial approaches](https://www.bloomberg.com/news/articles/2026-04-11/openai-accuses-musk-of-ambush-as-100-billion-plus-trial-looms), highlighting ongoing governance and control disputes in the AI industry.
+4. **[AI Is Tipping the Scales Toward Hackers After Mythos Release](https://www.nbcnews.com/tech/security/anthropic-claude-mythos-ai-hackers-cybersecurity-vulnerabilities-rcna273673)** (15 points, 7 comments) - Concerns about Anthropic's new Mythos AI system potentially enabling malicious cyber activities, prompting discussions with banking leadership.
 
-5. **AI Alignment Research Developments** - Anthropic is exploring novel alignment approaches, including [sending Claude to 20 </description>
+5. **[Powell, Bessent discussed Anthropic's Mythos AI cyber threat with major US banks](https://www.cnbc.com/2026/04/10/powell-bessent-us-bank-ceos-anthropic-mythos-ai-cyber.html)** (7 points) - High-level government-industry coordination on AI cyber risks, indicating serious concern about dual-use AI capabilities in critical infrastructure.
+
+## Community Sentiment
+
+The community appears increasingly concerned about **transparency and governance** in AI development. Multiple stories highlight information asymmetries bet</description>
     </item>
     <item>
       <title>AI Safety Daily Brief: Blog Posts — 2026-04-12</title>
@@ -140,19 +146,17 @@ The AI safety community is buzzing with five major developments this week:
       <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-12/safety-rss.fr.md</guid>
       <pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate>
       <description>
-## Principales actualités
+## Actualités principales
 
-### 1. Application de la réglementation sur l'entraînement distribué pendant les pauses dans l'IA
+**[Détecter les opérations d'entraînement distribué illicites pendant une pause de l'IA](https://www.lesswrong.com/posts/35yyWJnXvC2ae6NKH/catching-illicit-distributed-training-operations-during-an)** - L'équipe de gouvernance technique de MIRI continue de développer sa proposition de pause internationale de l'IA, en se concentrant sur la surveillance des clusters disposant d'une puissance de calcul supérieure à 16 GPU H100. L'article explore les mécanismes d'application pour détecter les opérations d'entraînement d'IA non autorisées pendant une période de pause, abordant un défi critique de mise en œuvre pour une gouvernance coordonnée de l'IA.
 
-Un [article sur LessWrong](https://www.lesswrong.com/posts/35yyWJnXvC2ae6NKH/catching-illicit-distributed-training-operations-during-an) examine les défis d'application de l'accord international de pause sur l'IA proposé par MIRI. L'analyse se concentre sur la détection d'opérations d'entraînement distribué illicites qui pourraient contourner l'exigence proposée d'enregistrer tous les clusters dépassant 16 GPU H100. Ce travail de gouvernance technique aborde une lacune critique dans les propositions de pause sur l'IA : comment surveiller et faire appliquer concrètement la conformité aux restrictions de calcul dans différentes juridictions et par différents acteurs.
-
-### 2. Les problèmes post-alignment renforcent l'argument en faveur d'une pause sur l'IA
-
-Un [argument complet en faveur de la pause sur l'IA](https://www.lesswrong.com/posts/WtqD9pehq8p83cesT/pausing-ai-is-the-best-answer-to-post-alignment-problems) s'étend au-delà des préoccupations traditionnelles d'alignment pour englober des risques existentiels plus larges. L'auteur soutient que même si l'alignment de l'IA est résolu, de nombreux "problèmes post-alignment" demeurent non résolus, notamment le mauvais usage de l'IA, les préoccupations de bien-être, le désillusionnement graduel et les risques provenant d'acteurs malveillants. L'article affirme que suspendre le développement de l'IA fournit le temps nécessaire pour aborder ces défis complexes qui pourraient autrement mener à des résultats catastrophiques.
+**[Mettre l'IA en pause est la meilleure réponse aux problèmes post-alignment](https://www.lesswrong.com/posts/WtqD9pehq8p83cesT/pausing-ai-is-the-best-answer-to-post-alignment-problems)** - Cette analyse soutient que même la résolution de l'alignment de l'IA laisse de nombreux « problèmes post-alignment » incluant les risques de mauvaise utilisation, les préoccupations concernant le bien-être de l'IA, l'affaiblissement graduel du pouvoir humain, et le potentiel d'acteurs malveillants. L'auteur affirme que mettre en pause le développement de l'IA offre la meilleure opportunité d'aborder ces défis avant qu'ils ne deviennent insolubles.
 
 ## Arguments clés
 
-**Complexité d'application dans la gouvernance de l'IA** : L'analyse de l'entraînement distribué met en évidence des défis techniques sophistiqués dans la surveillance du développement de l'IA. L'article suggère que détecter les opérations illicites nécessite de comprendre à la fois les signatures computationnelles de l'entraînement à grande échelle et les </description>
+**Gouvernance par surveillance matérielle** : La proposition de gouvernance de MIRI s'appuie sur l'enregistrement et la surveillance des clusters de calcul IA comme mécanisme d'application principal pour une pause internationale de l'IA. Ceci représente un glissement vers des approches de gouvernance basées sur le matériel, traitant le calcul comme le point de contrôle clé pour maîtriser le développement d'IA avancée.
+
+**Taxonomie des risques élargie** : Le cadre des problèmes post-alignment élargit la discussion sur les risques de l'IA au-delà de l'alignment technique pour inclure les risques sociaux, économiques et politiques qui pourraient éme</description>
     </item>
     <item>
       <title>AI Safety Daily Brief: Blog Posts — 2026-04-12</title>
@@ -162,19 +166,17 @@ Un [argument complet en faveur de la pause sur l'IA](https://www.lesswrong.com/p
       <description>
 ## Top Stories
 
-### 1. Distributed Training Enforcement During AI Pauses
+**[Catching illicit distributed training operations during an AI pause](https://www.lesswrong.com/posts/35yyWJnXvC2ae6NKH/catching-illicit-distributed-training-operations-during-an)** - MIRI's Technical Governance Team continues developing their proposal for an international AI pause, focusing on monitoring clusters with computing power exceeding 16 H100 GPUs. The post explores enforcement mechanisms for detecting unauthorized AI training operations during a pause period, addressing a critical implementation challenge for coordinated AI governance.
 
-A [LessWrong post](https://www.lesswrong.com/posts/35yyWJnXvC2ae6NKH/catching-illicit-distributed-training-operations-during-an) examines enforcement challenges for MIRI's proposed international AI pause agreement. The analysis focuses on detecting illicit distributed training operations that could circumvent the proposed requirement to register all clusters exceeding 16 H100 GPUs. This technical governance work addresses a critical gap in AI pause proposals: how to actually monitor and enforce compliance with compute restrictions across different jurisdictions and actors.
-
-### 2. Post-Alignment Problems Strengthen Case for AI Pause
-
-A comprehensive [argument for AI pausing](https://www.lesswrong.com/posts/WtqD9pehq8p83cesT/pausing-ai-is-the-best-answer-to-post-alignment-problems) extends beyond traditional alignment concerns to encompass broader existential risks. The author argues that even if AI alignment is solved, numerous "post-alignment problems" remain unresolved, including AI misuse, welfare concerns, gradual disempowerment, and risks from malevolent actors. The post contends that pausing AI development provides necessary time to address these complex challenges that could otherwise lead to catastrophic outcomes.
+**[Pausing AI Is the Best Answer to Post-Alignment Problems](https://www.lesswrong.com/posts/WtqD9pehq8p83cesT/pausing-ai-is-the-best-answer-to-post-alignment-problems)** - This analysis argues that even solving AI alignment leaves numerous "post-alignment problems" including misuse risks, AI welfare concerns, gradual disempowerment, and potential for malevolent actors. The author contends that pausing AI development provides the best opportunity to address these challenges before they become intractable.
 
 ## Key Arguments
 
-**Enforcement Complexity in AI Governance**: The distributed training analysis highlights sophisticated technical challenges in monitoring AI development. The post suggests that detecting illicit operations requires understanding both the computational signatures of large-scale training and the economic incentives that might drive actors to circumvent regulations.
+**Governance Through Hardware Monitoring**: The MIRI governance proposal relies on registering and monitoring AI compute clusters as the primary enforcement mechanism for an international AI pause. This represents a shift toward hardware-based governance approaches, treating compute as the key chokepoint for controlling advanced AI development.
 
-**Expanded Risk Framework**: The post-alignment problems argument significantly broadens the traditional AI safety discussion. Rather than focusing solely on alignment, it presents a framework where multiple categories of existential risk must be addressed before safe ASI development, including </description>
+**Expanded Risk Taxonomy**: The post-alignment problems framework broadens the AI risk discussion beyond technical alignment to include social, economic, and political risks that could emerge even from well-aligned AI systems. This includes concerns about permanent unemployment, power concentration, and moral error in AI decision-making.
+
+**Pause as Universal Solution**: Both posts converge on AI pausing as the preferred intervention, suggesting growing consensus in parts of the safety community that development speed reduction is necessary re</description>
     </item>
     <item>
       <title>AI Safety Daily Brief: Executive Summary — 2026-04-11</title>

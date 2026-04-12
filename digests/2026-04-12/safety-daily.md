@@ -1,0 +1,23 @@
+# AI Safety Daily Brief (2026-04-12)
+
+## Top 3 Developments
+
+1. **Anthropic's "Mythos" AI Creates Cybersecurity Crisis**: [Anthropic's new Mythos AI system is "tipping the scales toward hackers"](https://www.nbcnews.com/tech/security/anthropic-claude-mythos-ai-hackers-cybersecurity-vulnerabilities-rcna273673), prompting [urgent meetings between Treasury Secretary Bessent, Fed Chair Powell, and major US bank CEOs](https://www.cnbc.com/2026/04/10/powell-bessent-us-bank-ceos-anthropic-mythos-ai-cyber.html). This represents a potential dual-use capability breakthrough that has mobilized government officials to warn financial institutions.
+
+2. **AI Pause Movement Advances Technical Implementation**: [New analysis on detecting illicit distributed training operations](https://www.lesswrong.com/posts/35yyWJnXvC2ae6NKH/catching-illicit-distributed-training-operations-during-an) addresses enforcement challenges for international AI pause agreements, while a [comprehensive argument for AI pausing](https://www.lesswrong.com/posts/WtqD9pehq8p83cesT/pausing-ai-is-the-best-answer-to-post-alignment-problems) expands beyond alignment to address "post-alignment problems" including AI misuse and gradual disempowerment.
+
+3. **Critical Evaluation Infrastructure Failures Discovered**: Multiple serious bugs were found in AI evaluation systems, including [median aggregation returning arbitrary elements](https://github.com/EleutherAI/lm-evaluation-harness/pull/3696), [standard error calculations with incorrect grouping](https://github.com/EleutherAI/lm-evaluation-harness/pull/3695), and evidence that [instruction dilution can collapse model performance from ~100% to 0-30%](https://github.com/anthropics/claude-cookbooks/pull/528) in production scenarios.
+
+## Section Summaries
+
+**Blog Posts & Articles**: The AI safety community published significant work on AI pause enforcement mechanisms and expanded risk frameworks, with [technical analysis of monitoring distributed training](https://www.lesswrong.com/posts/35yyWJnXvC2ae6NKH/catching-illicit-distributed-training-operations-during-an) and [arguments that post-alignment problems require pausing AI development](https://www.lesswrong.com/posts/WtqD9pehq8p83cesT/pausing-ai-is-the-best-answer-to-post-alignment-problems) beyond traditional alignment concerns.
+
+**GitHub Activity**: Critical infrastructure issues emerged across evaluation frameworks, including [bugs in the LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness/issues/3698) questioning whether benchmarks measure true capability or adaptation to ambiguous data, while new [agent development tools](https://github.com/anthropics/claude-cookbooks/pull/527) and [multimodal evaluation capabilities](https://github.com/EleutherAI/lm-evaluation-harness/pull/3049) were released.
+
+**Hacker News**: Community discussions centered on [Anthropic's Mythos cybersecurity implications](https://www.nbcnews.com/tech/security/anthropic-claude-mythos-ai-hackers-cybersecurity-vulnerabilities-rcna273673), [OpenAI's acquisition of Cirrus Labs](https://cirruslabs.org/), and [ongoing regulatory challenges](https://www.politico.com/news/2026/04/08/d-c-circuit-rejects-anthropic-plea-to-pause-supply-chain-risk-label-00864880), with significant concern about transparency and dual-use capabilities.
+
+## Risk Watch
+
+**Increased Risks**: The [Mythos AI system's cybersecurity capabilities](https://www.nbcnews.com/tech/security/anthropic-claude-mythos-ai-hackers-cybersecurity-vulnerabilities-rcna273673) represent a clear escalation in dual-use AI capabilities that has prompted government intervention. Discovery of [critical evaluation bugs](https://github.com/EleutherAI/lm-evaluation-harness/pull/3696) and [instruction dilution effects](https://github.com/anthropics/claude-cookbooks/pull/528) suggests we may be systematically overestimating AI safety and reliability in production deployments.
+
+**Decreased Risks**: The AI safety community is developing more sophisticated governance frameworks, with [concrete enforcement mechanisms for AI pauses](https://www.lesswrong.com/posts/35yyWJnXvC2ae6NKH/catching-illicit-distributed-training-operations-during-an) and [expanded risk assessment beyond alignment](https://www.lesswrong.com/posts/WtqD9pehq8p83cesT/pausing-ai-is-the-best-answer-to-post-alignment-problems). Government officials are taking proactive steps to address AI risks, as evidenced by [high-level meetings with financial institutions](https://www.cnbc.com/2026/04/10/powell-bessent-us-bank-ceos-anthropic-mythos-ai-cyber.html).

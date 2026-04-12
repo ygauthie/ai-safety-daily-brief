@@ -43,11 +43,11 @@ ${data}`;
 export function rssPrompt(data: string, date: string, lang: Lang = "en"): string {
   return `${SYSTEM_ROLE}
 
-Today is ${date}. Below are recent blog posts and articles from AI safety-focused sources.
+Today is ${date}. Below are recent blog posts, articles, and new publications from AI safety-focused sources and major AI organizations (Anthropic, OpenAI, DeepMind, Apollo Research, Epoch AI, etc.).
 
 Produce a structured digest in ${lang === "fr" ? "French" : "English"}:
 
-1. **Top Stories**: The 3-5 most important articles with summaries.
+1. **Top Stories**: The 3-5 most important articles or publications with summaries.
 2. **Key Arguments**: Notable positions or arguments made.
 3. **Community Discussion**: Any debates or disagreements worth noting.
 

@@ -11,7 +11,6 @@ import {
   arxivPrompt,
   githubPrompt,
   rssPrompt,
-  webPrompt,
   hnPrompt,
   aisiPrompt,
   journalPrompt,
@@ -58,9 +57,12 @@ async function main() {
     }),
   ]);
 
+  // Merge org website articles into RSS/blog posts
+  const combinedRssData = [...rssData, ...webData];
+
   console.log(
-    `Fetched: ${arxivData.length} papers, ${rssData.length} articles, ` +
-      `${githubData.length} GitHub items, ${hnData.length} HN stories, ${webData.length} web articles, ` +
+    `Fetched: ${arxivData.length} papers, ${combinedRssData.length} articles (incl. ${webData.length} org updates), ` +
+      `${githubData.length} GitHub items, ${hnData.length} HN stories, ` +
       `${aisiData.length} AISI items, ${journalData.length} journal articles`
   );
 
@@ -72,17 +74,14 @@ async function main() {
     arxivData.length > 0
       ? generateReport(arxivPrompt(JSON.stringify(arxivData, null, 2), date))
       : Promise.resolve(""),
-    rssData.length > 0
-      ? generateReport(rssPrompt(JSON.stringify(rssData, null, 2), date))
+    combinedRssData.length > 0
+      ? generateReport(rssPrompt(JSON.stringify(combinedRssData, null, 2), date))
       : Promise.resolve(""),
     githubData.length > 0
       ? generateReport(githubPrompt(JSON.stringify(githubData, null, 2), date))
       : Promise.resolve(""),
     hnData.length > 0
       ? generateReport(hnPrompt(JSON.stringify(hnData, null, 2), date))
-      : Promise.resolve(""),
-    webData.length > 0
-      ? generateReport(webPrompt(JSON.stringify(webData, null, 2), date))
       : Promise.resolve(""),
     aisiData.length > 0
       ? generateReport(aisiPrompt(JSON.stringify(aisiData, null, 2), date))
@@ -92,7 +91,7 @@ async function main() {
       : Promise.resolve(""),
   ]);
 
-  const [arxivReport, rssReport, githubReport, hnReport, webReport, aisiReport, journalReport] = reports;
+  const [arxivReport, rssReport, githubReport, hnReport, aisiReport, journalReport] = reports;
 
   // Collect English files for translation
   const enFiles: Array<{ filename: string; content: string }> = [];
@@ -120,12 +119,6 @@ async function main() {
     saveReport(date, "safety-hn.md", content);
     enFiles.push({ filename: "safety-hn.md", content });
     sections.push(`## Hacker News\n\n${hnReport}`);
-  }
-  if (webReport) {
-    const content = `# Organization Updates (${date})\n\n${webReport}`;
-    saveReport(date, "safety-web.md", content);
-    enFiles.push({ filename: "safety-web.md", content });
-    sections.push(`## Organization Updates\n\n${webReport}`);
   }
   if (aisiReport) {
     const content = `# AI Safety Institutes (${date})\n\n${aisiReport}`;

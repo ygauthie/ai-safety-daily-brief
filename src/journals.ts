@@ -18,7 +18,11 @@ export async function fetchJournals(): Promise<JournalArticle[]> {
   for (const feed of config.journal_feeds) {
     try {
       const res = await fetch(feed.url, {
-        headers: { "User-Agent": "AI-Safety-Radar/1.0" },
+        headers: {
+          "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+          "Accept": "application/rss+xml, application/xml, text/xml, */*",
+          "Accept-Language": "en-US,en;q=0.9",
+        },
       });
       if (!res.ok) {
         console.error(`Journal RSS fetch failed for ${feed.name}: ${res.status}`);

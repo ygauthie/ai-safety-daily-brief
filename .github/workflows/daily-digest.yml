@@ -26,7 +26,7 @@ jobs:
 
       - run: pnpm install
 
-      - name: Pre-fetch RSS feeds via curl
+      - name: Pre-fetch non-Substack RSS feeds via curl
         run: |
           mkdir -p .feed-cache
           while IFS='|' read -r name url; do
@@ -36,13 +36,8 @@ jobs:
           done <<'FEEDS'
           Alignment Forum|https://www.alignmentforum.org/feed.xml
           LessWrong|https://www.lesswrong.com/feed.xml?view=community-rss&karmaThreshold=30
-          Import AI (Jack Clark)|https://rsshub.app/substack/importai
           Hyperdimensional (Dean Ball)|https://www.hyperdimensional.co/feed
-          Don't Worry About the Vase (Zvi Mowshowitz)|https://rsshub.app/substack/thezvi
-          Marcus on AI (Gary Marcus)|https://rsshub.app/substack/garymarcus
-          The Cognitive Revolution (Nathan Labenz)|https://rsshub.app/substack/cognitiverevolution
           Planned Obsolescence (Ajeya Cotra & Kelsey Piper)|https://www.planned-obsolescence.org/feed
-          Miles Brundage|https://rsshub.app/substack/milesbrundage
           AI Safety Newsletter CAIS|https://newsletter.safe.ai/feed
           AI Summer|https://www.aisummer.org/feed
           AI Safety Governance|https://www.safeai.news/feed

@@ -42,30 +42,49 @@ async function fetchFeedXml(url: string, name: string): Promise<string | null> {
   });
   if (res.ok) return res.text();
 
-  // For Substack feeds blocked by Cloudflare, try RSSHub proxy
-  if (res.status === 403 && url.includes("substack.com")) {
-    console.log(`  ${name}: trying RSSHub proxy...`);
-    return fetchViaRssHub(url, name);
+  // For blocked feeds, try rss2json proxy
+  if (res.status === 403) {
+    console.log(`  ${name}: trying rss2json proxy...`);
+    return fetchViaRss2Json(url, name);
   }
 
   console.error(`RSS fetch failed for ${name}: ${res.status}`);
   return null;
 }
 
-async function fetchViaRssHub(feedUrl: string, name: string): Promise<string | null> {
-  const match = feedUrl.match(/https?:\/\/([^.]+)\.substack\.com/);
-  if (!match) return null;
-
-  const pub = match[1];
-  const rsshubUrl = `https://rsshub.app/substack/${pub}`;
-  const res = await fetch(rsshubUrl);
+async function fetchViaRss2Json(feedUrl: string, name: string): Promise<string | null> {
+  const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`;
+  const res = await fetch(proxyUrl);
   if (!res.ok) {
-    console.error(`  ${name}: RSSHub proxy failed: ${res.status}`);
+    console.error(`  ${name}: rss2json failed: ${res.status}`);
     return null;
   }
 
-  console.log(`  ${name}: fetched via RSSHub`);
-  return res.text();
+  const data = (await res.json()) as {
+    status: string;
+    items?: Array<{
+      title?: string;
+      link?: string;
+      description?: string;
+      pubDate?: string;
+    }>;
+  };
+
+  if (data.status !== "ok" || !data.items?.length) {
+    console.error(`  ${name}: rss2json returned status: ${data.status}`);
+    return null;
+  }
+
+  // Convert JSON back to RSS XML for the existing parser
+  const items = data.items
+    .map((p) => {
+      const esc = (s: string) => (s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;");
+      return `<item><title>${esc(p.title || "")}</title><link>${p.link || ""}</link><description>${esc(p.description || "")}</description><pubDate>${p.pubDate || ""}</pubDate></item>`;
+    })
+    .join("\n");
+
+  console.log(`  ${name}: got ${data.items.length} items via rss2json`);
+  return `<rss><channel>${items}</channel></rss>`;
 }
 
 export async function fetchRssFeeds(): Promise<RssItem[]> {

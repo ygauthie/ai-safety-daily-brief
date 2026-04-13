@@ -21,7 +21,7 @@ async function fetchJournalFeedXml(url: string, name: string): Promise<string | 
 
   if (res.status === 403 || res.status === 401) {
     console.log(`  ${name}: direct fetch blocked (${res.status}), trying proxy...`);
-    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+    const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(url)}`;
     const proxyRes = await fetch(proxyUrl);
     if (proxyRes.ok) return proxyRes.text();
     console.error(`Journal proxy also failed for ${name}: ${proxyRes.status}`);

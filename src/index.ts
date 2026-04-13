@@ -140,7 +140,7 @@ async function main() {
       dailyRollupPrompt(sections.join("\n\n---\n\n"), date),
       6144
     );
-    const dailyContent = `# AI Safety Daily Brief (${date})\n\n${rollup}`;
+    const dailyContent = `# Daily Brief (${date})\n\n${rollup}`;
     saveReport(date, "safety-daily.md", dailyContent);
     enFiles.push({ filename: "safety-daily.md", content: dailyContent });
   } else {

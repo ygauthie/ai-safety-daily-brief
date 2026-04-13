@@ -131,7 +131,7 @@ export function translationPrompt(content: string): string {
 Rules:
 - Preserve all Markdown formatting exactly (headings, bold, links, bullet points, code spans, etc.)
 - Keep all URLs and hyperlinks unchanged
-- Translate headings and titles fully, including document titles like "AI Safety Daily Brief" → "Bulletin quotidien sur la sécurité de l'IA" and "AI Safety Weekly Digest" → "Résumé hebdomadaire sur la sécurité de l'IA"
+- Translate headings and titles fully, including document titles like "Daily Brief" → "Bulletin quotidien" and "AI Safety Weekly Digest" → "Résumé hebdomadaire sur la sécurité de l'IA"
 - Keep technical terms in English when they are widely used as-is in French AI safety discourse (e.g. "alignment", "red teaming", "benchmarks", "fine-tuning", "RLHF")
 - Translate naturally and fluently — do not translate word for word
 - Do not add any commentary, preamble, or explanation — output only the translated Markdown

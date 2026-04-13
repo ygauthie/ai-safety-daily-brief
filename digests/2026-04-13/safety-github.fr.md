@@ -2,46 +2,42 @@
 
 ## Discussions clés
 
-Plusieurs discussions importantes liées à la sécurité ont émergé dans les dépôts d'évaluation et d'alignment :
+Plusieurs discussions importantes ont émergé autour de l'évaluation de l'IA, des pratiques de sécurité et des cadres de gouvernance :
 
-**Qualité et fiabilité des évaluations**
-Le [harness d'évaluation d'EleutherAI](https://github.com/EleutherAI/lm-evaluation-harness/issues/3698) a soulevé une question fondamentale sur la question de savoir si les évaluations mesurent une capacité réelle ou une simple « adaptation à des données ambiguës ». Cela touche aux préoccupations centrales concernant le gaming de benchmarks versus la mesure réelle des progrès dans la recherche en sécurité de l'IA.
+L'équipe d'EleutherAI s'interroge sur des questions fondamentales concernant [l'évaluation qui mesure la capacité ou l'adaptation à des données ambiguës](https://github.com/EleutherAI/lm-evaluation-harness/issues/3698). Cette préoccupation philosophique suggère que les benchmarks peuvent en partie mesurer la façon dont les modèles s'adaptent à des données d'entraînement probabilistes ou incohérentes plutôt que la véritable capacité, soulevant des questions importantes sur la validité des méthodologies d'évaluation actuelles.
 
-Deux bugs critiques ont été identifiés qui pourraient biaiser les évaluations de sécurité : un [bug d'agrégation médiane](https://github.com/EleutherAI/lm-evaluation-harness/pull/3696) qui retournait des éléments arbitraires au lieu de vraies médianes statistiques, et un [crash BigBench](https://github.com/EleutherAI/lm-evaluation-harness/pull/3702) sur des tâches à format mixte qui pourrait empêcher une couverture d'évaluation complète.
+Un bug critique dans le framework d'évaluation a été identifié où la [fonction d'agrégation médiane retourne des éléments arbitraires au lieu de médianes statistiques](https://github.com/EleutherAI/lm-evaluation-harness/pull/3696), affectant potentiellement les conclusions de recherche qui s'appuient sur des métriques basées sur la médiane.
 
-**Robustesse des modèles et cas d'échec**
-Un schéma préoccupant a émergé dans le modèle Gemma de Google DeepMind, où [Gemma 4 26B identifie constamment mal les causes racines de crash](https://github.com/google-deepmind/gemma/issues/621) dans les sorties WinDbg, se concentrant sur des avertissements bénins plutôt que sur les sources réelles de crash. Cela souligne des problèmes potentiels de fiabilité dans les scénarios de débogage critiques pour la sécurité.
-
-Le projet HELM de Stanford a corrigé un [bug de métrique de robustesse](https://github.com/stanford-crfm/helm/pull/4193) où des problèmes de précédence d'opérateur pouvaient complètement ignorer d'importantes vérifications de robustesse.
-
-**Suivi d'instructions et dilution**
-Le cookbook d'Anthropic inclut maintenant une [évaluation de dilution d'instructions](https://github.com/anthropics/claude-cookbooks/pull/528) démontrant comment les frameworks de raisonnement peuvent s'effondrer de ~100% de précision dans des prompts focalisés à 0-30% dans des environnements de production complexes—une préoccupation critique de sécurité pour les systèmes déployés.
-
-## Versions notables
-
-**µHALO v0.1.0-dev : Détection d'hallucinations**
-[XwhyZ-WHYLD a publié µHALO](https://github.com/XwhyZ-WHYLD/hfr0-muhalo/releases/tag/v0.1.0-dev), un outil de recherche pour la détection d'hallucinations à l'exécution utilisant l'analyse de dérive temporelle inter-tokens. Le système introduit un Indice de Dérive d'Hallucination (HDI) avec un échafaudage d'évaluation pour les benchmarks TruthfulQA et HotpotQA.
-
-**ISC-Bench v0.0.4 : Framework d'évaluation de sécurité**
-Le [benchmark ISC-Bench](https://github.com/wuyoscar/ISC-Bench/releases/tag/v0.0.4) s'est élargi avec un support multilingue et une documentation améliorée pour la Détection de Valeur au Moment du Test (TVD), incluant des exemples d'intégration LlamaGuard et des méthodes d'évaluation de sécurité basées sur la conversation.
+Le développement du cookbook d'Anthropic révèle des tendances émergentes dans l'autonomie des agents et l'évaluation. Un nouveau [notebook d'évaluation de la dilution d'instructions](https://github.com/anthropics/anthropic-cookbook/pull/528) démontre comment les cadres de raisonnement peuvent s'effondrer d'une précision de ~100% dans des prompts ciblés à 0-30% dans des environnements de production complexes - une découverte préoccupante pour la sécurité du déploiement en conditions réelles.
 
 ## Outils émergents
 
-**Infrastructure de sécurité IA d'entreprise**
-[Cordum a publié des fonctionnalités d'entreprise complètes](https://github.com/cordum-io/cordum/pull/185) incluant SSO SAML/OIDC, provisioning SCIM, RBAC, export SIEM, et capacités de conservation légale—critiques pour les déploiements de sécurité IA d'entreprise nécessitant des pistes d'audit et des contrôles d'accès.
+### Évaluation et analyse de sécurité
 
-Un ajout significatif sont les [modes d'échec configurables par tenant](https://github.com/cordum-io/cordum/pull/187), permettant aux tenants de production de maintenir des postures de sécurité fail-closed tandis que les environnements de développement peuvent opérer en fail-open.
+Le lm-evaluation-harness a bénéficié d'un [support natif du Tensor Parallelism pour les modèles Hugging Face](https://github.com/EleutherAI/lm-evaluation-harness/pull/3692), permettant une évaluation plus efficace des grands modèles. De plus, [CRUXEval a été ajouté](https://github.com/EleutherAI/lm-evaluation-harness/pull/3699) - un benchmark de 800 fonctions Python testant les capacités de raisonnement bidirectionnel de code.
 
-**Découplage de framework et fiabilité**
-NeMo Guardrails de NVIDIA subit un changement architectural majeur pour [se découpler des dépendances LangChain](https://github.com/NVIDIA-NeMo/Guardrails/pull/1759), introduisant des types agnostiques au framework et des patterns d'adaptateur. Cela améliore la fiabilité et réduit le vendor lock-in pour les déploiements de guardrails critiques pour la sécurité.
+Une [version de recherche µHALO v0.1.0-dev spécialisée](https://github.com/XwhyZ-WHYLD/hfr0-muhalo/releases/tag/v0.1.0-dev) introduit la détection d'hallucinations à l'exécution via l'analyse de la dérive temporelle inter-tokens, offrant une approche novatrice pour identifier l'incertitude du modèle pendant l'inférence.
 
-Le projet a aussi [migré de Pydantic v1 vers v2](https://github.com/NVIDIA-NeMo/Guardrails/pull/1783), éliminant les avertissements de dépréciation et améliorant la validation de sécurité des types.
+### Sécurité des agents et gouvernance
 
-**Outils avancés de sécurité d'agents**
-Le cookbook d'Anthropic s'est élargi avec plusieurs frameworks d'agents pertinents pour la sécurité :
-- [Enquêteur autonome de bugs](https://github.com/anthropics/claude-cookbooks/pull/527) pour des workflows de débogage de bout en bout
-- [Agent d'enrichissement de renseignement sur les menaces](https://github.com/anthropics/claude-cookbooks/pull/496) pour le recoupement de données IoC à travers plusieurs sources
-- [Intégration de renseignement sur les médias sociaux](https://github.com/anthropics/claude-cookbooks/pull/529) avec des capacités d'analyse de sentiment structurée
+Anthropic a publié plusieurs cookbooks axés sur les agents, notamment un [investigateur autonome de bugs](https://github.com/anthropics/anthropic-cookbook/pull/527) et un [agent d'enrichissement de threat intelligence](https://github.com/anthropics/anthropic-cookbook/pull/496), démontrant des capacités autonomes avancées qui nécessitent des considérations de sécurité attentives.
 
-**Améliorations de l'infrastructure d'évaluation**
-Le LM Evaluation Harness a ajouté le [support natif du parallélisme tensoriel](https://github.com/EleutherAI/lm-evaluation-harness/pull/3692) pour les modèles Hugging Face et [l'intégration CRUXEval](https://github.com/EleutherAI/lm-evaluation-harness/pull/3699) pour l'évaluation du raisonnement de code Python, améliorant à la fois les performances et la couverture pour les tâches d'analyse de code pertinentes pour la sécurité.
+L'[ISC-Bench v0.0.4](https://github.com/wuyoscar/ISC-Bench/releases/tag/v0.0.4) fournit une documentation améliorée pour la Trustworthy Value Detection (TVD) avec des exemples pratiques d'intégration LlamaGuard, soutenant des workflows de modération de contenu plus sûrs.
+
+Le projet Guardrails de NVIDIA poursuit son [effort de découplage de LangChain](https://github.com/NVIDIA-NeMo/Guardrails/pull/1759) avec des adaptateurs LLM agnostiques au framework, réduisant le verrouillage fournisseur tout en maintenant les contrôles de sécurité.
+
+### Détection de risques novateurs
+
+Plusieurs dépôts ont introduit des mécanismes de sécurité innovants :
+
+- [Assainissement de score booléen](https://github.com/veritasfuji-japan/veritas_os/pull/1321) empêche la manipulation silencieuse de classement dans les systèmes de décision
+- [Normalisation de valeurs non-finies](https://github.com/veritasfuji-japan/veritas_os/pull/1318) durcit la sérialisation JSON contre les attaques NaN/Infinity
+- [Durcissement de protection contre la réutilisation de nonce](https://github.com/veritasfuji-japan/veritas_os/pull/1317) empêche le contournement de sécurité via des remplacements serveur non-positifs
+
+## Versions notables
+
+La [version µHALO v0.1.0-dev](https://github.com/XwhyZ-WHYLD/hfr0-muhalo/releases/tag/v0.1.0-dev) se distingue comme une contribution novatrice à la sécurité à l'exécution, fournissant une implémentation HDI (Hallucination Drift Index) avec un échafaudage d'évaluation TruthfulQA et HotpotQA.
+
+[ISC-Bench v0.0.4](https://github.com/wuyoscar/ISC-Bench/releases/tag/v0.0.4) a amélioré ses capacités d'évaluation de sécurité avec un support multilingue, des méthodes de personnalisation TVD, et un scoring d'intégrité basé sur la conversation - précieux pour la conformité internationale en sécurité de l'IA.
+
+L'écosystème d'évaluation a vu des améliorations de fiabilité incrémentales mais importantes, avec des corrections de bugs dans [la gestion du format mixte BigBench](https://github.com/EleutherAI/lm-evaluation-harness/pull/3702) et [la gestion des séquences d'arrêt des modèles de raisonnement](https://github.com/EleutherAI/lm-evaluation-harness/pull/3700) pour l'intégration vLLM.

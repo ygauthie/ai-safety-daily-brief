@@ -42,48 +42,30 @@ async function fetchFeedXml(url: string, name: string): Promise<string | null> {
   });
   if (res.ok) return res.text();
 
-  // For Substack feeds, try the JSON API as fallback
+  // For Substack feeds blocked by Cloudflare, try RSSHub proxy
   if (res.status === 403 && url.includes("substack.com")) {
-    console.log(`  ${name}: trying Substack API fallback...`);
-    return fetchSubstackApi(url, name);
+    console.log(`  ${name}: trying RSSHub proxy...`);
+    return fetchViaRssHub(url, name);
   }
 
   console.error(`RSS fetch failed for ${name}: ${res.status}`);
   return null;
 }
 
-async function fetchSubstackApi(feedUrl: string, name: string): Promise<string | null> {
-  // Extract publication subdomain from feed URL
+async function fetchViaRssHub(feedUrl: string, name: string): Promise<string | null> {
   const match = feedUrl.match(/https?:\/\/([^.]+)\.substack\.com/);
   if (!match) return null;
 
   const pub = match[1];
-  const apiUrl = `https://${pub}.substack.com/api/v1/archive?sort=new&limit=12&offset=0`;
-  const res = await fetch(apiUrl);
+  const rsshubUrl = `https://rsshub.app/substack/${pub}`;
+  const res = await fetch(rsshubUrl);
   if (!res.ok) {
-    console.error(`  ${name}: Substack API also failed: ${res.status}`);
+    console.error(`  ${name}: RSSHub proxy failed: ${res.status}`);
     return null;
   }
 
-  const posts = (await res.json()) as Array<{
-    title?: string;
-    subtitle?: string;
-    canonical_url?: string;
-    post_date?: string;
-    description?: string;
-  }>;
-
-  // Convert to RSS XML so the existing parser can handle it
-  const items = posts
-    .map((p) => {
-      const desc = (p.subtitle || p.description || "").replace(/&/g, "&amp;").replace(/</g, "&lt;");
-      const title = (p.title || "").replace(/&/g, "&amp;").replace(/</g, "&lt;");
-      return `<item><title>${title}</title><link>${p.canonical_url || ""}</link><description>${desc}</description><pubDate>${p.post_date || ""}</pubDate></item>`;
-    })
-    .join("\n");
-
-  console.log(`  ${name}: got ${posts.length} posts from Substack API`);
-  return `<rss><channel>${items}</channel></rss>`;
+  console.log(`  ${name}: fetched via RSSHub`);
+  return res.text();
 }
 
 export async function fetchRssFeeds(): Promise<RssItem[]> {

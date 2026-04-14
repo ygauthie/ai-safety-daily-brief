@@ -13,6 +13,7 @@ export interface HnStory {
 export async function fetchHackerNews(): Promise<HnStory[]> {
   const config = loadConfig();
   const since = Math.floor(daysAgo(1).getTime() / 1000);
+  const minPoints = config.hn_keywords.min_points || 0;
   const allStories: HnStory[] = [];
 
   const fetches = config.hn_keywords.keywords.map(async (keyword) => {
@@ -56,6 +57,7 @@ export async function fetchHackerNews(): Promise<HnStory[]> {
       seen.add(key);
       return true;
     })
+    .filter((s) => s.points >= minPoints)
     .sort((a, b) => b.points - a.points)
     .slice(0, 30);
 }

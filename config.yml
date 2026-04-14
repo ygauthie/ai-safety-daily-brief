@@ -247,6 +247,7 @@ aisi_websites:
 # Hacker News search keywords
 hn_keywords:
   tier: 3
+  min_points: 20
   keywords:
     - activation steering
     - adversarial robustness

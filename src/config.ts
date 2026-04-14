@@ -41,6 +41,7 @@ export interface Config {
   aisi_websites: AisiWebsite[];
   hn_keywords: {
     tier?: Tier;
+    min_points?: number;
     keywords: string[];
   };
   languages: string[];

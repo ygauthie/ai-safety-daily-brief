@@ -7,15 +7,17 @@ IMPORTANT formatting rules:
 - Start directly with ## subsections or content.
 - ALWAYS hyperlink to original sources. Every paper, article, blog post, repo, or discussion you mention must include a markdown link to the original URL. Use inline links like [Title](url).`;
 
-export function arxivPrompt(data: string, date: string, lang: Lang = "en"): string {
+export function researchPrompt(data: string, date: string, lang: Lang = "en"): string {
   return `${SYSTEM_ROLE}
 
-Today is ${date}. Below are recent ArXiv papers related to AI safety.
+Today is ${date}. Below are recent AI safety research papers from two sources:
+- **ArXiv preprints** [Tier 2]: Not yet peer-reviewed, but the primary venue for AI safety research.
+- **Peer-reviewed journal articles** [Tier 1]: Published in Nature, Science, PNAS, Nature Machine Intelligence, and other journals. These carry higher credibility.
 
-Analyze these papers and produce a structured digest in ${lang === "fr" ? "French" : "English"}:
+Produce a unified research digest in ${lang === "fr" ? "French" : "English"}:
 
-1. **Key Papers**: Highlight the 5-10 most significant papers with a 2-3 sentence summary of each. Each summary should conclude with what this means for AI safety practitioners building safer systems or policymakers crafting regulation — not just what the paper does.
-2. **Trends**: Identify emerging themes or research directions.
+1. **Key Papers**: Highlight the 5-10 most significant papers. Lead with peer-reviewed articles when available — they take precedence over preprints on the same topic. Each summary should be 2-3 sentences and conclude with what this means for AI safety practitioners building safer systems or policymakers crafting regulation.
+2. **Trends**: Identify emerging themes or research directions across both preprints and published work.
 
 Format as clean Markdown. Include paper titles as links.
 
@@ -23,83 +25,20 @@ DATA:
 ${data}`;
 }
 
-export function githubPrompt(data: string, date: string, lang: Lang = "en"): string {
+export function analysisPolicyPrompt(data: string, date: string, lang: Lang = "en"): string {
   return `${SYSTEM_ROLE}
 
-Today is ${date}. Below is recent GitHub activity from AI safety-related repositories.
+Today is ${date}. Below are recent articles, blog posts, and policy updates from multiple source types:
+- **AI Safety Institute updates** [Tier 1]: Official government publications and policy actions. Highest priority.
+- **Think tank & policy org publications** [Tier 1]: Georgetown CSET, RAND, Ada Lovelace Institute, AI Now Institute.
+- **AI lab blogs & research org updates** [Tier 2]: Anthropic, OpenAI, DeepMind, Apollo Research, Epoch AI, METR, ARC, MIRI, Conjecture, IAPS, FLI.
+- **Expert newsletters & community forums** [Tier 2]: Import AI, AI Snake Oil, Interconnects, Alignment Forum, and others.
 
-Produce a structured digest in ${lang === "fr" ? "French" : "English"}:
+Produce a unified analysis & policy digest in ${lang === "fr" ? "French" : "English"}:
 
-1. **Notable Releases**: New versions or significant releases. For each, note what it enables practitioners to do that they couldn't before.
-2. **Key Discussions**: Important issues or PRs related to safety, alignment, or governance.
-3. **Emerging Tools**: New tools or frameworks. For each, briefly state who should use it and for what.
-
-Format as clean Markdown with links.
-
-DATA:
-${data}`;
-}
-
-export function rssPrompt(data: string, date: string, lang: Lang = "en"): string {
-  return `${SYSTEM_ROLE}
-
-Today is ${date}. Below are recent blog posts, articles, and new publications from AI safety-focused sources and major AI organizations (Anthropic, OpenAI, DeepMind, Apollo Research, Epoch AI, etc.).
-
-Produce a structured digest in ${lang === "fr" ? "French" : "English"}:
-
-1. **Top Stories**: The 3-5 most important articles or publications. Each summary should end with what this means for practitioners deploying AI systems or policymakers shaping governance.
-2. **Key Arguments**: Notable positions or arguments made, and what they imply for the field.
-3. **Community Discussion**: Any debates or disagreements worth noting.
-
-Format as clean Markdown with links to original articles.
-
-DATA:
-${data}`;
-}
-
-export function webPrompt(data: string, date: string, lang: Lang = "en"): string {
-  return `${SYSTEM_ROLE}
-
-Today is ${date}. Below are new publications from major AI organizations (Anthropic, OpenAI, DeepMind, etc.).
-
-Produce a structured digest in ${lang === "fr" ? "French" : "English"}:
-
-1. **Organization Updates**: Group by organization. Summarize each new publication.
-2. **Safety Implications**: For each update, note any AI safety relevance.
-3. **Cross-Organization Themes**: Any common themes across organizations.
-
-Format as clean Markdown with links.
-
-DATA:
-${data}`;
-}
-
-export function hnPrompt(data: string, date: string, lang: Lang = "en"): string {
-  return `${SYSTEM_ROLE}
-
-Today is ${date}. Below are recent Hacker News discussions related to AI safety.
-
-Produce a structured digest in ${lang === "fr" ? "French" : "English"}:
-
-1. **Hot Topics**: The top 5 most discussed stories with context.
-2. **Community Sentiment**: General tone and notable perspectives.
-3. **Links Worth Reading**: Stories that link to particularly valuable content.
-
-Format as clean Markdown with links.
-
-DATA:
-${data}`;
-}
-
-export function aisiPrompt(data: string, date: string, lang: Lang = "en"): string {
-  return `${SYSTEM_ROLE}
-
-Today is ${date}. Below is recent activity from national AI Safety Institutes around the world (US AISI/NIST, UK AISI, Canada CAISI, Japan J-AISI, Singapore AISI, European AI Office, Korea AISI).
-
-Produce a structured digest in ${lang === "fr" ? "French" : "English"}:
-
-1. **Institute Updates**: Group by institute. Summarize any new publications, announcements, guidelines, or policy actions. For each, note concrete implications — what practitioners may need to comply with, prepare for, or adopt.
-2. **Policy Implications**: How these developments affect global AI safety governance and what organizations should do in response.
+1. **Policy & Governance**: Any AISI updates, regulatory developments, or think tank publications. For each, note concrete implications — what practitioners may need to comply with, prepare for, or adopt. If no policy updates exist today, omit this subsection.
+2. **Top Stories**: The 3-5 most important articles or publications from labs, research orgs, and expert commentators. Each summary should end with what this means for practitioners deploying AI systems or policymakers shaping governance.
+3. **Key Arguments**: Notable positions or arguments made, and what they imply for the field.
 
 Format as clean Markdown with links to original sources.
 
@@ -107,16 +46,20 @@ DATA:
 ${data}`;
 }
 
-export function journalPrompt(data: string, date: string, lang: Lang = "en"): string {
+export function communityToolsPrompt(data: string, date: string, lang: Lang = "en"): string {
   return `${SYSTEM_ROLE}
 
-Today is ${date}. Below are recent articles from peer-reviewed scientific and AI journals that are relevant to AI safety.
+Today is ${date}. Below are recent community discussions and open-source activity related to AI safety:
+- **Hacker News discussions** [Tier 3]: Filtered for AI safety relevance, minimum 20 points.
+- **GitHub activity** [Tier 3]: Releases, issues, and PRs from AI safety repositories.
 
-Produce a structured digest in ${lang === "fr" ? "French" : "English"}:
+Produce a unified community & tools digest in ${lang === "fr" ? "French" : "English"}:
 
-1. **Key Articles**: Highlight the most significant articles with a 2-3 sentence summary of each. Each summary should cover findings and conclude with what this means for practitioners or policymakers — not just restate the methodology.
+1. **Notable Releases & Tools**: New versions or significant releases. For each, note what it enables practitioners to do that they couldn't before. Include new tools or frameworks, stating who should use them and for what.
+2. **Key Discussions**: The top 3-5 most discussed stories or important GitHub issues/PRs. Summarize the discussion and why it matters.
+3. **Community Sentiment**: General tone and notable perspectives across HN and GitHub.
 
-Format as clean Markdown with links to original articles.
+Format as clean Markdown with links.
 
 DATA:
 ${data}`;

@@ -42,12 +42,17 @@ function main() {
   const labelMap: Record<string, string> = {
     "safety-daily": "Executive Summary",
     "safety-weekly": "Weekly Summary",
+    "safety-research": "Research Papers",
+    "safety-analysis": "Analysis & Policy",
+    "safety-community": "Community & Tools",
+    // Legacy labels for older digests
     "safety-arxiv": "ArXiv Papers",
     "safety-github": "GitHub Activity",
     "safety-rss": "Blog Posts",
     "safety-web": "Org Updates",
     "safety-aisi": "AI Safety Institutes",
     "safety-hn": "Hacker News",
+    "safety-journals": "Journal Articles",
   };
 
   function fileLabel(filename: string): string {

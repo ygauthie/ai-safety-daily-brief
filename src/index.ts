@@ -8,12 +8,9 @@ import { fetchWebsites } from "./web.js";
 import { fetchAisi } from "./aisi.js";
 import { fetchJournals } from "./journals.js";
 import {
-  arxivPrompt,
-  githubPrompt,
-  rssPrompt,
-  hnPrompt,
-  aisiPrompt,
-  journalPrompt,
+  researchPrompt,
+  analysisPolicyPrompt,
+  communityToolsPrompt,
   dailyRollupPrompt,
 } from "./prompts.js";
 import { generateReport, translateReport, saveReport } from "./report.js";
@@ -57,80 +54,55 @@ async function main() {
     }),
   ]);
 
-  // Merge org website articles into RSS/blog posts
-  const combinedRssData = [...rssData, ...webData];
+  // Merge data into 3 groups
+  const researchData = [...arxivData.map((d) => ({ ...d, _source: "arxiv" })), ...journalData.map((d) => ({ ...d, _source: "journal" }))];
+  const analysisPolicyData = [...rssData, ...webData, ...aisiData.map((d) => ({ source: d.institute, title: d.title, link: d.url, description: d.excerpt, pubDate: "", _source: "aisi" }))];
+  const communityToolsData = [...hnData.map((d) => ({ ...d, _source: "hn" })), ...githubData.map((d) => ({ ...d, _source: "github" }))];
 
   console.log(
-    `Fetched: ${arxivData.length} papers, ${combinedRssData.length} articles (incl. ${webData.length} org updates), ` +
-      `${githubData.length} GitHub items, ${hnData.length} HN stories, ` +
-      `${aisiData.length} AISI items, ${journalData.length} journal articles`
+    `Fetched: ${arxivData.length} papers, ${journalData.length} journal articles, ` +
+      `${rssData.length + webData.length} blog/org articles, ${aisiData.length} AISI items, ` +
+      `${hnData.length} HN stories, ${githubData.length} GitHub items`
   );
 
-  // Phase 2: Generate English reports
+  // Phase 2: Generate English reports (3 sections in parallel)
   console.log("\nGenerating English reports...");
   const sections: string[] = [];
 
   const reports = await Promise.all([
-    arxivData.length > 0
-      ? generateReport(arxivPrompt(JSON.stringify(arxivData, null, 2), date))
+    researchData.length > 0
+      ? generateReport(researchPrompt(JSON.stringify(researchData, null, 2), date))
       : Promise.resolve(""),
-    combinedRssData.length > 0
-      ? generateReport(rssPrompt(JSON.stringify(combinedRssData, null, 2), date))
+    analysisPolicyData.length > 0
+      ? generateReport(analysisPolicyPrompt(JSON.stringify(analysisPolicyData, null, 2), date))
       : Promise.resolve(""),
-    githubData.length > 0
-      ? generateReport(githubPrompt(JSON.stringify(githubData, null, 2), date))
-      : Promise.resolve(""),
-    hnData.length > 0
-      ? generateReport(hnPrompt(JSON.stringify(hnData, null, 2), date))
-      : Promise.resolve(""),
-    aisiData.length > 0
-      ? generateReport(aisiPrompt(JSON.stringify(aisiData, null, 2), date))
-      : Promise.resolve(""),
-    journalData.length > 0
-      ? generateReport(journalPrompt(JSON.stringify(journalData, null, 2), date))
+    communityToolsData.length > 0
+      ? generateReport(communityToolsPrompt(JSON.stringify(communityToolsData, null, 2), date))
       : Promise.resolve(""),
   ]);
 
-  const [arxivReport, rssReport, githubReport, hnReport, aisiReport, journalReport] = reports;
+  const [researchReport, analysisPolicyReport, communityToolsReport] = reports;
 
   // Collect English files for translation
   const enFiles: Array<{ filename: string; content: string }> = [];
 
-  if (arxivReport) {
-    const content = `# ArXiv - AI Safety Papers (${date})\n\n${arxivReport}`;
-    saveReport(date, "safety-arxiv.md", content);
-    enFiles.push({ filename: "safety-arxiv.md", content });
-    sections.push(`## ArXiv Papers [Tier 2]\n\n${arxivReport}`);
+  if (researchReport) {
+    const content = `# Research Papers (${date})\n\n${researchReport}`;
+    saveReport(date, "safety-research.md", content);
+    enFiles.push({ filename: "safety-research.md", content });
+    sections.push(`## Research Papers [Tier 1-2]\n\n${researchReport}`);
   }
-  if (rssReport) {
-    const content = `# Blog Posts & Articles (${date})\n\n${rssReport}`;
-    saveReport(date, "safety-rss.md", content);
-    enFiles.push({ filename: "safety-rss.md", content });
-    sections.push(`## Blog Posts & Articles [Tier 2]\n\n${rssReport}`);
+  if (analysisPolicyReport) {
+    const content = `# Analysis & Policy (${date})\n\n${analysisPolicyReport}`;
+    saveReport(date, "safety-analysis.md", content);
+    enFiles.push({ filename: "safety-analysis.md", content });
+    sections.push(`## Analysis & Policy [Tier 1-2]\n\n${analysisPolicyReport}`);
   }
-  if (githubReport) {
-    const content = `# GitHub Activity (${date})\n\n${githubReport}`;
-    saveReport(date, "safety-github.md", content);
-    enFiles.push({ filename: "safety-github.md", content });
-    sections.push(`## GitHub Activity [Tier 3]\n\n${githubReport}`);
-  }
-  if (hnReport) {
-    const content = `# Hacker News Discussions (${date})\n\n${hnReport}`;
-    saveReport(date, "safety-hn.md", content);
-    enFiles.push({ filename: "safety-hn.md", content });
-    sections.push(`## Hacker News [Tier 3]\n\n${hnReport}`);
-  }
-  if (aisiReport) {
-    const content = `# AI Safety Institutes (${date})\n\n${aisiReport}`;
-    saveReport(date, "safety-aisi.md", content);
-    enFiles.push({ filename: "safety-aisi.md", content });
-    sections.push(`## AI Safety Institutes [Tier 1]\n\n${aisiReport}`);
-  }
-  if (journalReport) {
-    const content = `# Journal Articles (${date})\n\n${journalReport}`;
-    saveReport(date, "safety-journals.md", content);
-    enFiles.push({ filename: "safety-journals.md", content });
-    sections.push(`## Journal Articles [Tier 1]\n\n${journalReport}`);
+  if (communityToolsReport) {
+    const content = `# Community & Tools (${date})\n\n${communityToolsReport}`;
+    saveReport(date, "safety-community.md", content);
+    enFiles.push({ filename: "safety-community.md", content });
+    sections.push(`## Community & Tools [Tier 3]\n\n${communityToolsReport}`);
   }
 
   // Phase 3: Generate daily rollup

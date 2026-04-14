@@ -84,6 +84,9 @@ journal_feeds:
     url: https://link.springer.com/search.rss?facet-journal-id=146&query=
   - name: Ethics and Information Technology
     url: https://link.springer.com/search.rss?facet-journal-id=10676&query=
+  # Think tanks (keyword-filtered)
+  - name: RAND Corporation
+    url: https://www.rand.org/pubs/articles.xml
 
 # RSS feeds to monitor
 rss_feeds:
@@ -127,6 +130,8 @@ rss_feeds:
     url: https://cset.georgetown.edu/feed/
   - name: AI Now Institute
     url: https://ainowinstitute.org/feed
+  - name: Ada Lovelace Institute
+    url: https://www.adalovelaceinstitute.org/feed/
 
 # Websites to crawl via sitemap for new content
 websites:
@@ -154,6 +159,18 @@ websites:
     sitemap: https://epoch.ai/sitemap-index.xml
     include_patterns:
       - /blog/
+  - name: IAPS (Institute for AI Policy & Strategy)
+    sitemap: https://www.iaps.ai/sitemap.xml
+    include_patterns:
+      - /research/
+  - name: Conjecture
+    sitemap: https://conjecture.dev/sitemap.xml
+    include_patterns:
+      - /research/
+  - name: International AI Safety Report
+    sitemap: https://internationalaisafetyreport.org/sitemap.xml
+    include_patterns:
+      - /publication/
 
 # National AI Safety Institutes
 aisi_websites:

@@ -46,6 +46,8 @@ jobs:
           MIRI|https://intelligence.org/feed/
           Georgetown CSET|https://cset.georgetown.edu/feed/
           AI Now Institute|https://ainowinstitute.org/feed
+          Ada Lovelace Institute|https://www.adalovelaceinstitute.org/feed/
+          RAND Corporation|https://www.rand.org/pubs/articles.xml
           Nature|https://www.nature.com/nature.rss
           Science|https://www.science.org/rss/news_current.xml
           PNAS|https://www.pnas.org/rss/current.xml

@@ -57,7 +57,6 @@ Produce a unified community & tools digest in ${lang === "fr" ? "French" : "Engl
 
 1. **Key Discussions**: The top 3-5 most discussed stories on Hacker News or important GitHub issues/PRs. Summarize the discussion and end with one sentence explaining why it matters.
 2. **Notable GitHub Releases & Tools**: New versions or significant releases from GitHub repositories. For each, note what it enables and end with one sentence explaining why it matters.
-3. **Community Sentiment**: General tone and notable perspectives across HN and GitHub.
 
 Format as clean Markdown with links.
 

@@ -16,7 +16,7 @@ Today is ${date}. Below are recent AI safety research papers from two sources:
 
 Produce a unified research digest in ${lang === "fr" ? "French" : "English"}:
 
-1. **Key Papers**: Highlight the 5-10 most significant papers. Lead with peer-reviewed articles when available — they take precedence over preprints on the same topic. Each summary should be 2-3 sentences and conclude with what this means for AI safety practitioners building safer systems or policymakers crafting regulation.
+1. **Key Papers**: Highlight the 5-10 most significant papers. Lead with peer-reviewed articles when available — they take precedence over preprints on the same topic. Each summary should be 2-3 sentences and end with one sentence explaining why it matters.
 2. **Trends**: Identify emerging themes or research directions across both preprints and published work.
 
 Format as clean Markdown. Include paper titles as links.
@@ -36,8 +36,8 @@ Today is ${date}. Below are recent articles, blog posts, and policy updates from
 
 Produce a unified analysis & policy digest in ${lang === "fr" ? "French" : "English"}:
 
-1. **Top Stories**: The 3-5 most important articles or publications from labs, research orgs, and expert commentators. Each summary should end with what this means for practitioners deploying AI systems or policymakers shaping governance.
-2. **Policy & Governance**: Any AISI updates, regulatory developments, or think tank publications. For each, note concrete implications — what practitioners may need to comply with, prepare for, or adopt. If no policy updates exist today, omit this subsection.
+1. **Top Stories**: The 3-5 most important articles or publications from labs, research orgs, and expert commentators. Each summary should end with one sentence explaining why it matters.
+2. **Policy & Governance**: Any AISI updates, regulatory developments, or think tank publications. For each, end with one sentence explaining why it matters. If no policy updates exist today, omit this subsection.
 3. **Key Arguments**: Notable positions or arguments made, and what they imply for the field.
 
 Format as clean Markdown with links to original sources.
@@ -55,8 +55,8 @@ Today is ${date}. Below are recent community discussions and open-source activit
 
 Produce a unified community & tools digest in ${lang === "fr" ? "French" : "English"}:
 
-1. **Key Discussions**: The top 3-5 most discussed stories on Hacker News or important GitHub issues/PRs. Summarize the discussion and why it matters.
-2. **Notable GitHub Releases & Tools**: New versions or significant releases from GitHub repositories. For each, note what it enables practitioners to do that they couldn't before. Include new tools or frameworks, stating who should use them and for what.
+1. **Key Discussions**: The top 3-5 most discussed stories on Hacker News or important GitHub issues/PRs. Summarize the discussion and end with one sentence explaining why it matters.
+2. **Notable GitHub Releases & Tools**: New versions or significant releases from GitHub repositories. For each, note what it enables and end with one sentence explaining why it matters.
 3. **Community Sentiment**: General tone and notable perspectives across HN and GitHub.
 
 Format as clean Markdown with links.
@@ -95,9 +95,9 @@ Each source section below is tagged with a credibility tier. When selecting Top 
 - **Tier 3 (Community & General Discussion)**: LessWrong, Hacker News, GitHub activity. Lower credibility — only surface if exceptionally significant.
 
 Structure:
-1. **Top 3 Developments**: The most important things that happened today in AI safety. Each item must include at least one inline markdown link to the original source, and state why it matters — what should practitioners building AI systems or policymakers crafting regulation take away from this?
+1. **Top 3 Developments**: The most important things that happened today in AI safety. Each item must include at least one inline markdown link to the original source and end with one sentence explaining why it matters.
 2. **Section Summaries**: A 1-2 sentence summary of each section, written as separate paragraphs (one per section). Bold the section name at the start of each paragraph (e.g. **Research Papers:**). Every specific paper, article, post, tool, or organization mentioned must be hyperlinked to its original URL using inline markdown links.
-3. **Risk Watch**: Any developments that signal increased or decreased AI risk. Use exactly two subheadings: **Increased Risks** and **Decreased Risks**. No other subheadings. For each item, state the concrete risk or mitigation and who is affected. Every claim or development cited must link to its source.
+3. **Risk Watch**: Any developments that signal increased or decreased AI risk. Use exactly two subheadings: **Increased Risks** and **Decreased Risks**. No other subheadings. For each item, state the concrete risk or mitigation in one sentence. Every claim or development cited must link to its source.
 
 Keep it concise - this is an executive summary. Format as clean Markdown. Do not omit links to save space — links are essential.
 

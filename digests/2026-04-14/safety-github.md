@@ -1,31 +1,43 @@
 # GitHub Activity (2026-04-14)
 
-## Key Discussions
-
-Multiple critical safety-related discussions are emerging across AI research and governance frameworks:
-
-**Guardrails Evolution**: The [NVIDIA NeMo Guardrails](https://github.com/NVIDIA-NeMo/Guardrails) project is undergoing significant architectural changes with [LangChain decoupling efforts](https://github.com/NVIDIA-NeMo/Guardrails/pull/1770) and a new [feature request for audit and compliance exports](https://github.com/NVIDIA-NeMo/Guardrails/issues/1786) of guardrail decisions. This reflects growing enterprise demands for transparency in AI safety systems.
-
-**Security Hygiene in AI Cookbooks**: Anthropic's cookbook received a [security analysis highlighting vulnerable patterns](https://github.com/anthropics/claude-cookbooks/issues/531) in example code, including Dockerfile configurations running as root and copy-paste-ready vulnerable patterns. While not vulnerabilities in Anthropic's services themselves, this underscores the importance of secure coding practices in AI development resources.
-
-**Evaluation Infrastructure Improvements**: The [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness) is addressing critical bugs, including [BigBench multiple-choice crashes](https://github.com/EleutherAI/lm-evaluation-harness/pull/3702) and dependency issues. A major [0.5 review](https://github.com/EleutherAI/lm-evaluation-harness/pull/3703) is underway, indicating significant infrastructure evolution.
-
 ## Notable Releases
 
-**Open Bias v0.4.0**: The [open-bias project released v0.4.0](https://github.com/open-bias/open-bias/releases/tag/v0.4.0) with breaking changes to configuration architecture, replacing engine/policy/judge configs with a unified `evaluators` list approach. This suggests maturation of bias evaluation frameworks.
+Several significant releases have emerged in the AI safety and evaluation ecosystem:
 
-**Agent Guardrails v0.19.4**: [Agent-guardrails shipped v0.19.4](https://github.com/logi-cmd/agent-guardrails/releases/tag/v0.19.4) with OSS Pro visibility features and enhanced proof plan guidance, indicating advancement in AI agent safety tooling.
+- **[µHALO v0.1.0-dev](https://github.com/XwhyZ-WHYLD/hfr0-muhalo/releases/tag/v0.1.0-dev)** — An initial research release for runtime hallucination risk detection via inter-token timing drift analysis, including HDI (Hallucination Drift Index) implementation and evaluation on TruthfulQA/HotpotQA datasets.
 
-**Styxx v2.0.1**: [Fathom Lab released styxx v2.0.1](https://github.com/fathom-lab/styxx/releases/tag/v2.0.1), introducing "cognitive provenance certificates" for real-time LLM cognitive state monitoring—a novel approach to AI observability and safety.
+- **[Styxx v2.0.1](https://github.com/fathom-lab/styxx/releases/tag/v2.0.1)** — First public release of a cognitive provenance system providing real-time cognitive state tracking for LLM agents, offering proprioception capabilities through logprob analysis.
 
-**Director AI v3.14.0**: [Director AI released v3.14.0](https://github.com/anulum/director-ai/releases/tag/v3.14.0) featuring advanced RAG with 6 pluggable retrieval strategies and a "Swarm Guardian" for multi-agent safety, representing significant advancement in RAG safety mechanisms.
+- **[Open Bias v0.4.0](https://github.com/open-bias/open-bias/releases/tag/v0.4.0)** — Breaking changes to bias evaluation framework with simplified `evaluators` list configuration replacing multiple separate config keys.
+
+## Key Discussions
+
+### AI Safety and Security Issues
+
+A critical security hygiene issue has been raised in the [Anthropic cookbook](https://github.com/anthropics/claude-cookbooks/issues/531), identifying vulnerable patterns in example code including copy-paste-ready security antipatterns and Docker configurations running as root. While not vulnerabilities in Anthropic services themselves, these patterns in educational materials could propagate unsafe practices.
+
+The [NeMo Guardrails project](https://github.com/NVIDIA-NeMo/Guardrails/issues/1786) has an open feature request for optional export of guardrail decisions for audit and compliance purposes, addressing a key gap in AI governance infrastructure where policy enforcement decisions need to be documented for regulatory compliance.
+
+### Model Evaluation and Testing Improvements
+
+[EleutherAI's evaluation harness](https://github.com/EleutherAI/lm-evaluation-harness/pull/3702) fixed a critical crash in BigBench multiple-choice tasks when handling mixed-format datasets, improving robustness for standard AI capability benchmarks. Additionally, [native Tensor Parallelism support](https://github.com/EleutherAI/lm-evaluation-harness/pull/3692) was added for HuggingFace models, potentially accelerating large-scale evaluations.
+
+### Model Architecture Expansion
+
+TransformerLens continues expanding interpretability support with new architecture adapters for [InternLM2](https://github.com/TransformerLensOrg/TransformerLens/pull/1251), [XGLM](https://github.com/TransformerLensOrg/TransformerLens/pull/1250), [GPTBigCode](https://github.com/TransformerLensOrg/TransformerLens/pull/1248), and [Cohere](https://github.com/TransformerLensOrg/TransformerLens/pull/1247) models. Notably, [beta SSM architecture support](https://github.com/TransformerLensOrg/TransformerLens/pull/1246) was added for Mamba and Mamba 2 models, extending mechanistic interpretability tools to state-space models.
 
 ## Emerging Tools
 
-**Hallucination Detection**: The [µHALO project released v0.1.0-dev](https://github.com/XwhyZ-WHYLD/hfr0-muhalo/releases/tag/v0.1.0-dev), implementing runtime hallucination risk detection via inter-token timing drift analysis—a potentially groundbreaking approach to real-time hallucination detection.
+### Cognitive State Monitoring
 
-**Model Architecture Support**: TransformerLens is rapidly expanding architecture support with new adapters for [InternLM2](https://github.com/TransformerLensOrg/TransformerLens/pull/1251), [XGLM](https://github.com/TransformerLensOrg/TransformerLens/pull/1250), [GPTBigCode](https://github.com/TransformerLensOrg/TransformerLens/pull/1248), [Cohere](https://github.com/TransformerLensOrg/TransformerLens/pull/1247), and [SSM architectures (Mamba)](https://github.com/TransformerLensOrg/TransformerLens/pull/1246), significantly expanding interpretability research capabilities.
+The [Styxx library](https://github.com/fathom-lab/styxx) introduces real-time cognitive state classification for LLM responses, categorizing outputs into reasoning, refusal, hallucination, and off-topic categories using logprob analysis. Recent improvements include [better error handling](https://github.com/fathom-lab/styxx/pull/4) when logprobs are unavailable.
 
-**EU AI Act Compliance**: A new [EU AI Act compliance MCP server](https://github.com/CSOAI-ORG/eu-ai-act-compliance-mcp/pull/1) was deployed, providing structured guidance for regulatory compliance in AI systems.
+### Enhanced Evaluation Infrastructure
 
-**Security Detection Framework**: The [Detektor project](https://github.com/Meisterware/detektor/pull/11) formalized its internal finding model for normalized security issue representation, indicating maturation of AI security scanning tools.
+[HELM's robustness evaluation](https://github.com/stanford-crfm/helm/pull/4193) received a bug fix for operator precedence issues that were incorrectly skipping robustness metric group checks, improving the reliability of model robustness assessments.
+
+### Development Workflow Improvements
+
+Several repositories are adopting more secure development practices, with [OpenAI Evals](https://github.com/openai/evals/pull/1644) pinning pre-commit hooks to immutable commits rather than mutable tags/branches, reducing supply chain risks in development tooling.
+
+The Anthropic cookbook added a [new guide for crafting effective CLAUDE.md files](https://github.com/anthropics/claude-cookbooks/pull/522), addressing the growing need for standardized AI agent documentation as Claude Code adoption increases.

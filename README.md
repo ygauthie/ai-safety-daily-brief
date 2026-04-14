@@ -14,7 +14,7 @@ Live site: [ygauthie.github.io/ai-safety-daily-brief](https://ygauthie.github.io
 |---|---|
 | **ArXiv** | Papers tagged cs.AI, cs.CL, cs.LG, cs.CY matching safety keywords |
 | **Scientific Journals** | Peer-reviewed articles from Nature, Science, PNAS, Nature Machine Intelligence, JAIR, and others — keyword-filtered for AI safety relevance |
-| **RSS Feeds** | Alignment Forum, LessWrong, 10+ AI safety Substacks |
+| **RSS Feeds** | Alignment Forum, LessWrong, 15+ AI safety newsletters and Substacks |
 | **GitHub** | Releases and activity from tracked repos + dynamic discovery via AI safety topics |
 | **Hacker News** | Top discussions matching safety keywords |
 | **Org Websites** | New publications from Anthropic, OpenAI, DeepMind (sitemap crawling) |
@@ -45,10 +45,13 @@ GitHub Actions (cron 5 AM ET)
     │     ├── Website sitemaps
     │     └── AISI websites + RSS
     │
-    ├── Summarize with Claude (OpenRouter)
-    │     └── Per-source digest + daily rollup
+    ├── Summarize with Claude (OpenRouter) — 3 sections in parallel
+    │     ├── Research Papers (ArXiv + journals)
+    │     ├── Analysis & Policy (RSS + org websites + AISIs)
+    │     ├── Community & Tools (HN + GitHub)
+    │     └── Daily executive summary (rollup with dedup context from last 2 days)
     │
-    ├── Save to digests/YYYY-MM-DD/safety-{source}.md
+    ├── Save to digests/YYYY-MM-DD/safety-{section}.md
     ├── Translate to French (if languages includes "fr")
     ├── Regenerate manifest.json + feed.xml
     └── Commit and push → GitHub Pages serves index.html
@@ -78,15 +81,11 @@ config.yml              # All data source configuration
 index.html              # Single-page frontend (no build step)
 digests/                # Generated markdown files, committed by CI
   YYYY-MM-DD/
-    safety-daily.md
+    safety-daily.md     # Executive summary (rollup)
     safety-weekly.md    # Mondays only
-    safety-arxiv.md
-    safety-journals.md
-    safety-rss.md
-    safety-github.md
-    safety-hn.md
-    safety-web.md
-    safety-aisi.md
+    safety-research.md  # ArXiv + peer-reviewed journals
+    safety-analysis.md  # RSS blogs + org websites + AISIs
+    safety-community.md # Hacker News + GitHub
 ```
 
 ---
@@ -132,12 +131,18 @@ All sources are configured in `config.yml`:
 
 - **`github_topics`** — GitHub topics for dynamic repo discovery (top 20 most recently active per topic)
 - **`github_repos`** — fixed list of `owner/repo` to always track
-- **`arxiv.keywords`** — keywords used for ArXiv search, HN search, and journal filtering
-- **`journal_feeds`** — name + URL pairs for peer-reviewed journal RSS feeds
-- **`rss_feeds`** — name + URL pairs for blog/forum RSS feeds
-- **`websites`** — sitemap URL + URL patterns for org website crawling
-- **`aisi_websites`** — national AI Safety Institute URLs and optional RSS feeds
+- **`arxiv.keywords`** — keywords used for ArXiv search and journal filtering
+- **`journal_feeds`** — name + URL pairs for peer-reviewed journal RSS feeds (Tier 1)
+- **`rss_feeds`** — name + URL + tier for blog/newsletter RSS feeds (Tier 1–2)
+- **`websites`** — sitemap URL + URL patterns for org website crawling (Tier 1–2)
+- **`aisi_websites`** — national AI Safety Institute URLs, optional RSS feeds, and optional additional URLs (Tier 1)
+- **`hn_keywords`** — keywords + `min_points` threshold (default 20) for HN story filtering
 - **`languages`** — `[en]` by default; add `fr` to enable French digests
+
+Sources are annotated with a credibility tier used by the LLM when prioritizing content:
+- **Tier 1**: Government AISIs, peer-reviewed journals, established think tanks (RAND, Georgetown CSET, Ada Lovelace Institute)
+- **Tier 2**: AI lab blogs (Anthropic, OpenAI, DeepMind), safety research orgs (METR, ARC, MIRI, Apollo, Epoch), expert newsletters
+- **Tier 3**: Hacker News, GitHub activity
 
 ---
 

@@ -1,6 +1,23 @@
 {
-  "generated": "2026-04-13T13:03:18.087Z",
+  "generated": "2026-04-14T10:17:48.033Z",
   "entries": [
+    {
+      "date": "2026-04-14",
+      "files": [
+        "2026-04-14/safety-arxiv.fr.md",
+        "2026-04-14/safety-arxiv.md",
+        "2026-04-14/safety-daily.fr.md",
+        "2026-04-14/safety-daily.md",
+        "2026-04-14/safety-github.fr.md",
+        "2026-04-14/safety-github.md",
+        "2026-04-14/safety-hn.fr.md",
+        "2026-04-14/safety-hn.md",
+        "2026-04-14/safety-journals.fr.md",
+        "2026-04-14/safety-journals.md",
+        "2026-04-14/safety-rss.fr.md",
+        "2026-04-14/safety-rss.md"
+      ]
+    },
     {
       "date": "2026-04-13",
       "files": [

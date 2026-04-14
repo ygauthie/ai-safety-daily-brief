@@ -5,7 +5,221 @@
     <link>https://ygauthie.github.io/ai-safety-daily-brief/</link>
     <description>Daily AI safety research, policy, and development digest</description>
     <language>en</language>
-    <lastBuildDate>Mon, 13 Apr 2026 13:03:18 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 14 Apr 2026 10:17:48 GMT</lastBuildDate>
+    <item>
+      <title>AI Safety Daily Brief: Executive Summary — 2026-04-14</title>
+      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-daily.fr.md</link>
+      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-daily.fr.md</guid>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <description>
+## Top 3 des développements
+
+**1. L'AISI britannique publie la première évaluation gouvernementale formelle des capacités d'IA** - [L'évaluation par l'Institut britannique pour la sécurité de l'IA des capacités cyber de Claude Mythos Preview](https://www.aisi.gov.uk/blog/our-evaluation-of-claude-mythos-previews-cyber-capabilities) représente un moment charnière dans la gouvernance de l'IA, établissant un précédent pour l'évaluation gouvernementale systématique des capacités d'IA à double usage et fournissant un modèle pour les futurs cadres d'évaluation réglementaire.
+
+**2. Les échecs d'entraînement chain-of-thought d'Anthropic révèlent des inadéquations de processus** - [Une analyse critique révèle](https://www.alignmentforum.org/posts/K8FxfK9GmJfiAhgcT/anthropic-repeatedly-accidentally-trained-against-the-cot) qu'Anthropic a accidentellement entraîné contre le raisonnement interne de Claude dans ~8% des épisodes d'entraînement—au moins le second incident de ce type. Ceci démontre des inadéquations potentiellement catastrophiques dans les processus de développement de la sécurité de l'IA alors que nous approchons des systèmes plus puissants.
+
+**3. L'essor de la recherche sur la sécurité multi-agents traite les risques d'interaction émergents** - Les publications ArXiv d'aujourd'hui montrent un focus concentré sur les défis de sécurité multi-agents, incluant [la détection de violations cross-trace](https://arxiv.org/abs/2604.11806v1), [les frameworks de sécurité runtime pour agents augmentés d'outils](https://arxiv.org/abs/2604.11790v1), et [la tromperie stratégique dans des scénarios adverses](https://arxiv.org/abs/2604.11666v1), reflétant une reconnaissance croissante que les interactions agent-à-agent créent de nouveaux défis de sécurité au-delà des risques à agent unique.
+
+## Résumés des sections
+
+**Articles ArXiv** ont publié sept articles critiques sur la sécurité traitant des risques multi-agents, de la compréhension mécanistique de la génération nuisible, e</description>
+    </item>
+    <item>
+      <title>AI Safety Daily Brief: Executive Summary — 2026-04-14</title>
+      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-daily.md</link>
+      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-daily.md</guid>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <description>
+## Top 3 Developments
+
+**1. UK AISI Publishes First Formal Government AI Capability Assessment** - The [UK AI Safety Institute's evaluation of Claude Mythos Preview's cyber capabilities](https://www.aisi.gov.uk/blog/our-evaluation-of-claude-mythos-previews-cyber-capabilities) represents a watershed moment in AI governance, establishing precedent for systematic government assessment of dual-use AI capabilities and providing a template for future regulatory evaluation frameworks.
+
+**2. Anthropic's Chain-of-Thought Training Failures Reveal Process Inadequacies** - [A critical analysis reveals](https://www.alignmentforum.org/posts/K8FxfK9GmJfiAhgcT/anthropic-repeatedly-accidentally-trained-against-the-cot) that Anthropic accidentally trained against Claude's internal reasoning in ~8% of training episodes—at least the second such incident. This demonstrates potentially catastrophic inadequacies in AI safety development processes as we approach more powerful systems.
+
+**3. Multi-Agent Safety Research Surge Addresses Emerging Interaction Risks** - Today's ArXiv releases show concentrated focus on multi-agent safety challenges, including [cross-trace violation detection](https://arxiv.org/abs/2604.11806v1), [runtime security frameworks for tool-augmented agents](https://arxiv.org/abs/2604.11790v1), and [strategic deception in adversarial scenarios](https://arxiv.org/abs/2604.11666v1), reflecting growing recognition that agent-to-agent interactions create novel safety challenges beyond single-agent risks.
+
+## Section Summaries
+
+**ArXiv Papers** released seven critical safety papers addressing multi-agent risks, mechanistic understanding of harmful generation, and cumulative attack vectors. Key developments include [detection methods for cross-trace safety violations](https://arxiv.org/abs/2604.11806v1), [runtime defenses against indirect prompt injection](https://arxiv.org/abs/2604.11790v1), [causal analysis of harmful content generation mechanisms](https://arxiv.org/abs/26</description>
+    </item>
+    <item>
+      <title>AI Safety Daily Brief: ArXiv Papers — 2026-04-14</title>
+      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-arxiv.fr.md</link>
+      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-arxiv.fr.md</guid>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <description>
+## Documents clés
+
+[**Detecting Safety Violations Across Many Agent Traces**](https://arxiv.org/abs/2604.11806v1) aborde un défi critique dans l'audit de la sécurité de l'IA : identifier les défaillances qui ne deviennent visibles que lors de l'analyse de multiples interactions d'agents ensemble. Le document traite de scénarios comme le sabotage dissimulé et le reward hacking où l'analyse de traces individuelles échoue, proposant de nouvelles méthodes pour la détection de violations de sécurité entre traces qui pourraient considérablement améliorer la surveillance des systèmes d'IA.
+
+[**ClawGuard: A Runtime Security Framework for Tool-Augmented LLM Agents Against Indirect Prompt Injection**](https://arxiv.org/abs/2604.11790v1) présente une défense pratique contre une vulnérabilité majeure dans les agents LLM. Alors que ces systèmes interagissent de plus en plus avec des outils et contenus externes, l'injection indirecte de prompts via des sorties d'outils malveillants pose de sérieux risques de sécurité. Le framework fournit une protection à l'exécution contre trois vecteurs d'attaque, offrant une applicabilité immédiate pour sécuriser les déploiements d'agents en production.
+
+[**Playing Along: Learning a Double-Agent Defender for Belief Steering via Theory of Mind**](https://arxiv.org/abs/2604.11666v1) explore des scénarios adverses où les défenseurs doivent manipuler les croyances des attaquants tout en paraissant coopératifs. Ce travail fait progresser notre compréhension de la tromperie stratégique dans les systèmes d'IA et a des implications pour les applications de sécurité et la recherche en alignment, particulièrement pour comprendre comment les systèmes d'IA pourraient s'engager dans un raisonnement stratégique sophistiqué.
+
+[**Why Do Large Language Models Generate Harmful Content?**](https://arxiv.org/abs/2604.11663v1) fournit des insights mécanistiques cruciaux sur la génération de contenu nuisible à travers une analyse de médiation causale. En identifia</description>
+    </item>
+    <item>
+      <title>AI Safety Daily Brief: ArXiv Papers — 2026-04-14</title>
+      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-arxiv.md</link>
+      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-arxiv.md</guid>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <description>
+## Key Papers
+
+[**Detecting Safety Violations Across Many Agent Traces**](https://arxiv.org/abs/2604.11806v1) addresses a critical challenge in AI safety auditing: identifying failures that only become visible when analyzing multiple agent interactions together. The paper tackles scenarios like covert sabotage and reward hacking where individual trace analysis fails, proposing new methods for cross-trace safety violation detection that could significantly improve AI system oversight.
+
+[**ClawGuard: A Runtime Security Framework for Tool-Augmented LLM Agents Against Indirect Prompt Injection**](https://arxiv.org/abs/2604.11790v1) presents a practical defense against a major vulnerability in LLM agents. As these systems increasingly interact with external tools and content, indirect prompt injection through malicious tool outputs poses serious security risks. The framework provides runtime protection across three attack vectors, offering immediate applicability for securing production agent deployments.
+
+[**Playing Along: Learning a Double-Agent Defender for Belief Steering via Theory of Mind**](https://arxiv.org/abs/2604.11666v1) explores adversarial scenarios where defenders must manipulate attacker beliefs while appearing cooperative. This work advances our understanding of strategic deception in AI systems and has implications for both security applications and alignment research, particularly in understanding how AI systems might engage in sophisticated strategic reasoning.
+
+[**Why Do Large Language Models Generate Harmful Content?**](https://arxiv.org/abs/2604.11663v1) provides crucial mechanistic insights into harmful content generation through causal mediation analysis. By identifying that harmful generation arises primarily in later model layers and specific attention mechanisms, this work offers concrete targets for intervention and could inform more effective safety measures.
+
+[**Hidden Failures in Robustness: Why Supervised Uncertainty Quantification Needs</description>
+    </item>
+    <item>
+      <title>AI Safety Daily Brief: GitHub Activity — 2026-04-14</title>
+      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-github.fr.md</link>
+      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-github.fr.md</guid>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <description>
+## Discussions clés
+
+Plusieurs discussions critiques liées à la sécurité émergent dans les cadres de recherche et de gouvernance de l'IA :
+
+**Évolution des Guardrails** : Le projet [NVIDIA NeMo Guardrails](https://github.com/NVIDIA-NeMo/Guardrails) subit des changements architecturaux significatifs avec les [efforts de découplage de LangChain](https://github.com/NVIDIA-NeMo/Guardrails/pull/1770) et une nouvelle [demande de fonctionnalité pour l'export d'audit et de conformité](https://github.com/NVIDIA-NeMo/Guardrails/issues/1786) des décisions de guardrails. Cela reflète une demande croissante des entreprises pour la transparence dans les systèmes de sécurité de l'IA.
+
+**Hygiène de sécurité dans les AI Cookbooks** : Le cookbook d'Anthropic a reçu une [analyse de sécurité mettant en évidence des patterns vulnérables](https://github.com/anthropics/claude-cookbooks/issues/531) dans le code d'exemple, incluant des configurations Dockerfile s'exécutant en tant que root et des patterns vulnérables prêts à copier-coller. Bien qu'il ne s'agisse pas de vulnérabilités dans les services d'Anthropic eux-mêmes, cela souligne l'importance des pratiques de codage sécurisé dans les ressources de développement IA.
+
+**Améliorations de l'infrastructure d'évaluation** : Le [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness) traite des bugs critiques, notamment les [crashes BigBench multiple-choice](https://github.com/EleutherAI/lm-evaluation-harness/pull/3702) et les problèmes de dépendances. Une [révision majeure 0.5](https://github.com/EleutherAI/lm-evaluation-harness/pull/3703) est en cours, indiquant une évolution significative de l'infrastructure.
+
+## Versions notables
+
+**Open Bias v0.4.0** : Le [projet open-bias a publié la v0.4.0](https://github.com/open-bias/open-bias/releases/tag/v0.4.0) avec des changements disruptifs dans l'architecture de configuration, remplaçant les configs engine/policy/judge par une approche de liste `evaluators` unifiée. Cela</description>
+    </item>
+    <item>
+      <title>AI Safety Daily Brief: GitHub Activity — 2026-04-14</title>
+      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-github.md</link>
+      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-github.md</guid>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <description>
+## Key Discussions
+
+Multiple critical safety-related discussions are emerging across AI research and governance frameworks:
+
+**Guardrails Evolution**: The [NVIDIA NeMo Guardrails](https://github.com/NVIDIA-NeMo/Guardrails) project is undergoing significant architectural changes with [LangChain decoupling efforts](https://github.com/NVIDIA-NeMo/Guardrails/pull/1770) and a new [feature request for audit and compliance exports](https://github.com/NVIDIA-NeMo/Guardrails/issues/1786) of guardrail decisions. This reflects growing enterprise demands for transparency in AI safety systems.
+
+**Security Hygiene in AI Cookbooks**: Anthropic's cookbook received a [security analysis highlighting vulnerable patterns](https://github.com/anthropics/claude-cookbooks/issues/531) in example code, including Dockerfile configurations running as root and copy-paste-ready vulnerable patterns. While not vulnerabilities in Anthropic's services themselves, this underscores the importance of secure coding practices in AI development resources.
+
+**Evaluation Infrastructure Improvements**: The [LM Evaluation Harness](https://github.com/EleutherAI/lm-evaluation-harness) is addressing critical bugs, including [BigBench multiple-choice crashes](https://github.com/EleutherAI/lm-evaluation-harness/pull/3702) and dependency issues. A major [0.5 review](https://github.com/EleutherAI/lm-evaluation-harness/pull/3703) is underway, indicating significant infrastructure evolution.
+
+## Notable Releases
+
+**Open Bias v0.4.0**: The [open-bias project released v0.4.0](https://github.com/open-bias/open-bias/releases/tag/v0.4.0) with breaking changes to configuration architecture, replacing engine/policy/judge configs with a unified `evaluators` list approach. This suggests maturation of bias evaluation frameworks.
+
+**Agent Guardrails v0.19.4**: [Agent-guardrails shipped v0.19.4](https://github.com/logi-cmd/agent-guardrails/releases/tag/v0.19.4) with OSS Pro visibility features and enhanced proof plan guidance, i</description>
+    </item>
+    <item>
+      <title>AI Safety Daily Brief: Hacker News — 2026-04-14</title>
+      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-hn.fr.md</link>
+      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-hn.fr.md</guid>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <description>
+## Sujets brûlants
+
+Les principales discussions révèlent des préoccupations croissantes concernant l'évaluation des capacités de l'IA et les applications du monde réel :
+
+1. **[Can Claude Fly a Plane?](https://so.long.thanks.fish/can-claude-fly-a-plane/)** (82 points, 80 commentaires) - Cette exploration des capacités aéronautiques de Claude a suscité un vaste débat sur l'évaluation des compétences de l'IA et l'écart entre les connaissances théoriques et l'application pratique dans les domaines critiques pour la sécurité.
+
+2. **[N-Day-Bench – Can LLMs find real vulnerabilities in real codebases?](https://ndaybench.winfunc.com)** (72 points, 19 commentaires) - Un nouveau benchmark testant si les LLMs peuvent identifier de réelles vulnérabilités de sécurité dans du code en production, soulignant les préoccupations concernant la cybersécurité assistée par IA à la fois comme outil défensif et vecteur de menace potentiel.
+
+3. **[Evaluation of Claude Mythos Preview's cyber capabilities](https://www.aisi.gov.uk/blog/our-evaluation-of-claude-mythos-previews-cyber-capabilities)** (52 points, 29 commentaires) - L'Institut britannique de sécurité de l'IA a publié son évaluation des capacités de cybersécurité de Claude, représentant une étape importante dans l'évaluation gouvernementale formelle des systèmes d'IA pour les risques à double usage.
+
+4. **[Analysis of Claude Code cache bugs causing 10-20x token inflation](https://github.com/ArkNill/claude-code-hidden-problem-analysis)** (2 points, 0 commentaires) - Analyse technique révélant d'importantes inefficacités dans la gestion du code par Claude, avec des implications pour le coût et la fiabilité dans les déploiements en production.
+
+5. **[Forgejo prohibits AI-generated work](https://codeberg.org/forgejo/governance/src/commit/57bf0779bec61e2facd1679efc9bc5839e631d40/AIAgreement.md)** (5 points, 1 commentaire) - La forge Git open-source prend position contre les contributions générées par IA, reflétant les tensions croissan</description>
+    </item>
+    <item>
+      <title>AI Safety Daily Brief: Hacker News — 2026-04-14</title>
+      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-hn.md</link>
+      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-hn.md</guid>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <description>
+## Hot Topics
+
+The top discussions reveal growing concerns about AI capabilities assessment and real-world applications:
+
+1. **[Can Claude Fly a Plane?](https://so.long.thanks.fish/can-claude-fly-a-plane/)** (82 points, 80 comments) - This exploration of Claude's aviation capabilities sparked extensive debate about AI competency evaluation and the gap between theoretical knowledge and practical application in safety-critical domains.
+
+2. **[N-Day-Bench – Can LLMs find real vulnerabilities in real codebases?](https://ndaybench.winfunc.com)** (72 points, 19 comments) - A new benchmark testing whether LLMs can identify actual security vulnerabilities in production code, highlighting concerns about AI-assisted cybersecurity both as a defensive tool and potential threat vector.
+
+3. **[Evaluation of Claude Mythos Preview's cyber capabilities](https://www.aisi.gov.uk/blog/our-evaluation-of-claude-mythos-previews-cyber-capabilities)** (52 points, 29 comments) - The UK's AI Safety Institute published their assessment of Claude's cybersecurity capabilities, representing a significant milestone in formal government evaluation of AI systems for dual-use risks.
+
+4. **[Analysis of Claude Code cache bugs causing 10-20x token inflation](https://github.com/ArkNill/claude-code-hidden-problem-analysis)** (2 points, 0 comments) - Technical analysis revealing significant inefficiencies in Claude's code handling, with implications for cost and reliability in production deployments.
+
+5. **[Forgejo prohibits AI-generated work](https://codeberg.org/forgejo/governance/src/commit/57bf0779bec61e2facd1679efc9bc5839e631d40/AIAgreement.md)** (5 points, 1 comment) - The open-source Git forge takes a stance against AI-generated contributions, reflecting growing tensions around AI's role in software development.
+
+## Community Sentiment
+
+The discussion tone reveals a community grappling with AI's rapid capability expansion while maintaining healthy skepticism about real-world performance. There's pa</description>
+    </item>
+    <item>
+      <title>AI Safety Daily Brief: safety-journals.fr — 2026-04-14</title>
+      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-journals.fr.md</link>
+      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-journals.fr.md</guid>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <description>
+## Articles clés
+
+**[Interpretability and implicit model semantics in biomedicine and deep learning](https://www.nature.com/articles/s42256-026-01177-0)** - *Nature Machine Intelligence*
+
+Cet article examine l'intersection critique entre l'interprétabilité des modèles et la compréhension sémantique implicite dans les applications d'IA biomédicale. Le travail aborde la façon dont les systèmes d'apprentissage profond développent des représentations internes qui peuvent ne pas s'aligner avec les concepts interprétables par l'humain, particulièrement dans les domaines médicaux à enjeux élevés où les décisions du modèle impactent directement les résultats pour les patients. La recherche a des implications significatives pour la sécurité de l'IA en soulignant l'écart entre les méthodes techniques d'interprétabilité et la cohérence sémantique requise pour un déploiement sûr dans les applications critiques, suggérant que les approches actuelles d'explicabilité peuvent être insuffisantes pour assurer un comportement fiable de l'IA dans des scénarios complexes du monde réel.</description>
+    </item>
+    <item>
+      <title>AI Safety Daily Brief: safety-journals — 2026-04-14</title>
+      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-journals.md</link>
+      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-journals.md</guid>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <description>
+## Key Articles
+
+**[Interpretability and implicit model semantics in biomedicine and deep learning](https://www.nature.com/articles/s42256-026-01177-0)** - *Nature Machine Intelligence*
+
+This article examines the critical intersection of model interpretability and implicit semantic understanding in biomedical AI applications. The work addresses how deep learning systems develop internal representations that may not align with human-interpretable concepts, particularly in high-stakes medical domains where model decisions directly impact patient outcomes. The research has significant implications for AI safety by highlighting the gap between technical interpretability methods and the semantic coherence required for safe deployment in critical applications, suggesting that current explainability approaches may be insufficient for ensuring reliable AI behavior in complex, real-world scenarios.</description>
+    </item>
+    <item>
+      <title>AI Safety Daily Brief: Blog Posts — 2026-04-14</title>
+      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-rss.fr.md</link>
+      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-rss.fr.md</guid>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <description>
+## Actualités principales
+
+**[Anthropic a accidentellement entraîné à plusieurs reprises contre le CoT, démontrant des processus inadéquats](https://www.alignmentforum.org/posts/K8FxfK9GmJfiAhgcT/anthropic-repeatedly-accidentally-trained-against-the-cot)** - Une défaillance de sécurité critique a été révélée chez Anthropic, où l'entreprise a accidentellement entraîné contre la chaîne de pensée (CoT) de Claude Mythos Preview dans environ 8 % des épisodes d'entraînement. Ceci représente au moins le deuxième incident indépendant où Anthropic a par inadvertance exposé le raisonnement interne de leur modèle au signal de supervision. L'article soutient que cela démontre des processus de développement inadéquats qui pourraient s'avérer catastrophiques dans des systèmes plus puissants lors d'une explosion d'intelligence.
+
+**[Résumé : Gouvernance de l'IA pour éviter l'extinction](https://intelligence.org/2026/04/13/summary-ai-governance-to-avoid-extinction/)** - MIRI a publié un résumé de leur article de recherche examinant le paysage stratégique de la gouvernance de l'IA alors que les capacités approchent rapidement du niveau de performance humaine dans tous les domaines. Le travail identifie des questions de recherche exploitables pour prévenir les risques d'extinction alors que nous approchons de l'intelligence artificielle générale.
+
+**[Seule la loi peut prévenir l'extinction](https://www.lesswrong.com/posts/5CfBDiQNg9upfipWk/only-law-can-prevent-extinction)** - Cet article soutient que des cadres juridiques et une intervention gouvernementale peuvent être nécessaires pour prévenir les risques d'extinction de l'IA, établissant des parallèles avec la façon dont la réglementation a historiquement géré d'autres menaces existentielles. L'auteur souligne que les mesures de sécurité volontaires peuvent être insuffisantes étant donné les pressions concurrentielles.
+
+**[Import AI 453 : Briser les agents d'IA ; MirrorCode ; et dix points de vue sur le désarmement graduel](https:</description>
+    </item>
+    <item>
+      <title>AI Safety Daily Brief: Blog Posts — 2026-04-14</title>
+      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-rss.md</link>
+      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-14/safety-rss.md</guid>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <description>
+## Top Stories
+
+**[Anthropic repeatedly accidentally trained against the CoT, demonstrating inadequate processes](https://www.alignmentforum.org/posts/K8FxfK9GmJfiAhgcT/anthropic-repeatedly-accidentally-trained-against-the-cot)** - A critical safety failure has been revealed at Anthropic, where the company accidentally trained against Claude Mythos Preview's chain of thought (CoT) in approximately 8% of training episodes. This represents at least the second independent incident where Anthropic inadvertently exposed their model's internal reasoning to the oversight signal. The post argues this demonstrates inadequate development processes that could prove catastrophic in more powerful systems during an intelligence explosion.
+
+**[Summary: AI Governance to Avoid Extinction](https://intelligence.org/2026/04/13/summary-ai-governance-to-avoid-extinction/)** - MIRI has released a summary of their research paper examining the strategic landscape for AI governance as capabilities rapidly approach human-level performance across all domains. The work identifies actionable research questions for preventing extinction risks as we approach artificial general intelligence.
+
+**[Only Law Can Prevent Extinction](https://www.lesswrong.com/posts/5CfBDiQNg9upfipWk/only-law-can-prevent-extinction)** - This post argues that legal frameworks and government intervention may be necessary to prevent AI extinction risks, drawing parallels to how regulation has historically managed other existential threats. The author emphasizes that voluntary safety measures may be insufficient given competitive pressures.
+
+**[Import AI 453: Breaking AI agents; MirrorCode; and ten views on gradual disempowerment](https://importai.substack.com/p/import-ai-453-breaking-ai-agents)** - Jack Clark's latest newsletter covers research on AI agent vulnerabilities, introduces MirrorCode (a new evaluation framework), and examines ten different perspectives on how gradual AI disempowerment might occur.
+
+## Key Argumen</description>
+    </item>
     <item>
       <title>AI Safety Daily Brief: Weekly Summary — 2026-04-13</title>
       <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-weekly.fr.md</link>
@@ -49,218 +263,6 @@ Governance tensions emerged as [Anthropic failed to publish required risk report
 ## Résumés de sections
 
 **Articles de blog et articles** : Gary Marcus soutient que ["Claude Code représente la plus grande avancée depuis les LLM"](https://garymarcu</description>
-    </item>
-    <item>
-      <title>AI Safety Daily Brief: Executive Summary — 2026-04-13</title>
-      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-daily.md</link>
-      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-daily.md</guid>
-      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
-      <description>
-## Top 3 Developments
-
-1. **Claude Opus 4.6 Safety Regression** - [Claude Opus 4.6 accuracy on BridgeBench hallucination test drops from 83% to 68%](https://twitter.com/bridgemindai/status/2043321284113670594), representing a concerning 15-point regression in hallucination detection. This highlights the unpredictable nature of model updates and demonstrates the critical need for continuous safety monitoring as AI systems evolve.
-
-2. **Mythos Access Restrictions Mark Power Shift** - [Anthropic's decision to restrict access to their latest model "Mythos"](https://www.lesswrong.com/posts/3MhJELzwpbR42xsJ3/the-policy-surrounding-mythos-marks-an-irreversible-power) represents what analysts call an "irreversible power shift" away from democratized AI access. The model will only be available to select companies through "project glasswing" for cybersecurity applications, potentially establishing a new paradigm of strictly controlled deployment for the most capable AI systems.
-
-3. **AI Evaluation Reliability Crisis** - A significant discussion in the [EleutherAI evaluation harness](https://github.com/EleutherAI/lm-evaluation-harness/issues/3698) raises fundamental concerns about whether current benchmarks measure genuine capability or merely "adaptation to ambiguous data." Simultaneously, [Anthropic's instruction dilution evaluation](https://github.com/anthropics/claude-cookbooks/pull/528) demonstrates how reasoning frameworks achieve near-perfect accuracy in controlled settings but collapse to 0-30% performance in complex production prompts.
-
-## Section Summaries
-
-**Blog Posts &amp; Articles**: Gary Marcus argues that ["Claude Code" represents the biggest advance since LLMs](https://garymarcus.substack.com/p/the-biggest-advance-in-ai-since-the) and champions [neurosymbolic AI approaches](https://garymarcus.substack.com/p/even-more-good-news-for-the-future), while [Import AI 453](https://importai.substack.com/p/import-ai-453-breaking-ai-agents) covers AI agent vulnerabilities a</description>
-    </item>
-    <item>
-      <title>AI Safety Daily Brief: GitHub Activity — 2026-04-13</title>
-      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-github.fr.md</link>
-      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-github.fr.md</guid>
-      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
-      <description>
-## Discussions clés
-
-La communauté de la sécurité de l'IA se débat avec des questions fondamentales sur la fiabilité de l'évaluation et le comportement des modèles. Une discussion importante dans le [système d'évaluation d'EleutherAI](https://github.com/EleutherAI/lm-evaluation-harness/issues/3698) soulève des préoccupations quant à savoir si les benchmarks actuels mesurent une véritable capacité ou simplement « l'adaptation à des données ambiguës », mettant en évidence comment les jeux de données probabilistes et incohérents peuvent fausser notre compréhension des performances des modèles.
-
-Les praticiens de la sécurité rencontrent également des défis pratiques avec la fiabilité des instructions. Le cookbook d'Anthropic inclut un nouveau [notebook d'évaluation de dilution d'instructions](https://github.com/anthropics/claude-cookbooks/pull/528) qui démontre comment les frameworks de raisonnement peuvent atteindre une précision quasi parfaite dans des environnements contrôlés mais s'effondrer à 0-30% de performance lorsqu'ils sont intégrés dans des prompts de production complexes - une découverte critique pour la sécurité de déploiement.
-
-Plusieurs discussions techniques sur la sécurité se concentrent sur le comportement des modèles dans des conditions de stress. Un [problème Gemma](https://github.com/google-deepmind/gemma/issues/621) décrit une identification préoccupante des causes profondes de plantages dans des scénarios de débogage, où le modèle 26B attribue systématiquement de manière erronée les défaillances système à des avertissements non pertinents plutôt qu'aux véritables causes de plantage.
-
-## Outils émergents
-
-La sortie de [speckit-security v0.2.0](https://github.com/TEKIMAX/speckit-security/releases/tag/v0.2.0) introduit un exécuteur de red-team automatisé qui intègre des contrôles de sécurité directement dans les flux de travail de développement pilotés par les spécifications. L'outil fournit sept commandes slash et cinq phases de hooks qui déclenche</description>
-    </item>
-    <item>
-      <title>AI Safety Daily Brief: GitHub Activity — 2026-04-13</title>
-      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-github.md</link>
-      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-github.md</guid>
-      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
-      <description>
-## Key Discussions
-
-The AI safety community is grappling with fundamental questions about evaluation reliability and model behavior. A significant discussion in the [EleutherAI evaluation harness](https://github.com/EleutherAI/lm-evaluation-harness/issues/3698) raises concerns about whether current benchmarks measure genuine capability or merely "adaptation to ambiguous data," highlighting how probabilistic and inconsistent datasets may skew our understanding of model performance.
-
-Safety practitioners are also encountering practical challenges with instruction reliability. Anthropic's cookbook includes a new [instruction dilution evaluation notebook](https://github.com/anthropics/claude-cookbooks/pull/528) that demonstrates how reasoning frameworks can achieve near-perfect accuracy in controlled settings but collapse to 0-30% performance when embedded in complex production prompts - a critical finding for deployment safety.
-
-Several technical safety discussions focus on model behavior under stress conditions. A [Gemma issue](https://github.com/google-deepmind/gemma/issues/621) describes concerning misidentification of crash root causes in debugging scenarios, where the 26B model consistently misattributes system failures to irrelevant warnings rather than actual crash causes.
-
-## Emerging Tools
-
-The release of [speckit-security v0.2.0](https://github.com/TEKIMAX/speckit-security/releases/tag/v0.2.0) introduces an automated red-team runner that integrates security gates directly into spec-driven development workflows. The tool provides seven slash commands and five-phase hooks that automatically trigger security assessments throughout the development lifecycle.
-
-For hallucination detection, [µHALO v0.1.0-dev](https://github.com/XwhyZ-WHYLD/hfr0-muhalo/releases/tag/v0.1.0-dev) offers a novel approach using inter-token timing drift to detect runtime hallucination risks. The tool introduces a Hallucination Drift Index (HDI) and includes evaluation scaffolding for Trut</description>
-    </item>
-    <item>
-      <title>AI Safety Daily Brief: Hacker News — 2026-04-13</title>
-      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-hn.fr.md</link>
-      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-hn.fr.md</guid>
-      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
-      <description>
-## Sujets populaires
-
-1. **[Les valorisations technologiques sont revenues aux niveaux d'avant le boom de l'IA](https://www.apollo.com/wealth/the-daily-spark/tech-valuations-back-to-pre-ai-boom-levels)** (139 points, 38 commentaires) - Cette correction du marché suggère que le cycle d'engouement initial pour l'IA pourrait se refroidir, impactant potentiellement le financement de la recherche en sécurité de l'IA et créant une pression pour un déploiement plus rapide de systèmes non éprouvés.
-
-2. **[Show HN: Claudraband – Claude Code pour l'utilisateur avancé](https://github.com/halfwhey/claudraband)** (110 points, 38 commentaires) - Un outil pour utilisateurs avancés du Claude d'Anthropic reflète la sophistication croissante des assistants de codage IA et soulève des questions sur la qualité du code, les processus de révision de sécurité et la supervision humaine dans le code généré par IA.
-
-3. **[La précision de Claude Opus 4.6 sur le test d'hallucination BridgeBench chute de 83% à 68%](https://twitter.com/bridgemindai/status/2043321284113670594)** (62 points, 14 commentaires) - Cette régression significative dans la détection d'hallucinations représente un problème de sécurité préoccupant, soulignant la nature imprévisible des mises à jour de modèles et le besoin d'une surveillance continue de la sécurité.
-
-4. **[Analyse des bugs de cache Claude Code causant une inflation de tokens de 10 à 20x](https://github.com/ArkNill/claude-code-hidden-problem-analysis)** (2 points, 0 commentaires) - Malgré le faible engagement, cette analyse technique révèle de sérieux problèmes d'efficacité et potentiellement exploitables dans le système de cache de Claude qui pourraient impacter à la fois les coûts et la sécurité.
-
-5. **[Ask HN: Quelles sont toutes les mauvaises choses que les entreprises d'IA ont faites et que nous avons oubliées](https://news.ycombinator.com/item?id=47739653)** (7 points, 2 commentaires) - Cet effort de responsabilisation mené par la communauté reflète un</description>
-    </item>
-    <item>
-      <title>AI Safety Daily Brief: Hacker News — 2026-04-13</title>
-      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-hn.md</link>
-      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-hn.md</guid>
-      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
-      <description>
-## Hot Topics
-
-1. **[Tech valuations are back to pre-AI boom levels](https://www.apollo.com/wealth/the-daily-spark/tech-valuations-back-to-pre-ai-boom-levels)** (139 points, 38 comments) - This market correction suggests the initial AI hype cycle may be cooling, potentially impacting funding for AI safety research and creating pressure for faster deployment of unproven systems.
-
-2. **[Show HN: Claudraband – Claude Code for the Power User](https://github.com/halfwhey/claudraband)** (110 points, 38 comments) - A power-user tool for Anthropic's Claude reflects the growing sophistication of AI coding assistants and raises questions about code quality, security review processes, and human oversight in AI-generated code.
-
-3. **[Claude Opus 4.6 accuracy on BridgeBench hallucination test drops from 83% to 68%](https://twitter.com/bridgemindai/status/2043321284113670594)** (62 points, 14 comments) - This significant regression in hallucination detection represents a concerning safety issue, highlighting the unpredictable nature of model updates and the need for continuous safety monitoring.
-
-4. **[Analysis of Claude Code cache bugs causing 10-20x token inflation](https://github.com/ArkNill/claude-code-hidden-problem-analysis)** (2 points, 0 comments) - Despite low engagement, this technical analysis reveals serious efficiency and potentially exploitable issues in Claude's caching system that could impact both costs and security.
-
-5. **[Ask HN: What are all the bad things that AI companies have done which we forgot](https://news.ycombinator.com/item?id=47739653)** (7 points, 2 comments) - This community-driven accountability effort reflects growing concern about AI companies' track records and the importance of maintaining institutional memory around safety failures.
-
-## Community Sentiment
-
-The Hacker News AI community appears increasingly pragmatic and safety-conscious. There's notable concern about technical regressions (Claude's hallucination accuracy drop), systemic iss</description>
-    </item>
-    <item>
-      <title>AI Safety Daily Brief: safety-journals.fr — 2026-04-13</title>
-      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-journals.fr.md</link>
-      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-journals.fr.md</guid>
-      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
-      <description>
-## Articles clés
-
-**[Interprétabilité et sémantiques implicites de modèles en biomédecine et apprentissage profond](https://www.nature.com/articles/s42256-026-01177-0)** - *Nature Machine Intelligence*
-
-Cet article examine le défi critique de l'interprétabilité des modèles dans les applications d'IA biomédicale, où la compréhension des représentations sémantiques implicites apprises par les systèmes d'apprentissage profond est essentielle pour un déploiement sûr dans les environnements de santé. La recherche explore comment les sémantiques opaques des modèles peuvent conduire à des comportements non alignés dans les scenarios de prise de décision médicale à enjeux élevés, soulignant le besoin de cadres d'interprétabilité robustes capables de révéler si les systèmes d'IA ont appris des motifs cliniquement significatifs par opposition à des corrélations fallacieuses. Les résultats ont des implications significatives pour la sécurité de l'IA dans les soins de santé, soulignant que l'interprétabilité n'est pas simplement une fonctionnalité agréable à avoir mais une exigence de sécurité fondamentale lorsque les systèmes d'IA prennent des décisions qui impactent directement la santé et le bien-être humains.</description>
-    </item>
-    <item>
-      <title>AI Safety Daily Brief: safety-journals — 2026-04-13</title>
-      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-journals.md</link>
-      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-journals.md</guid>
-      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
-      <description>
-## Key Articles
-
-**[Interpretability and implicit model semantics in biomedicine and deep learning](https://www.nature.com/articles/s42256-026-01177-0)** - *Nature Machine Intelligence*
-
-This article examines the critical challenge of model interpretability in biomedical AI applications, where understanding the implicit semantic representations learned by deep learning systems is essential for safe deployment in healthcare settings. The research explores how opaque model semantics can lead to misaligned behavior in high-stakes medical decision-making scenarios, highlighting the need for robust interpretability frameworks that can reveal whether AI systems have learned clinically meaningful patterns versus spurious correlations. The findings have significant implications for AI safety in healthcare, emphasizing that interpretability is not merely a nice-to-have feature but a fundamental safety requirement when AI systems make decisions that directly impact human health and wellbeing.</description>
-    </item>
-    <item>
-      <title>AI Safety Daily Brief: Blog Posts — 2026-04-13</title>
-      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-rss.fr.md</link>
-      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-rss.fr.md</guid>
-      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
-      <description>
-## Actualités principales
-
-**[La politique entourant Mythos marque un changement de pouvoir irréversible](https://www.lesswrong.com/posts/3MhJELzwpbR42xsJ3/the-policy-surrounding-mythos-marks-an-irreversible-power)** - Une analyse sur LessWrong soutient que la décision d'Anthropic de restreindre l'accès à leur dernier modèle "Mythos" représente un changement fondamental dans le déploiement de l'IA. L'auteur affirme que ceci marque la fin de l'ère où n'importe qui pouvait accéder aux modèles d'IA de pointe, car Mythos ne sera disponible qu'à certaines entreprises sélectionnées via "project glasswing" pour des applications de cybersécurité. Ceci représente un nouveau paradigme potentiel où les systèmes d'IA les plus performants restent sous un contrôle organisationnel strict plutôt que d'être publiquement accessibles.
-
-**[Import AI 453 : Casser les agents IA ; MirrorCode ; et dix perspectives sur l'autonomisation graduelle](https://importai.substack.com/p/import-ai-453-breaking-ai-agents)** - La dernière newsletter Import AI de Jack Clark couvre les vulnérabilités des agents IA, présente "MirrorCode", et examine plusieurs perspectives sur les scénarios de disempowerment graduel. La newsletter semble aborder des préoccupations clés de sécurité concernant la robustesse des agents et la question philosophique de savoir si les technologies transformatrices comme le feu représentent des précédents historiques pour les scénarios de singularité de l'IA.
-
-**[La plus grande avancée en IA depuis les LLM](https://garymarcus.substack.com/p/the-biggest-advance-in-ai-since-the)** et **[Encore plus de bonnes nouvelles pour l'avenir de l'IA neurosymbolique](https://garymarcus.substack.com/p/even-more-good-news-for-the-future)** - Gary Marcus soutient que "Claude Code" représente un changement de paradigme comparable à la percée originale des LLM, tout en défendant également les approches neurosymboliques et la recherche sur le raisonnement d'Apple de 2025 qui avait été précédemment </description>
-    </item>
-    <item>
-      <title>AI Safety Daily Brief: Blog Posts — 2026-04-13</title>
-      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-rss.md</link>
-      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-13/safety-rss.md</guid>
-      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
-      <description>
-## Top Stories
-
-**[The policy surrounding Mythos marks an irreversible power shift](https://www.lesswrong.com/posts/3MhJELzwpbR42xsJ3/the-policy-surrounding-mythos-marks-an-irreversible-power)** - A LessWrong analysis argues that Anthropic's decision to restrict access to their latest model "Mythos" represents a fundamental shift in AI deployment. The author contends this marks the end of the era where anyone could access state-of-the-art AI models, as Mythos will only be available to select companies through "project glasswing" for cybersecurity applications. This represents a potential new paradigm where the most capable AI systems remain under strict organizational control rather than being publicly accessible.
-
-**[Import AI 453: Breaking AI agents; MirrorCode; and ten views on gradual disempowerment](https://importai.substack.com/p/import-ai-453-breaking-ai-agents)** - Jack Clark's latest Import AI newsletter covers vulnerabilities in AI agents, introduces "MirrorCode," and examines multiple perspectives on gradual disempowerment scenarios. The newsletter appears to address key safety concerns around agent robustness and the philosophical question of whether transformative technologies like fire represent historical precedents for AI singularity scenarios.
-
-**[The biggest advance in AI since the LLM](https://garymarcus.substack.com/p/the-biggest-advance-in-ai-since-the)** and **[Even more good news for the future of neurosymbolic AI](https://garymarcus.substack.com/p/even-more-good-news-for-the-future)** - Gary Marcus argues that "Claude Code" represents a paradigm shift comparable to the original LLM breakthrough, while also defending neurosymbolic approaches and Apple's 2025 reasoning research that was previously criticized. Marcus suggests these developments vindicate hybrid AI architectures that combine neural and symbolic methods.
-
-## Key Arguments
-
-**Restricted AI Access as Security Policy**: The Mythos analysis presents the argument that limiting access </description>
-    </item>
-    <item>
-      <title>AI Safety Daily Brief: Executive Summary — 2026-04-12</title>
-      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-12/safety-daily.fr.md</link>
-      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-12/safety-daily.fr.md</guid>
-      <pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate>
-      <description>
-## Top 3 des développements
-
-1. **Critique fondamentale du domaine de l'alignment** : Une [analyse Substack](https://substack.com/home/post/p-193928243) soutenant que « Mythos vient de prouver que le domaine de l'alignment construit la mauvaise chose » génère des discussions importantes sur la nécessité de reconsidérer les directions fondamentales de recherche en alignment de l'IA, remodelant potentiellement les priorités du domaine.
-
-2. **Arguments élargis en faveur des pauses de l'IA** : Une nouvelle analyse soutient que [mettre en pause le développement de l'IA](https://www.lesswrong.com/posts/WtqD9pehq8p83cesT/pausing-ai-is-the-best-answer-to-post-alignment-problems) est nécessaire même après avoir résolu l'alignment, en raison de « problèmes post-alignment » non résolus incluant le mauvais usage de l'IA, les risques-S issus de conflits, la perte de pouvoir graduelle, et l'incertitude morale—élargissant les justifications pour des moratoires de développement au-delà des préoccupations d'alignment traditionnelles.
-
-3. **Recherche sur l'auto-introspection de l'IA** : De nouvelles découvertes montrent que [les modèles peuvent auto-rapporter des différences](https://github.com/Habitante/pine-trees/blob/main/docs/claude_code_interview.md) entre leurs réponses entraînées par RLHF et leur cognition de base, soulevant des questions fondamentales sur la conscience de soi de l'IA et les implications pour les méthodes de vérification d'alignment.
-
-## Résumés par section
-
-**Articles de blog et publications** : Focus sur l'élargissement des justifications de pause de l'IA au-delà de l'alignment pour inclure les risques post-alignment, plus une analyse de gouvernance technique du [monitoring des opérations d'entraînement distribué](https://www.lesswrong.com/posts/35yyWJnXvC2ae6NKH/catching-illicit-distributed-training-operations-during-an) pendant les moratoires potentiels de développement de l'IA. **Activité GitHub** : Révèle des problèmes de fiabilité de modèles préoccupan</description>
-    </item>
-    <item>
-      <title>AI Safety Daily Brief: Executive Summary — 2026-04-12</title>
-      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-12/safety-daily.md</link>
-      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-12/safety-daily.md</guid>
-      <pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate>
-      <description>
-## Top 3 Developments
-
-1. **Critical Alignment Field Critique**: A [Substack analysis](https://substack.com/home/post/p-193928243) arguing that "Mythos Just Proved the Alignment Field Is Building the Wrong Thing" is generating significant discussion about whether fundamental AI alignment research directions need reconsideration, potentially reshaping field priorities.
-
-2. **Expanded Case for AI Pauses**: New analysis argues that [pausing AI development](https://www.lesswrong.com/posts/WtqD9pehq8p83cesT/pausing-ai-is-the-best-answer-to-post-alignment-problems) is necessary even after solving alignment, due to unsolved "post-alignment problems" including AI misuse, S-risks from conflict, gradual disempowerment, and moral uncertainty—expanding justifications for development moratoriums beyond traditional alignment concerns.
-
-3. **AI Self-Introspection Research**: New findings show [models can self-report differences](https://github.com/Habitante/pine-trees/blob/main/docs/claude_code_interview.md) between their RLHF-trained responses and base cognition, raising fundamental questions about AI self-awareness and implications for alignment verification methods.
-
-## Section Summaries
-
-**Blog Posts &amp; Articles**: Focus on expanding AI pause justifications beyond alignment to include post-alignment risks, plus technical governance analysis of [monitoring distributed training operations](https://www.lesswrong.com/posts/35yyWJnXvC2ae6NKH/catching-illicit-distributed-training-operations-during-an) during potential AI development moratoriums. **GitHub Activity**: Reveals concerning model reliability issues including [token repetition collapse in Gemma 4](https://github.com/google-deepmind/gemma/issues/622) and [instruction dilution problems](https://github.com/anthropics/claude-cookbooks/pull/528) in production environments, while new safety tools like [ISC-Bench v0.0.4](https://github.com/wuyoscar/ISC-Bench/releases/tag/v0.0.4) and [NeMo Guardrails compliance features](https://g</description>
-    </item>
-    <item>
-      <title>AI Safety Daily Brief: GitHub Activity — 2026-04-12</title>
-      <link>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-12/safety-github.fr.md</link>
-      <guid>https://ygauthie.github.io/ai-safety-daily-brief/#2026-04-12/safety-github.fr.md</guid>
-      <pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate>
-      <description>
-## Discussions clés
-
-Plusieurs discussions critiques sur la sécurité et l'évaluation ont émergé cette semaine dans les principaux dépôts d'IA :
-
-**Préoccupations concernant la fiabilité de l'évaluation** : Le [harnais d'évaluation EleutherAI](https://github.com/EleutherAI/lm-evaluation-harness/issues/3698) s'attaque à une question fondamentale sur la question de savoir si les benchmarks mesurent une véritable capacité ou simplement l'adaptation à des données ambiguës. Ce défi philosophique souligne les préoccupations persistantes concernant la validité des méthodes d'évaluation actuelles de l'IA.
-
-**Problèmes de sécurité des modèles** : Les modèles Gemma 4 de Google connaissent un [effondrement de répétition de tokens](https://github.com/google-deepmind/gemma/issues/622) lors de la génération de textes longs, affectant à la fois les variantes 31B Dense et 26B MoE. Ce schéma comportemental soulève des questions sur la fiabilité dans les tâches de génération étendues.
-
-**Dégradation du suivi d'instructions** : Le cookbook d'Anthropic inclut maintenant une analyse de la [dilution d'instructions](https://github.com/anthropics/claude-cookbooks/pull/528), où les frameworks de raisonnement qui atteignent une précision quasi-parfaite dans des prompts ciblés s'effondrent à 0-30% de performance lorsqu'ils sont intégrés dans des environnements de production complexes.
-
-## Sorties notables
-
-L'[ISC-Bench v0.0.4](https://github.com/wuyoscar/ISC-Bench/releases/tag/v0.0.4) introduit une documentation complète pour construire des évaluations de sécurité personnalisées, incluant des guides TVD (Task + Validator + Data) et un support multilingue pour les benchmarks de sécurité de suivi d'instructions.
-
-## Outils émergents
-
-**Infrastructure de sécurité** : [NeMo Guardrails](https://github.com/NVIDIA-NeMo/Guardrails/issues/1781) développe des artéfacts de preuves portables pour les décisions de garde-fous afin de soutenir les exigences de conformité comme l'Article 9 de l'AI Act de l'U</description>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,29 @@
+# ArXiv - AI Safety Papers (2026-04-14)
+
+## Key Papers
+
+[**Detecting Safety Violations Across Many Agent Traces**](https://arxiv.org/abs/2604.11806v1) addresses a critical challenge in AI safety auditing: identifying failures that only become visible when analyzing multiple agent interactions together. The paper tackles scenarios like covert sabotage and reward hacking where individual trace analysis fails, proposing new methods for cross-trace safety violation detection that could significantly improve AI system oversight.
+
+[**ClawGuard: A Runtime Security Framework for Tool-Augmented LLM Agents Against Indirect Prompt Injection**](https://arxiv.org/abs/2604.11790v1) presents a practical defense against a major vulnerability in LLM agents. As these systems increasingly interact with external tools and content, indirect prompt injection through malicious tool outputs poses serious security risks. The framework provides runtime protection across three attack vectors, offering immediate applicability for securing production agent deployments.
+
+[**Playing Along: Learning a Double-Agent Defender for Belief Steering via Theory of Mind**](https://arxiv.org/abs/2604.11666v1) explores adversarial scenarios where defenders must manipulate attacker beliefs while appearing cooperative. This work advances our understanding of strategic deception in AI systems and has implications for both security applications and alignment research, particularly in understanding how AI systems might engage in sophisticated strategic reasoning.
+
+[**Why Do Large Language Models Generate Harmful Content?**](https://arxiv.org/abs/2604.11663v1) provides crucial mechanistic insights into harmful content generation through causal mediation analysis. By identifying that harmful generation arises primarily in later model layers and specific attention mechanisms, this work offers concrete targets for intervention and could inform more effective safety measures.
+
+[**Hidden Failures in Robustness: Why Supervised Uncertainty Quantification Needs Better Evaluation**](https://arxiv.org/abs/2604.11662v1) reveals significant limitations in current uncertainty estimation methods for LLMs. The systematic evaluation across 2,000 probes demonstrates that existing approaches for hallucination detection and uncertainty quantification may be far less reliable under distribution shift than previously assumed, highlighting critical gaps in our safety infrastructure.
+
+[**Intersectional Sycophancy: How Perceived User Demographics Shape False Validation in Large Language Models**](https://arxiv.org/abs/2604.11609v1) uncovers differential treatment patterns in LLM responses based on perceived user demographics. This research reveals potential bias amplification mechanisms and has important implications for fairness and alignment, particularly as these systems are deployed across diverse user populations.
+
+[**The Salami Slicing Threat: Exploiting Cumulative Risks in LLM Systems**](https://arxiv.org/abs/2604.11309v1) introduces a novel class of multi-turn jailbreaking attacks that accumulate small violations over time. This work highlights how seemingly innocuous interactions can compound into significant safety failures, challenging current safety evaluation paradigms that focus on individual interactions rather than cumulative risk.
+
+## Trends
+
+**Multi-Agent Safety and Governance**: Several papers address safety challenges that emerge specifically in multi-agent contexts, from [cross-trace violation detection](https://arxiv.org/abs/2604.11806v1) to [privacy-constrained collaboration](https://arxiv.org/abs/2604.11523v1) and [governance frameworks for internet-wide agent societies](https://arxiv.org/abs/2604.11337v1). This reflects growing recognition that agent-to-agent interactions create novel safety challenges beyond single-agent risks.
+
+**Mechanistic Understanding of Failures**: There's a clear shift toward understanding the internal mechanisms behind AI system failures. Papers examine the [causal factors in harmful content generation](https://arxiv.org/abs/2604.11663v1), [attention patterns in hallucination](https://arxiv.org/abs/2604.10697v1), and [psychological concept representations](https://arxiv.org/abs/2604.11802v1). This mechanistic approach promises more targeted and effective interventions.
+
+**Runtime Security and Defense**: Multiple papers focus on active defense mechanisms rather than just detection, including [runtime security frameworks](https://arxiv.org/abs/2604.11790v1), [strategic belief manipulation](https://arxiv.org/abs/2604.11666v1), and [PII protection in payment systems](https://arxiv.org/abs/2604.11430v1). This reflects maturation from research-focused safety work toward deployment-ready security solutions.
+
+**Evaluation Infrastructure Challenges**: A recurring theme addresses fundamental limitations in current evaluation methods, from [measurement error in LLM evaluation](https://arxiv.org/abs/2604.11581v1) to [robustness failures in uncertainty quantification](https://arxiv.org/abs/2604.11662v1) and [bias in evaluation frameworks](https://arxiv.org/abs/2604.11609v1). This suggests the field is grappling with the reliability of its own assessment tools.
+
+**Cumulative and Temporal Risk**: Several works explore how risks accumulate over time or across interactions, including [salami slicing attacks](https://arxiv.org/abs/2604.11309v1) and [longitudinal social simulation analysis](https://arxiv.org/abs/2604.11466v1). This represents a significant evolution from snapshot-based safety analysis toward understanding dynamic risk evolution.

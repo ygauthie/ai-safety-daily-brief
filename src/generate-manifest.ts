@@ -1,5 +1,6 @@
 import { readdirSync, readFileSync, existsSync, writeFileSync } from "fs";
 import { join } from "path";
+import { marked } from "marked";
 
 interface ManifestEntry {
   date: string;
@@ -80,24 +81,20 @@ function main() {
 
   const feedItems = allItems.slice(0, 15).map(({ date, file }) => {
     const label = fileLabel(file);
-    let description = `${label} for ${date}`;
+    let description = `<p>${label} for ${date}</p>`;
     const filePath = join(digestsDir, date, file);
     if (existsSync(filePath)) {
       const content = readFileSync(filePath, "utf-8");
-      const plain = content
-        .replace(/^#[^\n]*\n/, "")
-        .slice(0, 2000)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
-      description = plain;
+      const truncated = content.replace(/^#[^\n]*\n/, "").slice(0, 4000);
+      description = marked(truncated) as string;
     }
+    const xmlLabel = label.replace(/&/g, "&amp;");
     return `    <item>
-      <title>AI Safety Daily Brief: ${label} — ${date}</title>
+      <title>AI Safety Daily Brief: ${xmlLabel} — ${date}</title>
       <link>https://ygauthie.github.io/ai-safety-radar-securite-ia/#${date}/${file}</link>
       <guid>https://ygauthie.github.io/ai-safety-radar-securite-ia/#${date}/${file}</guid>
       <pubDate>${new Date(date).toUTCString()}</pubDate>
-      <description>${description}</description>
+      <description><![CDATA[${description}]]></description>
     </item>`;
   });
 

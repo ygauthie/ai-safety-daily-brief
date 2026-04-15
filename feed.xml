@@ -39,7 +39,7 @@
 **Research Papers**: Eight critical papers expose fundamental limitations in AI safety verification, including the ["verification tax" paradox](https://arxiv.org/abs/2604.12951v1) where better models become harder to audit, [one-token brittleness in instruction-following](https://arxiv.o</description>
     </item>
     <item>
-      <title>AI Safety Daily Brief: Analysis & Policy — 2026-04-15</title>
+      <title>AI Safety Daily Brief: Analysis &amp; Policy — 2026-04-15</title>
       <link>https://ygauthie.github.io/ai-safety-radar-securite-ia/#2026-04-15/safety-analysis.fr.md</link>
       <guid>https://ygauthie.github.io/ai-safety-radar-securite-ia/#2026-04-15/safety-analysis.fr.md</guid>
       <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
@@ -57,7 +57,7 @@
 **[Résumé de la gouvernance de l'IA pour éviter l'extinction](https://intelligence.org/</description>
     </item>
     <item>
-      <title>AI Safety Daily Brief: Analysis & Policy — 2026-04-15</title>
+      <title>AI Safety Daily Brief: Analysis &amp; Policy — 2026-04-15</title>
       <link>https://ygauthie.github.io/ai-safety-radar-securite-ia/#2026-04-15/safety-analysis.md</link>
       <guid>https://ygauthie.github.io/ai-safety-radar-securite-ia/#2026-04-15/safety-analysis.md</guid>
       <pubDate>Wed, 15 Apr 2026 00:00:00 GMT</pubDate>
@@ -169,7 +169,7 @@
 **Runtime Defense Against Indirect Prompt Injection in Tool-Using Agents**: [ClawGuard framework](https://arxiv.org/abs/2604.11806v1) provides the first comprehensive protection against malicious instructions embedded in tool-returned content, intercepting attacks across web, local content, and MCP server channels before they reach agent conversation history. **For practitioners:** ClawGuard offers immediate deployment-ready protection for production agent systems facing sophisticated adversarial inputs. **For policymaker</description>
     </item>
     <item>
-      <title>AI Safety Daily Brief: Analysis & Policy — 2026-04-14</title>
+      <title>AI Safety Daily Brief: Analysis &amp; Policy — 2026-04-14</title>
       <link>https://ygauthie.github.io/ai-safety-radar-securite-ia/#2026-04-14/safety-analysis.fr.md</link>
       <guid>https://ygauthie.github.io/ai-safety-radar-securite-ia/#2026-04-14/safety-analysis.fr.md</guid>
       <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
@@ -189,7 +189,7 @@ L'Institut britannique de sécurité de l'IA a publié [son évaluation des capa
 **Pour les praticiens** : Les organisations déployant des systèmes similaires devraient s'attendre à des évaluations gouvernementales de plus en plus rigoureuses et pourraient avoir besoin de développer des capacités internes pour des é</description>
     </item>
     <item>
-      <title>AI Safety Daily Brief: Analysis & Policy — 2026-04-14</title>
+      <title>AI Safety Daily Brief: Analysis &amp; Policy — 2026-04-14</title>
       <link>https://ygauthie.github.io/ai-safety-radar-securite-ia/#2026-04-14/safety-analysis.md</link>
       <guid>https://ygauthie.github.io/ai-safety-radar-securite-ia/#2026-04-14/safety-analysis.md</guid>
       <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>

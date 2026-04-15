@@ -44,7 +44,7 @@ function main() {
     "safety-daily": "Executive Summary",
     "safety-weekly": "Weekly Summary",
     "safety-research": "Research Papers",
-    "safety-analysis": "Analysis & Policy",
+    "safety-analysis": "Blogs & News",
     "safety-community": "Community & Tools",
     // Legacy labels for older digests
     "safety-arxiv": "ArXiv Papers",

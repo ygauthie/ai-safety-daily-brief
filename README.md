@@ -46,7 +46,7 @@ GitHub Actions (cron 5 AM ET)
     │
     ├── Summarize with Claude (OpenRouter) — 3 sections in parallel
     │     ├── Research Papers (ArXiv + journals)
-    │     ├── Analysis & Policy (RSS + org websites + AISIs)
+    │     ├── Blogs & News (RSS + org websites + AISIs)
     │     ├── Community & Tools (HN + GitHub)
     │     └── Daily executive summary (rollup with dedup context from last 2 days)
     │

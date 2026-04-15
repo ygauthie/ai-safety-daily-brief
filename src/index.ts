@@ -95,10 +95,10 @@ async function main() {
     sections.push(`## Research Papers [Tier 1-2]\n\n${researchReport}`);
   }
   if (analysisPolicyReport) {
-    const content = `# Analysis & Policy (${date})\n\n${analysisPolicyReport}`;
+    const content = `# Blogs & News (${date})\n\n${analysisPolicyReport}`;
     saveReport(date, "safety-analysis.md", content);
     enFiles.push({ filename: "safety-analysis.md", content });
-    sections.push(`## Analysis & Policy [Tier 1-2]\n\n${analysisPolicyReport}`);
+    sections.push(`## Blogs & News [Tier 1-2]\n\n${analysisPolicyReport}`);
   }
   if (communityToolsReport) {
     const content = `# Community & Tools (${date})\n\n${communityToolsReport}`;

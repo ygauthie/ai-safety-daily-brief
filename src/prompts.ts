@@ -33,7 +33,7 @@ Today is ${date}. Below are recent articles, blog posts, and policy updates from
 - **AI lab blogs & research org updates** [Tier 2]: Anthropic, OpenAI, DeepMind, Apollo Research, Epoch AI, METR, ARC, MIRI, Conjecture, IAPS, FLI.
 - **Expert newsletters & community forums** [Tier 2]: Import AI, AI Snake Oil, Interconnects, Alignment Forum, and others.
 
-Produce a unified analysis & policy digest in ${lang === "fr" ? "French" : "English"}:
+Produce a unified blogs & news digest in ${lang === "fr" ? "French" : "English"}:
 
 1. **Top Stories**: The 3-5 most important articles or publications from labs, research orgs, and expert commentators. Each summary should end with one sentence explaining why it matters.
 2. **Policy & Governance**: Any AISI updates, regulatory developments, or think tank publications. For each, end with one sentence explaining why it matters. If no policy updates exist today, omit this subsection.

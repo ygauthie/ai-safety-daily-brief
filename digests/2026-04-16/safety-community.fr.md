@@ -1,0 +1,25 @@
+# Communauté & Outils (2026-04-16)
+
+## Discussions Clés
+
+**1. [Libretto – Rendre les automatisations de navigateur IA déterministes](https://github.com/saffron-health/libretto)** - Un nouvel outil open-source qui fournit une automatisation déterministe de navigateur pour les agents IA, s'attaquant à un défi clé de fiabilité dans les flux de travail IA basés sur le web. Ceci importe car les interactions imprévisibles du navigateur sont une source majeure d'échecs des agents IA dans les environnements de production.
+
+**2. [La Crise des Deepfake Nudity dans les Écoles](https://www.wired.com/story/deepfake-nudify-schools-global-crisis/)** - Discussion autour du problème croissant des images explicites générées par IA ciblant les mineurs dans les environnements éducatifs, avec 137 commentaires explorant les solutions techniques, les réponses politiques et les méthodes de détection. Ceci souligne le besoin urgent de mesures de sécurité IA spécifiquement conçues pour prévenir la génération de contenu nuisible ciblant les populations vulnérables.
+
+**3. [Proposition de Guide de Gouvernance des Dépenses d'Agents](https://github.com/anthropics/claude-cookbooks/issues/546)** - Discussion communautaire autour de la construction de systèmes de gouvernance pour les agents IA qui peuvent effectuer de vraies transactions financières, alors que les agents dotés de capacités de paiement deviennent mainstream sur des plateformes comme Google, Visa et Coinbase. Ceci est critique pour prévenir les abus financiers et assurer un déploiement responsable des systèmes IA dotés de pouvoirs économiques.
+
+**4. [Garde-fous de Sécurité en Production](https://github.com/anthropics/claude-cookbooks/pull/426)** - Multiples pull requests démontrant le scanning de sécurité en temps réel pour les agents Claude, incluant la détection d'injection de prompts, l'application de budgets de coût, et le scanning de données personnelles utilisant des outils comme Sentinel AI. Ceci représente une approche pratique pour implémenter des contrôles de sécurité multi-couches dans les déploiements IA de production.
+
+**5. [Régression de Suivi de Protocole Gemma 4](https://github.com/google-deepmind/gemma/issues/604)** - Discussion technique sur Gemma 4 26B montrant un suivi d'instructions dégradé comparé à Gemma 3, avec des rapports de boucles de répétition déterministes durant la génération. Ceci importe car cela souligne le défi de maintenir la cohérence d'alignment à travers les itérations de modèles, même au sein de la même famille de modèles.
+
+## Sorties GitHub & Outils Notables
+
+**[AI Audit Trail v0.3.0](https://github.com/sundsoffice-tech/ai-audit-trail/releases/tag/v0.3.0)** - Premier framework mondial d'audit IA agentique avec vérification comportementale formelle, présentant des Contrats Comportementaux d'Agents avec des garanties de (p, δ, k)-Satisfaction et des contraintes lisibles par machine pour les agents autonomes. Ceci permet aux équipes de conformité de vérifier mathématiquement le comportement des agents IA contre les exigences réglementaires.
+
+**[AgentLens v1.31.0](https://github.com/sauravbhattacharya001/agentlens/releases/tag/v1.31.0)** - Version axée sur les performances avec mise en cache LRU pour l'extraction de noms de service (accélération 5-10x), détection d'échec optimisée, et durcissement sécuritaire contre le débordement de variables SQLite et les attaques d'épuisement de ressources. Ceci fournit une infrastructure d'observabilité de niveau production pour les déploiements multi-agents.
+
+**[Daryl v1.0.2](https://github.com/daryl-labs-ai/daryl/releases/tag/v1.0.2)** - Serveur de coordination d'agents permettant une coordination multi-agents prouvable avec signature cryptographique Ed25519, supportant les backends Claude, GPT-4, Ollama, et GLM pour les déploiements d'agents LLM distribués. Ceci s'attaque aux défis de coordination et de confiance dans les systèmes IA multi-agents.
+
+**[Kyntra Claude Hook v0.2.0](https://github.com/YBPartners/kyntra-claude-hook/releases/tag/v0.2.0)** - Outil de gouvernance IA en temps réel qui intercepte les appels d'outils Claude Code et applique des décisions basées sur des politiques d'autorisation/blocage/avertissement en moins d'une seconde, avec intégration spécifique à l'OS et surveillance de santé. Ceci fournit des contrôles de sécurité immédiats pour les outils IA de génération de code dans les environnements d'entreprise.
+
+**[MechReward v0.1.0](https://github.com/caiovicentino/mechreward/releases/tag/v0.1.0)** - Approche novatrice utilisant l'interprétabilité mécanistique comme signaux de récompense pour l'entraînement RL des LLMs, présentant les activations de caractéristiques SAE comme récompenses au niveau de trajectoire et la normalisation stratifiée de style HERO. Ceci représente une avancée significative dans l'alignment de l'entraînement de modèles de langage avec des représentations internes interprétables.

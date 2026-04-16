@@ -2,7 +2,7 @@ name: Daily Digest
 
 on:
   schedule:
-    - cron: "25 8 * * *" # 4:25 AM ET (UTC-4 EDT)
+    - cron: "55 7 * * *" # 3:55 AM ET (UTC-4 EDT)
   workflow_dispatch: # Allow manual trigger
 
 permissions:

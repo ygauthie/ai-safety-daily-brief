@@ -170,6 +170,10 @@ rss_feeds:
   - name: Ada Lovelace Institute
     url: https://www.adalovelaceinstitute.org/feed/
     tier: 2
+  # General news (last 24h only, broad coverage)
+  - name: Google News (AI Safety)
+    url: https://news.google.com/rss/search?q=%22AI+safety%22&hl=en-US&gl=US&ceid=US:en&when=1d
+    tier: 3
 
 # Websites to crawl via sitemap for new content
 websites:

@@ -9,6 +9,7 @@ import { fetchHackerNews } from "./hn.js";
 import { fetchWebsites } from "./web.js";
 import { fetchAisi } from "./aisi.js";
 import { fetchJournals } from "./journals.js";
+import { fetchActuallyRelevant } from "./actuallyrelevant.js";
 import {
   researchPrompt,
   analysisPolicyPrompt,
@@ -25,7 +26,7 @@ async function main() {
 
   // Phase 1: Fetch all data in parallel
   console.log("Fetching data from all sources...");
-  const [arxivData, rssData, githubData, hnData, webData, aisiData, journalData] = await Promise.all([
+  const [arxivData, rssData, githubData, hnData, webData, aisiData, journalData, actuallyRelevantData] = await Promise.all([
     fetchArxiv().catch((e) => {
       console.error("ArXiv fetch failed:", e);
       return [];
@@ -54,16 +55,25 @@ async function main() {
       console.error("Journals fetch failed:", e);
       return [];
     }),
+    fetchActuallyRelevant().catch((e) => {
+      console.error("ActuallyRelevant fetch failed:", e);
+      return [];
+    }),
   ]);
 
   // Merge data into 3 groups
   const researchData = [...arxivData.map((d) => ({ ...d, _source: "arxiv" })), ...journalData.map((d) => ({ ...d, _source: "journal" }))];
-  const analysisPolicyData = [...rssData, ...webData, ...aisiData.map((d) => ({ source: d.institute, title: d.title, link: d.url, description: d.excerpt, pubDate: "", _source: "aisi" }))];
+  const analysisPolicyData = [
+    ...rssData,
+    ...webData,
+    ...aisiData.map((d) => ({ source: d.institute, title: d.title, link: d.url, description: d.excerpt, pubDate: "", _source: "aisi" })),
+    ...actuallyRelevantData.map((d) => ({ ...d, _source: "actuallyrelevant" })),
+  ];
   const communityToolsData = [...hnData.map((d) => ({ ...d, _source: "hn" })), ...githubData.map((d) => ({ ...d, _source: "github" }))];
 
   console.log(
     `Fetched: ${arxivData.length} papers, ${journalData.length} journal articles, ` +
-      `${rssData.length + webData.length} blog/org articles, ${aisiData.length} AISI items, ` +
+      `${rssData.length + webData.length + actuallyRelevantData.length} blog/org/news articles, ${aisiData.length} AISI items, ` +
       `${hnData.length} HN stories, ${githubData.length} GitHub items`
   );
 

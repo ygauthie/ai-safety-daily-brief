@@ -32,6 +32,7 @@ Today is ${date}. Below are recent articles, blog posts, and policy updates from
 - **Think tank & policy org publications** [Tier 1]: Georgetown CSET, RAND, Ada Lovelace Institute, AI Now Institute.
 - **AI lab blogs & research org updates** [Tier 2]: Anthropic, OpenAI, DeepMind, Apollo Research, Epoch AI, METR, ARC, MIRI, Conjecture, IAPS, FLI.
 - **Expert newsletters & community forums** [Tier 2]: Import AI, AI Snake Oil, Interconnects, Alignment Forum, and others.
+- **General news aggregators** [Tier 3]: Google News, Actually Relevant. Broader coverage; treat as lower-signal background context.
 
 Produce a unified blogs & news digest in ${lang === "fr" ? "French" : "English"}:
 

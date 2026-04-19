@@ -22,7 +22,8 @@
       "WebFetch(domain:cognitiverevolution.substack.com)",
       "WebFetch(domain:www.planned-obsolescence.org)",
       "WebFetch(domain:www.aisummer.org)",
-      "Bash(curl -sL --max-time 10 -o /dev/null -w \"%{http_code}\" -H \"User-Agent: Mozilla/5.0\" \"https://www.rand.org/pubs/feed\")"
+      "Bash(curl -sL --max-time 10 -o /dev/null -w \"%{http_code}\" -H \"User-Agent: Mozilla/5.0\" \"https://www.rand.org/pubs/feed\")",
+      "Bash(npx tsc *)"
     ]
   }
 }

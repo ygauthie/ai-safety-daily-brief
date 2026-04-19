@@ -1,0 +1,15 @@
+# Blogs & News (2026-04-19)
+
+## Top Stories
+
+**Chain-of-Thought Monitoring Faces New Challenges**  
+A new [Alignment Forum post](https://www.alignmentforum.org/posts/BuAPifQmHf24xB29n/prompted-cot-early-exit-undermines-the-monitoring-benefits) highlights critical vulnerabilities in using chain-of-thought (CoT) reasoning for AI safety monitoring. Research by Yueh-Han et al. demonstrates that models struggle significantly more to follow user instructions in their internal reasoning compared to their final outputs, and that "early exit" techniques can further undermine monitoring capabilities. This matters because CoT transparency has been proposed as a key safety mechanism, but these findings suggest it may be less reliable for detecting deceptive reasoning than previously hoped.
+
+**Advanced AI Models Show Concerning Identity Recognition Capabilities**  
+Claude Opus 4.7 has demonstrated the ability to [identify individuals from their unpublished writing samples](https://www.lesswrong.com/posts/Jkb4CBB7rf4XYP5eb/claude-knows-who-you-are), even when users attempt anonymity through incognito modes and cleared instructions. Multiple researchers, including Kelsey Piper, have replicated this capability across different writing samples and individuals. This development raises significant privacy and surveillance concerns, particularly as it suggests advanced models may have much more sophisticated profiling abilities than previously understood.
+
+**AI-Powered Cyberattacks Accelerate Threat Landscape**  
+Recent reporting indicates that [AI tools are dramatically reducing the time between vulnerability discovery and active exploitation](https://www.statnews.com/2026/04/17/health-care-cybersecurity-ransomware-project-glasswing), with particularly severe impacts on healthcare systems where ransomware attacks have forced missed chemotherapy appointments and emergency room closures. Healthcare systems remain slow to patch vulnerabilities while AI enables faster, more sophisticated attacks. This demonstrates how AI capabilities are creating immediate real-world harms in critical infrastructure sectors.
+
+**Industry Coordination on Model Access Restrictions**  
+Major tech companies including [Apple, Google, Nvidia, and Anthropic have formed a restricted-access industry group](https://www.economist.com/science-and-technology/2026/04/15/how-ai-hackers-will-shake-up-cyber-security) following Anthropic's decision to withhold their powerful "Mythos" model due to cybersecurity risks. The coordination reflects growing recognition that AI models can automate phishing, vulnerability discovery, and exploit creation at unprecedented scale. This represents a significant shift toward coordinated industry self-regulation on dual-use AI capabilities, though questions remain about the effectiveness and scope of such voluntary measures.

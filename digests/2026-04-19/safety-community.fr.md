@@ -1,0 +1,23 @@
+# Communauté & Outils (2026-04-19)
+
+## Discussions clés
+
+### Préoccupations concernant la détection de malware de Claude Code Opus 4.7
+[Claude Code Opus 4.7 keeps checking on malware](https://news.ycombinator.com/item?id=47814832) (61 points, 56 commentaires) a suscité une discussion sur les modèles d'IA présentant un comportement inattendu lors de vérifications répétées de motifs de malware. Les utilisateurs ont débattu pour savoir si cela représente un mécanisme de sécurité défaillant, un surapprentissage de motifs de sécurité, ou un comportement potentiellement adversarial. Cela souligne les défis persistants dans la compréhension et le contrôle du comportement des modèles d'IA dans des contextes sensibles au niveau sécurité.
+
+### Développement d'infrastructure de sécurité de l'IA
+La communauté développe activement des outils de sécurité, avec plusieurs projets notables livrant des versions prêtes pour la production. [Agent-airlock v0.5.0](https://github.com/sattyamjjain/agent-airlock/releases/tag/v0.5.0) a été lancé comme framework de sécurité MCP (Model Control Protocol), tandis que plusieurs systèmes de vérification et de gouvernance ont reçu des mises à jour importantes. La discussion s'est concentrée sur les défis pratiques de déploiement des mesures de sécurité de l'IA et le besoin de protocoles de sécurité standardisés. Ces développements représentent un écosystème d'outils de sécurité de l'IA en maturation, passant de prototypes de recherche au déploiement en production.
+
+## Versions GitHub et outils notables
+
+### [Agent-airlock v0.5.0 "April 2026"](https://github.com/sattyamjjain/agent-airlock/releases/tag/v0.5.0)
+Un framework de sécurité complet pour agents d'IA qui fournit une conformité d'exécution pour MCP 2025-11-25, incluant des tests de régression CVE, des préréglages de politiques, et des adaptateurs d'intégration pour les principales plateformes d'IA. La version inclut des [motifs d'évaluation multi-agents commit-reveal](https://github.com/anthropics/claude-cookbooks/pull/553) du cookbook d'Anthropic pour prévenir le biais d'évaluation lorsque plusieurs agents évaluent la même sortie. Cela représente une étape significative vers des protocoles de sécurité standardisés pour agents d'IA qui peuvent être déployés dans des environnements de production.
+
+### [Llamascopium v2.0.0b34](https://github.com/OpenMOSS/Llamascopium/releases/tag/v2.0.0b34)
+Un renommage majeur du paquet de "lm-saes" à "llamascopium" pour la recherche sur les autoencodeurs parses, améliorant la clarté et évitant les conflits d'espaces de noms. L'outil permet la recherche en interprétabilité mécanistique en extrayant et analysant les caractéristiques apprises dans les modèles de langage. Ce rebranding reflète la maturité croissante des outils d'interprétabilité alors qu'ils deviennent plus largement adoptés pour la recherche en sécurité de l'IA.
+
+### Corrections de sécurité du système de vérification QWED
+Plusieurs corrections de sécurité critiques ont été implémentées dans le [système de vérification QWED-AI](https://github.com/QWED-AI/qwed-verification), incluant des [valeurs par défaut de fermeture en cas d'échec pour les outils inconnus](https://github.com/QWED-AI/qwed-verification/pull/150), des [tolérances de vérification bornées](https://github.com/QWED-AI/qwed-verification/pull/151), et un [blocage ferme des chemins d'exécution de code legacy](https://github.com/QWED-AI/qwed-verification/pull/149). Ces changements adressent des problèmes de sécurité fondamentaux où les systèmes de vérification pouvaient être contournés par des entrées ambiguës ou des tolérances excessives. L'approche systématique de sécurité par fermeture en cas d'échec démontre les meilleures pratiques pour l'infrastructure de vérification d'IA critique pour la sécurité.
+
+### [Système de gouvernance VERITAS OS](https://github.com/veritasfuji-japan/veritas_os) Durcissement en production
+Mises à jour extensives pour promouvoir le backend de gouvernance aux portes de validation Tier 1/2/3, incluant le [durcissement du datastore PostgreSQL](https://github.com/veritasfuji-japan/veritas_os/pull/1375), la [standardisation de la sémantique de décision](https://github.com/veritasfuji-japan/veritas_os/pull/1377), et l'[empaquetage de conformité AML/KYC](https://github.com/veritasfuji-japan/veritas_os/pull/1378). Le système fournit maintenant des pistes d'audit déterministes et une gouvernance à sécurité intégrée pour les déploiements d'IA réglementés. Cela représente un progrès significatif dans l'infrastructure de gouvernance de l'IA pour les applications à enjeux élevés où la conformité réglementaire est obligatoire.

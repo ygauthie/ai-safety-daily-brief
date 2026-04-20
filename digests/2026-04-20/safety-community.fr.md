@@ -1,0 +1,17 @@
+# Communauté & Outils (2026-04-20)
+
+## Discussions clés
+
+**Nyx Multi-turn Adaptive Testing Harness** : Un [nouveau harnais de test offensif pour les agents IA](https://fabraix.com) a été présenté sur Hacker News, proposant des capacités de test adversarial adaptatif multi-tours. La [discussion](https://news.ycombinator.com/item?id=47827802) a souligné son potentiel pour sonder les vulnérabilités des agents à travers des flux de conversation dynamiques plutôt que des cas de test statiques. C'est important car cela répond au besoin croissant d'outils de red teaming sophistiqués capables de s'adapter aux patterns de comportement des agents en temps réel.
+
+**Bug de répétition de tokens Gemma 4** : Le dépôt Gemma de Google DeepMind suit un [problème critique d'effondrement par répétition de tokens](https://github.com/google-deepmind/gemma/issues/622) affectant les variantes 31B Dense et 26B MoE lors de la génération de textes longs, où les modèles tombent dans des boucles répétitives de tokens. La discussion communautaire se concentre sur la question de savoir s'il s'agit d'un problème d'échantillonnage ou d'un problème fondamental d'architecture de modèle. C'est important car cela met en évidence des instabilités potentielles dans les grands modèles de langage qui pourraient affecter leur fiabilité dans les déploiements en production.
+
+## Sorties GitHub & Outils notables
+
+**AgentLens v1.43.0** : Sortie d'[optimisations de performance et fonctionnalités de validation de session](https://github.com/sauravbhattacharya001/agentlens/releases/tag/v1.43.0), incluant un chemin rapide pour les ressources statiques qui élimine la surcharge des middlewares et une validation améliorée du statut de session avec attestation SBOM pour la sécurité de la chaîne d'approvisionnement. C'est important car cela démontre la maturation des outils de monitoring d'agents avec à la fois du renforcement de performance et de sécurité.
+
+**Aegis v0.5.0** : Un nouveau [système de sécurité shell et hooks d'agent](https://github.com/IliasAlmerekov/aegis/releases/tag/v0.5.0) pour l'outillage de sécurité IA basé sur Rust, proposant des workflows de configuration automatisés et des tests de fumée complets pour les intégrations d'agents. C'est important car cela fournit aux développeurs des outils Rust natifs pour implémenter des garde-fous de sécurité dans les systèmes d'agents.
+
+**QWED Verification v5.1.0** : Livraison d'[Agent State Guard et renforcement fail-closed](https://github.com/QWED-AI/qwed-verification/releases/tag/v5.1.0), étendant les limites de vérification au-delà des actions vers une gouvernance d'état déterministe avec une validation plus stricte qui ferme les chemins fail-open précédemment identifiés. C'est important car cela représente un changement vers une sécurité d'agent plus complète qui gouverne l'état interne, pas seulement les actions externes.
+
+**Agent Airlock v0.5.1** : Sortie d'une [réponse le jour même au CVE-2026-30616](https://github.com/sattyamjjain/agent-airlock/releases/tag/v0.5.1), implémentant la sanitisation MCP STDIO et des adaptateurs de budget de tâches Claude en réponse au conseil d'Ox Security concernant les vulnérabilités RCE dans les écosystèmes IA. C'est important car cela démontre une réponse rapide de la communauté aux vecteurs d'attaque nouvellement découverts dans les protocoles de communication d'agents.

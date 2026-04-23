@@ -311,7 +311,9 @@
     "https://www.anthropic.com/research/automated-alignment-researchers",
     "https://www.anthropic.com/news/claude-opus-4-7",
     "https://www.anthropic.com/news/claude-design-anthropic-labs",
-    "https://www.anthropic.com/news/anthropic-amazon-compute"
+    "https://www.anthropic.com/news/anthropic-amazon-compute",
+    "https://www.anthropic.com/research/81k-economics",
+    "https://www.anthropic.com/research/economic-index-survey-announcement"
   ],
   "OpenAI Blog": [
     "https://openai.com/sitemap.xml/research/"
@@ -462,7 +464,8 @@
     "https://epoch.ai/blog/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data",
     "https://epoch.ai/blog/will-we-run-out-of-ml-data-evidence-from-projecting-dataset",
     "https://epoch.ai/blog/have-ai-capabilities-accelerated",
-    "https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand"
+    "https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand",
+    "https://epoch.ai/blog/how-fast-could-robot-production-scale-up"
   ],
   "DeepMind Blog": [
     "https://deepmind.google/research/",
@@ -711,7 +714,8 @@
     "https://deepmind.google/research/wavenet/",
     "https://deepmind.google/research/alphago/",
     "https://deepmind.google/research/alphazero-and-muzero/",
-    "https://deepmind.google/research/evals/"
+    "https://deepmind.google/research/evals/",
+    "https://deepmind.google/research/publications/240658/"
   ],
   "IAPS (Institute for AI Policy & Strategy)": [
     "https://www.iaps.ai/research/ai-decision-support-systems",

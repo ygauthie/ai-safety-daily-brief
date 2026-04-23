@@ -1,0 +1,21 @@
+# Communauté et outils (2026-04-23)
+
+## Discussions clés
+
+**[Show HN: Broccoli, agent de développement one shot sur le cloud](https://github.com/besimple-oss/broccoli)** (61 points, 41 commentaires) - Un agent de développement basé sur le cloud qui vise à accomplir les tâches de développement en une seule tentative. La discussion se concentre sur la comparaison avec les outils existants comme Cursor et les préoccupations concernant la fiabilité des approches "one-shot". Ceci est important car cela met en évidence les défis persistants pour rendre les assistants de programmation IA véritablement autonomes et fiables.
+
+**[Anthropic Cookbook : Débuter avec Computer Use](https://github.com/anthropics/claude-cookbooks/pull/563)** - Un nouveau cookbook complet démontre comment utiliser l'API Computer Use de Claude pour les tâches d'automatisation multimodales. La PR inclut des exemples pratiques de remplissage de formulaires web et d'interaction avec le bureau via l'API. Ceci est important car Computer Use représente une étape significative vers des agents IA plus capables qui peuvent interagir directement avec les interfaces utilisateur.
+
+**[Vulnérabilité d'injection de prompt d'Aider en mode Architect](https://github.com/Aider-AI/aider/pull/5065)** - Correction de sécurité critique qui traite une vulnérabilité d'injection de prompt où du contenu malveillant dans les fichiers du dépôt pourrait manipuler le comportement du modèle Architect lorsqu'il est transmis au modèle Editor. La correction ajoute une désinfection appropriée des entrées pour prévenir l'exploitation. Ceci est important car cela démontre comment les systèmes IA multi-agents introduisent de nouvelles surfaces d'attaque qui nécessitent une ingénierie de sécurité minutieuse.
+
+**[Problème de sécurité HELM : Exposition des clés de chiffrement côté client](https://github.com/stanford-crfm/helm/pull/4225)** - Un chercheur en sécurité identifie que le contenu de scénario chiffré est déchiffré dans le navigateur en utilisant des clés récupérées depuis un endpoint public, contournant effectivement les restrictions d'accès prévues. Le modèle de déchiffrement côté client expose les clés de chiffrement et permet un accès non autorisé au contenu restreint. Ceci est important car cela montre comment les systèmes complexes d'évaluation IA peuvent avoir des failles fondamentales d'architecture de sécurité qui compromettent leurs mécanismes de contrôle d'accès.
+
+## Sorties et outils GitHub notables
+
+**[HELM v0.5.15](https://github.com/stanford-crfm/helm/releases/tag/v0.5.15)** - Ajoute le support pour les modèles de la famille GPT-5.4 et Llama 4 Maverick, corrige le contexte manquant dans le scénario ArabicMMLU qui rendait certaines instances insolubles, et inclut diverses améliorations d'évaluation pour la langue arabe. Ceci permet une évaluation plus complète des modèles de pointe et corrige les problèmes de précision d'évaluation.
+
+**[Diplomat-Gate v0.3.0](https://github.com/Diplomat-ai/diplomat-gate/releases/tag/v0.3.0)** - Publie une couche d'application pour les appels d'outils d'agents IA qui valide les actions avant l'exécution, avec des contrôles basés sur des politiques, des pistes d'audit, et une limitation de débit pour prévenir les comportements nuisibles des agents. Ceci fournit une infrastructure de gouvernance essentielle pour les déploiements d'agents IA en production où la sécurité et la conformité sont critiques.
+
+**[Runestone Labs Gatekeeper v0.3.2](https://github.com/Runestone-Labs/gatekeeper/releases/tag/v0.3.2)** - Corrections de documentation et de types de client pour le système gatekeeper de sécurité IA, incluant des définitions de types affinées et un guide des modèles de graphes de connaissances mis à jour. Ceci améliore l'expérience développeur et la sécurité des types pour les équipes implémentant des contrôles de gouvernance IA.
+
+**[Opik 2.0.12](https://github.com/comet-ml/opik/releases/tag/2.0.12)** - Met à jour la plateforme d'observabilité IA avec une UX d'expérimentation améliorée, des endpoints batch pour les résultats d'assertion, et des garde-fous de permissions renforcés pour les utilisateurs en lecture seule. Ceci permet un meilleur monitoring et une meilleure évaluation des systèmes IA en production avec des contrôles d'accès appropriés.

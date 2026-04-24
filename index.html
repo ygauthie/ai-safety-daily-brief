@@ -534,14 +534,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
-    const renderer = new marked.Renderer();
-    renderer.link = (href, title, text) => {
-      const t = title ? ` title="${title}"` : '';
-      return `<a href="${href}"${t} target="_blank" rel="noopener noreferrer">${text}</a>`;
-    };
-    marked.setOptions({ renderer });
-  </script>
-  <script>
     // i18n strings
     const I18N = {
       en: {

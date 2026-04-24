@@ -313,7 +313,8 @@
     "https://www.anthropic.com/news/claude-design-anthropic-labs",
     "https://www.anthropic.com/news/anthropic-amazon-compute",
     "https://www.anthropic.com/research/81k-economics",
-    "https://www.anthropic.com/research/economic-index-survey-announcement"
+    "https://www.anthropic.com/research/economic-index-survey-announcement",
+    "https://www.anthropic.com/news/anthropic-nec"
   ],
   "OpenAI Blog": [
     "https://openai.com/sitemap.xml/research/"
@@ -369,7 +370,19 @@
     "https://www.apolloresearch.ai/blog/member_group/leadership/",
     "https://www.apolloresearch.ai/blog/member_group/technical/",
     "https://www.apolloresearch.ai/blog/member_group/governance/",
-    "https://www.apolloresearch.ai/blog/member_group/operations/"
+    "https://www.apolloresearch.ai/blog/member_group/operations/",
+    "https://www.apolloresearch.ai/blog/research_category/science-of-scheming/",
+    "https://www.apolloresearch.ai/blog/research_category/notes/",
+    "https://www.apolloresearch.ai/blog/member_group/science/",
+    "https://www.apolloresearch.ai/blog/member_group/products/",
+    "https://www.apolloresearch.ai/blog/member_group/directors-advisors/",
+    "https://www.apolloresearch.ai/blog/job_category/governance/",
+    "https://www.apolloresearch.ai/blog/job_category/operations/",
+    "https://www.apolloresearch.ai/blog/job_category/product/",
+    "https://www.apolloresearch.ai/blog/job_category/science/",
+    "https://www.apolloresearch.ai/blog/governance-category/blog/",
+    "https://www.apolloresearch.ai/blog/governance-category/memos/",
+    "https://www.apolloresearch.ai/blog/governance-category/papers-reports/"
   ],
   "Epoch AI": [
     "https://epoch.ai/blog/a-compute-based-framework-for-thinking-about-the-future-of-ai",

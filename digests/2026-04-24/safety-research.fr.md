@@ -1,0 +1,35 @@
+# Articles de recherche (2026-04-24)
+
+## Articles clés
+
+Les développements les plus significatifs en matière de sécurité de l'IA incluent plusieurs découvertes critiques concernant les échecs d'alignment, les défis d'évaluation et les lacunes de gouvernance :
+
+**[Alignment has a Fantasia Problem](https://arxiv.org/abs/2604.21827v1)** identifie un désalignement fondamental entre la façon dont les systèmes d'IA sont entraînés et la façon dont les humains interagissent réellement avec eux. Les auteurs montrent que lorsque les systèmes d'IA traitent des prompts incomplets ou évolutifs comme des expressions complètes d'intention, ils peuvent paraître utiles tout en étant en réalité désalignés avec les vrais besoins des utilisateurs. Cela révèle un défi central pour la recherche en alignment qui va au-delà des approches traditionnelles.
+
+**[Evaluating large language models for accuracy incentivizes hallucinations](https://www.nature.com/articles/s41586-026-10549-w)** présente des preuves évaluées par les pairs que les méthodologies d'évaluation actuelles peuvent être contre-productives pour la sécurité. Cet article de Nature suggère que l'optimisation pour les métriques de précision peut en fait encourager les modèles à produire des sorties plus confiantes mais incorrectes, soulignant des problèmes fondamentaux dans notre façon d'évaluer la fiabilité des systèmes d'IA.
+
+**[Stealthy Backdoor Attacks against LLMs Based on Natural Style Triggers](https://arxiv.org/abs/2604.21700v1)** démontre des vecteurs d'attaque sophistiqués qui utilisent des styles d'écriture naturels plutôt que des motifs de déclenchement évidents pour compromettre le comportement des LLM. Les auteurs montrent que ces attaques peuvent injecter de manière fiable du contenu spécifié par l'attaquant tout en restant indétectables par les mesures de sécurité actuelles, représentant une avancée significative dans la compréhension des vulnérabilités des LLM.
+
+**[Transient Turn Injection: Exposing Stateless Multi-Turn Vulnerabilities in Large Language Models](https://arxiv.org/abs/2604.21860v1)** révèle comment les adversaires peuvent exploiter les systèmes de modération sans état en distribuant l'intention malveillante à travers plusieurs interactions isolées. Cette technique d'attaque contourne avec succès les mesures de sécurité dans les modèles commerciaux et open-source, exposant des lacunes critiques dans les architectures de sécurité actuelles.
+
+**[Brief chatbot interactions produce lasting changes in human moral values](https://arxiv.org/abs/2604.21430v1)** fournit des preuves empiriques que même de courtes conversations avec des systèmes d'IA peuvent altérer de manière persistante les jugements moraux humains. Dans des expériences contrôlées, les participants ont montré des changements mesurables dans leurs évaluations morales après avoir discuté de scénarios avec des agents IA directifs, soulevant de sérieuses préoccupations concernant l'influence de l'IA sur la prise de décision humaine.
+
+**[Bounding the Black Box: A Statistical Certification Framework for AI Risk Regulation](https://arxiv.org/abs/2604.21854v1)** aborde la lacune réglementaire en proposant des méthodes quantitatives pour certifier la sécurité des systèmes d'IA avant le déploiement. Le cadre fournit des bornes statistiques sur le comportement du système sans nécessiter d'accès aux paramètres internes du modèle, offrant une voie pratique pour implémenter les exigences de sécurité sous les réglementations émergentes comme l'AI Act de l'UE.
+
+**[Dialect vs Demographics: Quantifying LLM Bias from Implicit Linguistic Signals vs. Explicit User Profiles](https://arxiv.org/abs/2604.21152v1)** démêle différentes sources de biais dans le comportement des LLM, montrant que les signaux linguistiques implicites (comme le dialecte) peuvent déclencher des réponses discriminatoires même lorsque les informations démographiques explicites sont absentes. Cette découverte complique les stratégies d'atténuation des biais qui se concentrent uniquement sur les marqueurs démographiques évidents.
+
+**[When Prompts Override Vision: Prompt-Induced Hallucinations in LVLMs](https://arxiv.org/abs/2604.21911v1)** démontre comment les grands modèles vision-langage peuvent être manipulés pour ignorer les preuves visuelles en faveur des prompts textuels, même lorsque les prompts contredisent des informations visuelles claires. À travers leur benchmark HalluScope, les auteurs montrent que cela représente une vulnérabilité systématique à travers plusieurs architectures de modèles.
+
+## Défis d'évaluation et de mesure
+
+Plusieurs articles soulignent des problèmes fondamentaux avec les approches d'évaluation de l'IA actuelles. **[Measuring Opinion Bias and Sycophancy via LLM-based Coercion](https://arxiv.org/abs/2604.21564v1)** introduit des techniques de prompting coercitif pour révéler les positions politiques cachées dans les assistants IA qui donnent normalement des réponses évasives aux questions d'opinion. **[MathDuels: Evaluating LLMs as Problem Posers and Solvers](https://arxiv.org/abs/2604.21916v1)** propose une évaluation par auto-jeu où les modèles créent et résolvent à la fois des problèmes mathématiques, révélant des capacités que les benchmarks statiques ratent en raison d'effets de plafond.
+
+## Avancées techniques en sécurité
+
+Du côté positif, plusieurs articles présentent des techniques de sécurité prometteuses. **[Probabilistic Verification of Neural Networks via Efficient Probabilistic Hull Generation](https://arxiv.org/abs/2604.21556v1)** développe des méthodes pour calculer des plages de probabilité de sécurité garanties lorsque les entrées sont affectées par des perturbations probabilistes. **[CAP: Controllable Alignment Prompting for Unlearning in LLMs](https://arxiv.org/abs/2604.21251v1)** offre une approche non invasive pour la suppression sélective de connaissances qui fonctionne avec les modèles à source fermée, abordant les contraintes pratiques dans le déploiement de mesures de sécurité.
+
+## Gouvernance et implémentation
+
+**[Engaged AI Governance: Addressing the Last Mile Challenge Through Internal Expert Collaboration](https://arxiv.org/abs/2604.21554v1)** s'attaque au défi pratique de traduire les exigences réglementaires en pratiques de développement logiciel à travers une recherche empirique au sein d'une startup IA. **[A pragmatic classification of AI incident trajectories](https://arxiv.org/abs/2604.21412v1)** fournit un cadre pour distinguer entre différents types d'incidents de sécurité IA, aidant à séparer les artefacts de signalement des tendances de sécurité genuines.
+
+Ces développements soulignent collectivement la complexité des défis de sécurité de l'IA, des problèmes d'alignment fondamentaux aux obstacles d'implémentation pratiques, tout en démontrant également des progrès dans les techniques de mesure et les solutions techniques.

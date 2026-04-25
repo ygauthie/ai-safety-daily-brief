@@ -635,6 +635,8 @@
       document.documentElement.setAttribute('data-theme', theme);
       document.getElementById('iconSun').style.display = theme === 'dark' ? 'block' : 'none';
       document.getElementById('iconMoon').style.display = theme === 'dark' ? 'none' : 'block';
+      const logoMark = document.querySelector('.logo .mark');
+      if (logoMark) logoMark.src = theme === 'dark' ? 'assets/ai-safety-radar-inverse.svg' : 'assets/ai-safety-radar.svg';
     }
 
     applyTheme(getTheme());

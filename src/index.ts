@@ -22,7 +22,7 @@ import { loadConfig } from "./config.js";
 async function main() {
   const date = today();
   const config = loadConfig();
-  console.log(`\n=== AI Safety Daily Brief - ${date} ===\n`);
+  console.log(`\n=== Daily Digest - ${date} ===\n`);
 
   // Phase 1: Fetch all data in parallel
   console.log("Fetching data from all sources...");

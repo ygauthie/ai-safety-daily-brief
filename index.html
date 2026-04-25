@@ -550,7 +550,7 @@
         failedLoad: 'Impossible de charger le bulletin.',
         searchPlaceholder: 'Rechercher...',
         resultsFound: (n) => `${n} résultat${n !== 1 ? 's' : ''} trouvé${n !== 1 ? 's' : ''}`,
-        welcomeTitle: 'Sécurité de l\'IA - Radar',
+        welcomeTitle: 'Radar de la Sécurité en IA',
         welcomeSub: 'Synthèse quotidienne de la recherche, des politiques et des développements en matière de sécurité de l\'IA.',
         welcomeHint: 'Sélectionnez un bulletin dans la barre latérale pour commencer à lire.',
         fileLabels: {
@@ -594,7 +594,7 @@
       if (welcomeHint) welcomeHint.textContent = strings.welcomeHint;
       const logoTitle = document.getElementById('logoTitle');
       const logoSub = document.getElementById('logoSub');
-      if (logoTitle) logoTitle.textContent = lang === 'en' ? 'AI Safety Radar' : 'Sécurité IA — Radar';
+      if (logoTitle) logoTitle.textContent = lang === 'en' ? 'AI Safety Radar' : 'Radar de la Sécurité en IA';
       if (logoSub) logoSub.textContent = lang === 'en' ? 'Daily digest' : 'Bulletin quotidien';
     }
 

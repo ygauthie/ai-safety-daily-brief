@@ -36,7 +36,9 @@
     "https://www.aisi.gov.uk/blog/our-evaluation-of-claude-mythos-previews-cyber-capabilities",
     "https://www.aisi.gov.uk/blog/what-can-sandboxed-ai-agents-learn-about-their-evaluation-environments",
     "https://www.aisi.gov.uk/research/propensity-inference-environmental-contributors-to-llm-behaviour",
-    "https://www.aisi.gov.uk/blog/how-do-environmental-factors-impact-ai-behaviour"
+    "https://www.aisi.gov.uk/blog/how-do-environmental-factors-impact-ai-behaviour",
+    "https://www.aisi.gov.uk/research/evaluating-whether-ai-models-would-sabotage-ai-safety-research",
+    "https://www.aisi.gov.uk/blog/evaluating-whether-ai-models-would-sabotage-ai-safety-research"
   ],
   "Canada AI Safety Institute (CAISI)": [],
   "Japan AI Safety Institute (J-AISI)": [],
@@ -64,7 +66,9 @@
     "https://digital-strategy.ec.europa.eu/en/news/commission-welcomes-high-level-study-group-connectivity-and-digital-infrastructure",
     "https://digital-strategy.ec.europa.eu/en/news/commission-launches-virtual-worlds-observatory-final-reports-and-interactive-data-explorer",
     "https://digital-strategy.ec.europa.eu/en/news/european-commission-seeks-participants-european-business-wallet-technical-work-sub-group",
-    "https://digital-strategy.ec.europa.eu/en/news/european-cybersecurity-certification-week-2026-advancing-eu-cybersecurity-cyprus"
+    "https://digital-strategy.ec.europa.eu/en/news/european-cybersecurity-certification-week-2026-advancing-eu-cybersecurity-cyprus",
+    "https://digital-strategy.ec.europa.eu/en/news/third-gpai-signatory-taskforce-meeting-safety-and-security-chapter",
+    "https://digital-strategy.ec.europa.eu/en/news/commission-seeks-feedback-measures-ensure-interoperability-googles-android-under-digital-markets"
   ],
   "Korea AI Safety Institute": [
     "https://www.msit.go.kr/eng/newsLetter/list.do?sCode=eng&mPid=2&mId=8"

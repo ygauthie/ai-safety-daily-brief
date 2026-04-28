@@ -97,7 +97,7 @@ function parseRssXml(
       if (hrefMatch) link = hrefMatch[1];
     }
 
-    const pubDate = get(["pubDate", "published", "updated"]);
+    const pubDate = get(["pubDate", "published", "updated", "dc:date"]);
     if (pubDate && new Date(pubDate) < since) continue;
 
     if (!title || !link) continue;
